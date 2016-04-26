@@ -1,6 +1,6 @@
 # 我的算法学习笔记
 
-《算法》(第四版)学习笔记，在coursera上看在线课程学习
+《算法》(第四版)学习笔记，在coursera上看在线课程学习，顺带在LeetCode上刷题。
 
 **如果觉得不错，请先在这个仓库上点个star吧**，这也是对我的肯定和鼓励，谢谢了。
 
@@ -13,7 +13,7 @@
 
 
 - [algorithms-lectures](/jalgorithms-lectures):课程上涉及到的源码
-
+- [algorithms-leetcode](/jalgorithms-leetcode):leetcode的java题解，源码+注释
 
 -----	
 
@@ -23,6 +23,7 @@
 计划逐步完善这个仓库，扩充并实现下面的功能。
 
 * [ ] 课程部分使用algorithms-lectures模块(进行中)
+* [ ] LeetCode的题目使用algorithms-leetcode模块(进行中)
 * [ ] 课程exercises部分使用algorithms-exercices模块
 * [ ] 书上的例子和习题使用algorithms-book4th模块
 
@@ -33,8 +34,8 @@
 # 联系作者
 
 - [Brian's Personal Website](http://brianway.github.io/)
-- [oschina](http://my.oschina.net/brianway)
 - [CSDN](http://blog.csdn.net/h3243212/)
+- [oschina](http://my.oschina.net/brianway)
 
 
 -----

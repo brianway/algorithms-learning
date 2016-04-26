@@ -1,4 +1,5 @@
-package com.brianway.learning.algorithms.leetcode;
+package com.brianway.learning.algorithms.leetcode.array;
+
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +18,7 @@ public class TwoSumTest {
 
     @Before
     public void SetUp(){
-        twoSumObject = new TwoSum1();
+        twoSumObject =  new TwoSum().new TwoSum1();
     }
 
     @Test
