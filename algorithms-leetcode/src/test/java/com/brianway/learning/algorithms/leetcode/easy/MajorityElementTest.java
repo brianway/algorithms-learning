@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.array;
+package com.brianway.learning.algorithms.leetcode.easy;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,6 +22,6 @@ public class MajorityElementTest {
 
     @Test
     public void testremoveDuplicates(){
-        Assert.assertEquals(testObject.majorityElement(nums),result);
+        Assert.assertEquals(result,testObject.majorityElement(nums));
     }
 }

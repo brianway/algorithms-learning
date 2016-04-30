@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.array;
+package com.brianway.learning.algorithms.leetcode.easy;
 
 /**
  * Created by Brian on 2016/4/26.

@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.array;
+package com.brianway.learning.algorithms.leetcode.easy;
 
 
 import org.junit.Assert;
@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class TwoSumTest {
 
-    private TwoSum twoSumObject;
+    private TwoSum testObject;
 
     int []nums = new int[]{2, 7, 11, 15};
     int target = 9;
@@ -18,12 +18,12 @@ public class TwoSumTest {
 
     @Before
     public void SetUp(){
-        twoSumObject =  new TwoSum().new TwoSum1();
+        testObject =  new TwoSum().new TwoSum1();
     }
 
     @Test
     public void testTwoSum(){
-        Assert.assertArrayEquals(twoSumObject.twoSum(nums, target),result);
+        Assert.assertArrayEquals(result,testObject.twoSum(nums, target));
 
     }
 

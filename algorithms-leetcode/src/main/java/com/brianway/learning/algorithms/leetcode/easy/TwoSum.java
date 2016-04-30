@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.array;
+package com.brianway.learning.algorithms.leetcode.easy;
 
 import java.util.HashMap;
 
