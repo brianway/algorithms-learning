@@ -12,8 +12,9 @@
 # 仓库目录
 
 
-- [algorithms-lectures](/jalgorithms-lectures):课程上涉及到的源码
-- [algorithms-leetcode](/jalgorithms-leetcode):leetcode的java题解，源码+注释
+- [algorithms-lectures](/algorithms-lectures):课程上涉及到的源码
+- [algorithms-leetcode](/algorithms-leetcode):leetcode的java题解，源码+注释
+- [algorithms-algs4utils](/algorithms-algs4utils):《算法》(第四版)的官网配套源码，copy到该模块了
 
 -----	
 

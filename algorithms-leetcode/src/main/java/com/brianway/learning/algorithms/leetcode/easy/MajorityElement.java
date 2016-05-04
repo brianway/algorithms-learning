@@ -10,6 +10,8 @@ import java.util.Map;
  * Question:https://leetcode.com/problems/majority-element/
  * 关键题设：assume that the array is non-empty and the majority element always exist in the array
  */
+
+//TODO 疑问：在leetcode提交后，运行时间为什么用哈希表的方法比快排要慢？
 public class MajorityElement {
     public int majorityElement(int[] nums) {
         return 0;

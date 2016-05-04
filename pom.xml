@@ -45,6 +45,7 @@
     <modules>
         <module>algorithms-lectures</module>
         <module>algorithms-leetcode</module>
+        <module>algorithms-algs4utils</module>
     </modules>
 
     <dependencyManagement>
