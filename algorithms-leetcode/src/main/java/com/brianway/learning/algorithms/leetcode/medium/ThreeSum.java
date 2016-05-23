@@ -76,3 +76,11 @@ public class ThreeSum {
         }
     }
 }
+
+
+/*
+参考链接:
+http://bangbingsyb.blogspot.com/2014/11/leetcode-3sum.html
+http://blog.csdn.net/linhuanmars/article/details/19711651
+http://blog.csdn.net/whuwangyi/article/details/14104589
+ */
