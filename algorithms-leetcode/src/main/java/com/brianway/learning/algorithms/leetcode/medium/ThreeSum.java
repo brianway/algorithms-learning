@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by brian on 16/5/22.
- * * LeetCode 15
+ * LeetCode 15
  * Question:https://leetcode.com/problems/3sum/
  * 关键题设：must not contain duplicate triplets
  *
