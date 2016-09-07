@@ -1,41 +1,40 @@
 /******************************************************************************
- *  Compilation:  javac LinearProgramming.java
- *  Execution:    java LinearProgramming M N
- *  Dependencies: StdOut.java
+ * Compilation:  javac LinearProgramming.java
+ * Execution:    java LinearProgramming M N
+ * Dependencies: StdOut.java
  *
- *  Given an M-by-N matrix A, an M-length vector b, and an
- *  N-length vector c, solve the  LP { max cx : Ax <= b, x >= 0 }.
- *  Assumes that b >= 0 so that x = 0 is a basic feasible solution.
+ * Given an M-by-N matrix A, an M-length vector b, and an
+ * N-length vector c, solve the  LP { max cx : Ax <= b, x >= 0 }.
+ * Assumes that b >= 0 so that x = 0 is a basic feasible solution.
  *
- *  Creates an (M+1)-by-(N+M+1) simplex tableaux with the 
- *  RHS in column M+N, the objective function in row M, and
- *  slack variables in columns M through M+N-1.
- *
+ * Creates an (M+1)-by-(N+M+1) simplex tableaux with the
+ * RHS in column M+N, the objective function in row M, and
+ * slack variables in columns M through M+N-1.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>LinearProgramming</tt> class represents a data type for solving a
- *  linear program of the form { max cx : Ax <= b, x >= 0 }, where A is a M-by-N
- *  matrix, b is an M-length vector, and c is an N-length vector. For simplicity,
- *  we assume that A is of full rank and that b >= 0 so that x = 0 is a basic
- *  feasible soution.
- *  <p>
- *  The data type supplies methods for determining the optimal primal and
- *  dual solutions.
- *  <p>
- *  This is a bare-bones implementation of the <em>simplex algorithm</em>.
- *  It uses Bland's rule to determing the entering and leaving variables.
- *  It is not suitable for use on large inputs. It is also not robust
- *  in the presence of floating-point roundoff error.
- *  <p>
- *  For additional documentation, see
- *  <a href="http://algs4.cs.princeton.edu/65reductions">Section 6.5</a>
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>LinearProgramming</tt> class represents a data type for solving a
+ * linear program of the form { max cx : Ax <= b, x >= 0 }, where A is a M-by-N
+ * matrix, b is an M-length vector, and c is an N-length vector. For simplicity,
+ * we assume that A is of full rank and that b >= 0 so that x = 0 is a basic
+ * feasible soution.
+ * <p>
+ * The data type supplies methods for determining the optimal primal and
+ * dual solutions.
+ * <p>
+ * This is a bare-bones implementation of the <em>simplex algorithm</em>.
+ * It uses Bland's rule to determing the entering and leaving variables.
+ * It is not suitable for use on large inputs. It is also not robust
+ * in the presence of floating-point roundoff error.
+ * <p>
+ * For additional documentation, see
+ * <a href="http://algs4.cs.princeton.edu/65reductions">Section 6.5</a>
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class LinearProgramming {
     private static final double EPSILON = 1.0E-10;
@@ -44,35 +43,35 @@ public class LinearProgramming {
     private int N;          // number of original variables
 
     private int[] basis;    // basis[i] = basic variable corresponding to row i
-                            // only needed to print out solution, not book
+    // only needed to print out solution, not book
 
     /**
      * Determines an optimal solution to the linear program
      * { max cx : Ax <= b, x >= 0 }, where A is a M-by-N
      * matrix, b is an M-length vector, and c is an N-length vector.
      *
-     * @param  A the <em>M</em>-by-<em>N</em> matrix
-     * @param  b the <em>M</em>-length RHS vector
-     * @param  c the <em>N</em>-length cost vector
+     * @param A the <em>M</em>-by-<em>N</em> matrix
+     * @param b the <em>M</em>-length RHS vector
+     * @param c the <em>N</em>-length cost vector
      * @throws IllegalArgumentException unless b[i] >= 0 for each i
-     * @throws ArithmeticException if the linear program is unbounded
-     */ 
+     * @throws ArithmeticException      if the linear program is unbounded
+     */
     public LinearProgramming(double[][] A, double[] b, double[] c) {
         M = b.length;
         N = c.length;
         for (int i = 0; i < M; i++)
             if (!(b[i] >= 0)) throw new IllegalArgumentException("RHS must be nonnegative");
 
-        a = new double[M+1][N+M+1];
+        a = new double[M + 1][N + M + 1];
         for (int i = 0; i < M; i++)
             for (int j = 0; j < N; j++)
                 a[i][j] = A[i][j];
         for (int i = 0; i < M; i++)
-            a[i][N+i] = 1.0;
+            a[i][N + i] = 1.0;
         for (int j = 0; j < N; j++)
             a[M][j] = c[j];
         for (int i = 0; i < M; i++)
-            a[i][M+N] = b[i];
+            a[i][M + N] = b[i];
 
         basis = new int[M];
         for (int i = 0; i < M; i++)
@@ -111,14 +110,17 @@ public class LinearProgramming {
         return -1;  // optimal
     }
 
-   // index of a non-basic column with most positive cost
+    // index of a non-basic column with most positive cost
     private int dantzig() {
         int q = 0;
         for (int j = 1; j < M + N; j++)
             if (a[M][j] > a[M][q]) q = j;
 
-        if (a[M][q] <= 0) return -1;  // optimal
-        else return q;
+        if (a[M][q] <= 0) {
+            return -1;  // optimal
+        } else {
+            return q;
+        }
     }
 
     // find row p using min ratio rule (-1 if no such row)
@@ -128,9 +130,11 @@ public class LinearProgramming {
         int p = -1;
         for (int i = 0; i < M; i++) {
             // if (a[i][q] <= 0) continue;
-            if (a[i][q] <= EPSILON) continue;
-            else if (p == -1) p = i;
-            else if ((a[i][M+N] / a[i][q]) < (a[p][M+N] / a[p][q])) p = i;
+            if (a[i][q] <= EPSILON) {
+                continue;
+            } else if (p == -1) {
+                p = i;
+            } else if ((a[i][M + N] / a[i][q]) < (a[p][M + N] / a[p][q])) p = i;
         }
         return p;
     }
@@ -157,10 +161,9 @@ public class LinearProgramming {
      * Returns the optimal value of this linear program.
      *
      * @return the optimal value of this linear program
-     *
      */
     public double value() {
-        return -a[M][M+N];
+        return -a[M][M + N];
     }
 
     /**
@@ -171,7 +174,7 @@ public class LinearProgramming {
     public double[] primal() {
         double[] x = new double[N];
         for (int i = 0; i < M; i++)
-            if (basis[i] < N) x[basis[i]] = a[i][M+N];
+            if (basis[i] < N) x[basis[i]] = a[i][M + N];
         return x;
     }
 
@@ -183,10 +186,9 @@ public class LinearProgramming {
     public double[] dual() {
         double[] y = new double[M];
         for (int i = 0; i < M; i++)
-            y[i] = -a[M][N+i];
+            y[i] = -a[M][N + i];
         return y;
     }
-
 
     // is the solution primal feasible?
     private boolean isPrimalFeasible(double[][] A, double[] b) {
@@ -263,7 +265,7 @@ public class LinearProgramming {
         return true;
     }
 
-    private boolean check(double[][]A, double[] b, double[] c) {
+    private boolean check(double[][] A, double[] b, double[] c) {
         return isPrimalFeasible(A, b) && isDualFeasible(A, c) && isOptimal(b, c);
     }
 
@@ -280,10 +282,9 @@ public class LinearProgramming {
         }
         StdOut.println("value = " + value());
         for (int i = 0; i < M; i++)
-            if (basis[i] < N) StdOut.println("x_" + basis[i] + " = " + a[i][M+N]);
+            if (basis[i] < N) StdOut.println("x_" + basis[i] + " = " + a[i][M + N]);
         StdOut.println();
     }
-
 
     private static void test(double[][] A, double[] b, double[] c) {
         LinearProgramming lp = new LinearProgramming(A, b, c);
@@ -298,53 +299,51 @@ public class LinearProgramming {
 
     private static void test1() {
         double[][] A = {
-            { -1,  1,  0 },
-            {  1,  4,  0 },
-            {  2,  1,  0 },
-            {  3, -4,  0 },
-            {  0,  0,  1 },
+                {-1, 1, 0},
+                {1, 4, 0},
+                {2, 1, 0},
+                {3, -4, 0},
+                {0, 0, 1},
         };
-        double[] c = { 1, 1, 1 };
-        double[] b = { 5, 45, 27, 24, 4 };
+        double[] c = {1, 1, 1};
+        double[] b = {5, 45, 27, 24, 4};
         test(A, b, c);
     }
 
-
     // x0 = 12, x1 = 28, opt = 800
     private static void test2() {
-        double[] c = {  13.0,  23.0 };
-        double[] b = { 480.0, 160.0, 1190.0 };
+        double[] c = {13.0, 23.0};
+        double[] b = {480.0, 160.0, 1190.0};
         double[][] A = {
-            {  5.0, 15.0 },
-            {  4.0,  4.0 },
-            { 35.0, 20.0 },
+                {5.0, 15.0},
+                {4.0, 4.0},
+                {35.0, 20.0},
         };
         test(A, b, c);
     }
 
     // unbounded
     private static void test3() {
-        double[] c = { 2.0, 3.0, -1.0, -12.0 };
-        double[] b = {  3.0,   2.0 };
+        double[] c = {2.0, 3.0, -1.0, -12.0};
+        double[] b = {3.0, 2.0};
         double[][] A = {
-            { -2.0, -9.0,  1.0,  9.0 },
-            {  1.0,  1.0, -1.0, -2.0 },
+                {-2.0, -9.0, 1.0, 9.0},
+                {1.0, 1.0, -1.0, -2.0},
         };
         test(A, b, c);
     }
 
     // degenerate - cycles if you choose most positive objective function coefficient
     private static void test4() {
-        double[] c = { 10.0, -57.0, -9.0, -24.0 };
-        double[] b = {  0.0,   0.0,  1.0 };
+        double[] c = {10.0, -57.0, -9.0, -24.0};
+        double[] b = {0.0, 0.0, 1.0};
         double[][] A = {
-            { 0.5, -5.5, -2.5, 9.0 },
-            { 0.5, -1.5, -0.5, 1.0 },
-            { 1.0,  0.0,  0.0, 0.0 },
+                {0.5, -5.5, -2.5, 9.0},
+                {0.5, -1.5, -0.5, 1.0},
+                {1.0, 0.0, 0.0, 0.0},
         };
         test(A, b, c);
     }
-
 
     /**
      * Unit tests the <tt>LinearProgramming</tt> data type.
@@ -358,14 +357,12 @@ public class LinearProgramming {
         StdOut.println("----- test 3 --------------------");
         try {
             test3();
-        }
-        catch (ArithmeticException e) {
+        } catch (ArithmeticException e) {
             e.printStackTrace();
         }
 
         StdOut.println("----- test 4 --------------------");
         test4();
-
 
         StdOut.println("----- test random ---------------");
         int M = Integer.parseInt(args[0]);
@@ -387,25 +384,25 @@ public class LinearProgramming {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

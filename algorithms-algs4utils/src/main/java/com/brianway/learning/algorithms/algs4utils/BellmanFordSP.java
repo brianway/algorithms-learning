@@ -1,56 +1,54 @@
 /******************************************************************************
- *  Compilation:  javac BellmanFordSP.java
- *  Execution:    java BellmanFordSP filename.txt s
- *  Dependencies: EdgeWeightedDigraph.java DirectedEdge.java Queue.java
- *                EdgeWeightedDirectedCycle.java
- *  Data files:   http://algs4.cs.princeton.edu/44sp/tinyEWDn.txt
- *                http://algs4.cs.princeton.edu/44sp/mediumEWDnc.txt
+ * Compilation:  javac BellmanFordSP.java
+ * Execution:    java BellmanFordSP filename.txt s
+ * Dependencies: EdgeWeightedDigraph.java DirectedEdge.java Queue.java
+ * EdgeWeightedDirectedCycle.java
+ * Data files:   http://algs4.cs.princeton.edu/44sp/tinyEWDn.txt
+ * http://algs4.cs.princeton.edu/44sp/mediumEWDnc.txt
  *
- *  Bellman-Ford shortest path algorithm. Computes the shortest path tree in
- *  edge-weighted digraph G from vertex s, or finds a negative cost cycle
- *  reachable from s.
+ * Bellman-Ford shortest path algorithm. Computes the shortest path tree in
+ * edge-weighted digraph G from vertex s, or finds a negative cost cycle
+ * reachable from s.
  *
- *  % java BellmanFordSP tinyEWDn.txt 0
- *  0 to 0 ( 0.00)  
- *  0 to 1 ( 0.93)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   6->4 -1.25   4->5  0.35   5->1  0.32
- *  0 to 2 ( 0.26)  0->2  0.26   
- *  0 to 3 ( 0.99)  0->2  0.26   2->7  0.34   7->3  0.39   
- *  0 to 4 ( 0.26)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   6->4 -1.25   
- *  0 to 5 ( 0.61)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   6->4 -1.25   4->5  0.35
- *  0 to 6 ( 1.51)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   
- *  0 to 7 ( 0.60)  0->2  0.26   2->7  0.34   
+ * % java BellmanFordSP tinyEWDn.txt 0
+ * 0 to 0 ( 0.00)
+ * 0 to 1 ( 0.93)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   6->4 -1.25   4->5  0.35   5->1  0.32
+ * 0 to 2 ( 0.26)  0->2  0.26
+ * 0 to 3 ( 0.99)  0->2  0.26   2->7  0.34   7->3  0.39
+ * 0 to 4 ( 0.26)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   6->4 -1.25
+ * 0 to 5 ( 0.61)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52   6->4 -1.25   4->5  0.35
+ * 0 to 6 ( 1.51)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52
+ * 0 to 7 ( 0.60)  0->2  0.26   2->7  0.34
  *
- *  % java BellmanFordSP tinyEWDnc.txt 0
- *  4->5  0.35
- *  5->4 -0.66
- *
- *
+ * % java BellmanFordSP tinyEWDnc.txt 0
+ * 4->5  0.35
+ * 5->4 -0.66
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>BellmanFordSP</tt> class represents a data type for solving the
- *  single-source shortest paths problem in edge-weighted digraphs with
- *  no negative cycles. 
- *  The edge weights can be positive, negative, or zero.
- *  This class finds either a shortest path from the source vertex <em>s</em>
- *  to every other vertex or a negative cycle reachable from the source vertex.
- *  <p>
- *  This implementation uses the Bellman-Ford-Moore algorithm.
- *  The constructor takes time proportional to <em>V</em> (<em>V</em> + <em>E</em>)
- *  in the worst case, where <em>V</em> is the number of vertices and <em>E</em>
- *  is the number of edges.
- *  Afterwards, the <tt>distTo()</tt>, <tt>hasPathTo()</tt>, and <tt>hasNegativeCycle()</tt>
- *  methods take constant time; the <tt>pathTo()</tt> and <tt>negativeCycle()</tt>
- *  method takes time proportional to the number of edges returned.
- *  <p>
- *  For additional documentation,    
- *  see <a href="http://algs4.cs.princeton.edu/44sp">Section 4.4</a> of    
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne. 
+ * The <tt>BellmanFordSP</tt> class represents a data type for solving the
+ * single-source shortest paths problem in edge-weighted digraphs with
+ * no negative cycles.
+ * The edge weights can be positive, negative, or zero.
+ * This class finds either a shortest path from the source vertex <em>s</em>
+ * to every other vertex or a negative cycle reachable from the source vertex.
+ * <p>
+ * This implementation uses the Bellman-Ford-Moore algorithm.
+ * The constructor takes time proportional to <em>V</em> (<em>V</em> + <em>E</em>)
+ * in the worst case, where <em>V</em> is the number of vertices and <em>E</em>
+ * is the number of edges.
+ * Afterwards, the <tt>distTo()</tt>, <tt>hasPathTo()</tt>, and <tt>hasNegativeCycle()</tt>
+ * methods take constant time; the <tt>pathTo()</tt> and <tt>negativeCycle()</tt>
+ * method takes time proportional to the number of edges returned.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/44sp">Section 4.4</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class BellmanFordSP {
     private double[] distTo;               // distTo[v] = distance  of shortest s->v path
@@ -63,13 +61,14 @@ public class BellmanFordSP {
     /**
      * Computes a shortest paths tree from <tt>s</tt> to every other vertex in
      * the edge-weighted digraph <tt>G</tt>.
+     *
      * @param G the acyclic digraph
      * @param s the source vertex
      * @throws IllegalArgumentException unless 0 &le; <tt>s</tt> &le; <tt>V</tt> - 1
      */
     public BellmanFordSP(EdgeWeightedDigraph G, int s) {
-        distTo  = new double[G.V()];
-        edgeTo  = new DirectedEdge[G.V()];
+        distTo = new double[G.V()];
+        edgeTo = new DirectedEdge[G.V()];
         onQueue = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
@@ -109,8 +108,9 @@ public class BellmanFordSP {
 
     /**
      * Is there a negative cycle reachable from the source vertex <tt>s</tt>?
+     *
      * @return <tt>true</tt> if there is a negative cycle reachable from the
-     *    source vertex <tt>s</tt>, and <tt>false</tt> otherwise
+     * source vertex <tt>s</tt>, and <tt>false</tt> otherwise
      */
     public boolean hasNegativeCycle() {
         return cycle != null;
@@ -119,8 +119,9 @@ public class BellmanFordSP {
     /**
      * Returns a negative cycle reachable from the source vertex <tt>s</tt>, or <tt>null</tt>
      * if there is no such cycle.
-     * @return a negative cycle reachable from the soruce vertex <tt>s</tt> 
-     *    as an iterable of edges, and <tt>null</tt> if there is no such cycle
+     *
+     * @return a negative cycle reachable from the soruce vertex <tt>s</tt>
+     * as an iterable of edges, and <tt>null</tt> if there is no such cycle
      */
     public Iterable<DirectedEdge> negativeCycle() {
         return cycle;
@@ -131,8 +132,9 @@ public class BellmanFordSP {
         int V = edgeTo.length;
         EdgeWeightedDigraph spt = new EdgeWeightedDigraph(V);
         for (int v = 0; v < V; v++)
-            if (edgeTo[v] != null)
+            if (edgeTo[v] != null) {
                 spt.addEdge(edgeTo[v]);
+            }
 
         EdgeWeightedDirectedCycle finder = new EdgeWeightedDirectedCycle(spt);
         cycle = finder.cycle();
@@ -140,23 +142,26 @@ public class BellmanFordSP {
 
     /**
      * Returns the length of a shortest path from the source vertex <tt>s</tt> to vertex <tt>v</tt>.
+     *
      * @param v the destination vertex
      * @return the length of a shortest path from the source vertex <tt>s</tt> to vertex <tt>v</tt>;
-     *    <tt>Double.POSITIVE_INFINITY</tt> if no such path
+     * <tt>Double.POSITIVE_INFINITY</tt> if no such path
      * @throws UnsupportedOperationException if there is a negative cost cycle reachable
-     *    from the source vertex <tt>s</tt>
+     *                                       from the source vertex <tt>s</tt>
      */
     public double distTo(int v) {
-        if (hasNegativeCycle())
+        if (hasNegativeCycle()) {
             throw new UnsupportedOperationException("Negative cost cycle exists");
+        }
         return distTo[v];
     }
 
     /**
      * Is there a path from the source <tt>s</tt> to vertex <tt>v</tt>?
+     *
      * @param v the destination vertex
      * @return <tt>true</tt> if there is a path from the source vertex
-     *    <tt>s</tt> to vertex <tt>v</tt>, and <tt>false</tt> otherwise
+     * <tt>s</tt> to vertex <tt>v</tt>, and <tt>false</tt> otherwise
      */
     public boolean hasPathTo(int v) {
         return distTo[v] < Double.POSITIVE_INFINITY;
@@ -164,15 +169,17 @@ public class BellmanFordSP {
 
     /**
      * Returns a shortest path from the source <tt>s</tt> to vertex <tt>v</tt>.
+     *
      * @param v the destination vertex
      * @return a shortest path from the source <tt>s</tt> to vertex <tt>v</tt>
-     *    as an iterable of edges, and <tt>null</tt> if no such path
+     * as an iterable of edges, and <tt>null</tt> if no such path
      * @throws UnsupportedOperationException if there is a negative cost cycle reachable
-     *    from the source vertex <tt>s</tt>
+     *                                       from the source vertex <tt>s</tt>
      */
     public Iterable<DirectedEdge> pathTo(int v) {
-        if (hasNegativeCycle())
+        if (hasNegativeCycle()) {
             throw new UnsupportedOperationException("Negative cost cycle exists");
+        }
         if (!hasPathTo(v)) return null;
         Stack<DirectedEdge> path = new Stack<DirectedEdge>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
@@ -270,8 +277,7 @@ public class BellmanFordSP {
                         StdOut.print(e + "   ");
                     }
                     StdOut.println();
-                }
-                else {
+                } else {
                     StdOut.printf("%d to %d           no path\n", s, v);
                 }
             }
@@ -282,25 +288,25 @@ public class BellmanFordSP {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

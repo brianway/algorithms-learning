@@ -19,17 +19,17 @@ public class FindMinimuminRotatedSortedArray {
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class FindMinimuminRotatedSortedArray0 extends FindMinimuminRotatedSortedArray{
+    public class FindMinimuminRotatedSortedArray0 extends FindMinimuminRotatedSortedArray {
         @Override
         public int findMin(int[] nums) {
-            for(int i=1;i<nums.length;i++){
-                if(nums[i]<nums[i-1])
+            for (int i = 1; i < nums.length; i++) {
+                if (nums[i] < nums[i - 1]) {
                     return nums[i];
+                }
             }
             return nums[0];
         }
     }
-
 
     /**
      * 二分查找
@@ -48,18 +48,18 @@ public class FindMinimuminRotatedSortedArray {
      * 空间复杂度 O(1)
      *
      * TODO 为什么OJ上运行时间和一次遍历一样?理论上这个快啊
-     *
      */
-    public class FindMinimuminRotatedSortedArray1 extends FindMinimuminRotatedSortedArray{
+    public class FindMinimuminRotatedSortedArray1 extends FindMinimuminRotatedSortedArray {
         @Override
         public int findMin(int[] nums) {
-            int low = 0; int high = nums.length-1;
-            while(low<high){
-                int mid = (low+high)/2;
-                if(nums[mid]>nums[high]){
-                    low = mid +1;
-                }else{
-                    high=mid;
+            int low = 0;
+            int high = nums.length - 1;
+            while (low < high) {
+                int mid = (low + high) / 2;
+                if (nums[mid] > nums[high]) {
+                    low = mid + 1;
+                } else {
+                    high = mid;
                 }
             }
             return nums[low];

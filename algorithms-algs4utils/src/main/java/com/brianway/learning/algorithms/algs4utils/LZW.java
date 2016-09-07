@@ -1,34 +1,33 @@
 /******************************************************************************
- *  Compilation:  javac LZW.java
- *  Execution:    java LZW - < input.txt   (compress)
- *  Execution:    java LZW + < input.txt   (expand)
- *  Dependencies: BinaryIn.java BinaryOut.java
+ * Compilation:  javac LZW.java
+ * Execution:    java LZW - < input.txt   (compress)
+ * Execution:    java LZW + < input.txt   (expand)
+ * Dependencies: BinaryIn.java BinaryOut.java
  *
- *  Compress or expand binary input from standard input using LZW.
+ * Compress or expand binary input from standard input using LZW.
  *
- *  WARNING: STARTING WITH ORACLE JAVA 6, UPDATE 7 the SUBSTRING
- *  METHOD TAKES TIME AND SPACE LINEAR IN THE SIZE OF THE EXTRACTED
- *  SUBSTRING (INSTEAD OF CONSTANT SPACE AND TIME AS IN EARLIER
- *  IMPLEMENTATIONS).
+ * WARNING: STARTING WITH ORACLE JAVA 6, UPDATE 7 the SUBSTRING
+ * METHOD TAKES TIME AND SPACE LINEAR IN THE SIZE OF THE EXTRACTED
+ * SUBSTRING (INSTEAD OF CONSTANT SPACE AND TIME AS IN EARLIER
+ * IMPLEMENTATIONS).
  *
- *  See <a href = "http://java-performance.info/changes-to-string-java-1-7-0_06/">this article</a>
- *  for more details.
- *
+ * See <a href = "http://java-performance.info/changes-to-string-java-1-7-0_06/">this article</a>
+ * for more details.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>LZW</tt> class provides static methods for compressing
- *  and expanding a binary input using LZW compression over the 8-bit extended
- *  ASCII alphabet with 12-bit codewords.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/55compress">Section 5.5</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>LZW</tt> class provides static methods for compressing
+ * and expanding a binary input using LZW compression over the 8-bit extended
+ * ASCII alphabet with 12-bit codewords.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/55compress">Section 5.5</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick  
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class LZW {
     private static final int R = 256;        // number of input chars
@@ -36,31 +35,34 @@ public class LZW {
     private static final int W = 12;         // codeword width
 
     // Do not instantiate.
-    private LZW() { }
+    private LZW() {
+    }
 
     /**
      * Reads a sequence of 8-bit bytes from standard input; compresses
      * them using LZW compression with 12-bit codewords; and writes the results
      * to standard output.
      */
-    public static void compress() { 
+    public static void compress() {
         String input = BinaryStdIn.readString();
         TST<Integer> st = new TST<Integer>();
         for (int i = 0; i < R; i++)
             st.put("" + (char) i, i);
-        int code = R+1;  // R is codeword for EOF
+        int code = R + 1;  // R is codeword for EOF
 
         while (input.length() > 0) {
             String s = st.longestPrefixOf(input);  // Find max prefix match s.
             BinaryStdOut.write(st.get(s), W);      // Print s's encoding.
             int t = s.length();
             if (t < input.length() && code < L)    // Add s to symbol table.
+            {
                 st.put(input.substring(0, t + 1), code++);
+            }
             input = input.substring(t);            // Scan past s in input.
         }
         BinaryStdOut.write(R, W);
         BinaryStdOut.close();
-    } 
+    }
 
     /**
      * Reads a sequence of bit encoded using LZW compression with
@@ -97,33 +99,37 @@ public class LZW {
      * argument is "-" an <tt>expand()</tt> if it is "+".
      */
     public static void main(String[] args) {
-        if      (args[0].equals("-")) compress();
-        else if (args[0].equals("+")) expand();
-        else throw new IllegalArgumentException("Illegal command line argument");
+        if (args[0].equals("-")) {
+            compress();
+        } else if (args[0].equals("+")) {
+            expand();
+        } else {
+            throw new IllegalArgumentException("Illegal command line argument");
+        }
     }
 
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

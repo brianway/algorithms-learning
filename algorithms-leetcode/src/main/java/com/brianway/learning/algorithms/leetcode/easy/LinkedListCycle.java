@@ -23,19 +23,19 @@ public class LinkedListCycle {
      * 空间复杂度 O(1)
      * 分析可见 https://leetcode.com/articles/linked-list-cycle/
      */
-    public class LinkedListCycle0 extends LinkedListCycle{
+    public class LinkedListCycle0 extends LinkedListCycle {
         @Override
         public boolean hasCycle(ListNode head) {
-            if(head == null) {
+            if (head == null) {
                 return false;
             }
 
             ListNode fast = head;
             ListNode slow = head;
-            while(fast.next!=null&&fast.next.next!=null){
+            while (fast.next != null && fast.next.next != null) {
                 fast = fast.next.next;
                 slow = slow.next;
-                if(fast == slow){
+                if (fast == slow) {
                     return true;
                 }
             }

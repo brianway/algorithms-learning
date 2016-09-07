@@ -20,13 +20,13 @@ public class TwoSum {
      * 时间复杂度 O(n^2)
      * 空间复杂度 O(1)
      */
-    public class TwoSum0 extends TwoSum{
+    public class TwoSum0 extends TwoSum {
         @Override
         public int[] twoSum(int[] nums, int target) {
-            for(int i =0;i<nums.length;i++){
-                for(int j=i+1;j<nums.length;j++){
-                    if(nums[i]+nums[j]==target){
-                        return new int[]{i,j};
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] + nums[j] == target) {
+                        return new int[] {i, j};
                     }
                 }
             }
@@ -42,17 +42,17 @@ public class TwoSum {
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
      */
-    public class TwoSum1 extends TwoSum{
+    public class TwoSum1 extends TwoSum {
 
         @Override
         public int[] twoSum(int[] nums, int target) {
-            HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
-            for(int i=0;i<nums.length;i++){
-                int complement = target-nums[i];
-                if(map.containsKey(complement)){
-                    return new int[]{map.get(complement),i};
+            HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+            for (int i = 0; i < nums.length; i++) {
+                int complement = target - nums[i];
+                if (map.containsKey(complement)) {
+                    return new int[] {map.get(complement), i};
                 }
-                map.put(nums[i],i);
+                map.put(nums[i], i);
             }
             throw new IllegalArgumentException("No two sum solution");
         }

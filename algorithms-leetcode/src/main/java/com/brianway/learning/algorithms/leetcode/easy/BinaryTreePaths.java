@@ -22,29 +22,30 @@ public class BinaryTreePaths {
      * 递归的终结条件:左右子节点均为空
      * 注意根节点为空的检查
      */
-    public class BinaryTreePaths0 extends BinaryTreePaths{
+    public class BinaryTreePaths0 extends BinaryTreePaths {
         private List<String> result = new ArrayList<String>();
+
         @Override
         public List<String> binaryTreePaths(TreeNode root) {
-            if(root==null) return result;
-            searchPath(root,"");
+            if (root == null) return result;
+            searchPath(root, "");
             return result;
         }
 
-        private void searchPath(TreeNode currentNode,String path){
+        private void searchPath(TreeNode currentNode, String path) {
             //左右节点都为空,该节点为子节点
-            if(currentNode.left==null&&currentNode.right==null) {
-                result.add(path+currentNode.val);
+            if (currentNode.left == null && currentNode.right == null) {
+                result.add(path + currentNode.val);
                 return;
             }
 
-            String current = currentNode.val+"->";
+            String current = currentNode.val + "->";
 
-            if(currentNode.left!=null){
-                searchPath(currentNode.left,path+current);
+            if (currentNode.left != null) {
+                searchPath(currentNode.left, path + current);
             }
-            if(currentNode.right!=null){
-                searchPath(currentNode.right,path+current);
+            if (currentNode.right != null) {
+                searchPath(currentNode.right, path + current);
             }
 
         }

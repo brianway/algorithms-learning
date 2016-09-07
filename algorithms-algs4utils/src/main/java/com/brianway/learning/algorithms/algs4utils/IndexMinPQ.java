@@ -1,10 +1,9 @@
 /******************************************************************************
- *  Compilation:  javac IndexMinPQ.java
- *  Execution:    java IndexMinPQ
- *  Dependencies: StdOut.java
+ * Compilation:  javac IndexMinPQ.java
+ * Execution:    java IndexMinPQ
+ * Dependencies: StdOut.java
  *
- *  Minimum-oriented indexed PQ implementation using a binary heap.
- *
+ * Minimum-oriented indexed PQ implementation using a binary heap.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
@@ -13,32 +12,31 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- *  The <tt>IndexMinPQ</tt> class represents an indexed priority queue of generic keys.
- *  It supports the usual <em>insert</em> and <em>delete-the-minimum</em>
- *  operations, along with <em>delete</em> and <em>change-the-key</em> 
- *  methods. In order to let the client refer to keys on the priority queue,
- *  an integer between 0 and maxN-1 is associated with each key&mdash;the client
- *  uses this integer to specify which key to delete or change.
- *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
- *  the keys.
- *  <p>
- *  This implementation uses a binary heap along with an array to associate
- *  keys with integers in the given range.
- *  The <em>insert</em>, <em>delete-the-minimum</em>, <em>delete</em>,
- *  <em>change-key</em>, <em>decrease-key</em>, and <em>increase-key</em>
- *  operations take logarithmic time.
- *  The <em>is-empty</em>, <em>size</em>, <em>min-index</em>, <em>min-key</em>, and <em>key-of</em>
- *  operations take constant time.
- *  Construction takes time proportional to the specified capacity.
- *  <p>
- *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>IndexMinPQ</tt> class represents an indexed priority queue of generic keys.
+ * It supports the usual <em>insert</em> and <em>delete-the-minimum</em>
+ * operations, along with <em>delete</em> and <em>change-the-key</em>
+ * methods. In order to let the client refer to keys on the priority queue,
+ * an integer between 0 and maxN-1 is associated with each key&mdash;the client
+ * uses this integer to specify which key to delete or change.
+ * It also supports methods for peeking at the minimum key,
+ * testing if the priority queue is empty, and iterating through
+ * the keys.
+ * <p>
+ * This implementation uses a binary heap along with an array to associate
+ * keys with integers in the given range.
+ * The <em>insert</em>, <em>delete-the-minimum</em>, <em>delete</em>,
+ * <em>change-key</em>, <em>decrease-key</em>, and <em>increase-key</em>
+ * operations take logarithmic time.
+ * The <em>is-empty</em>, <em>size</em>, <em>min-index</em>, <em>min-key</em>, and <em>key-of</em>
+ * operations take constant time.
+ * Construction takes time proportional to the specified capacity.
+ * <p>
+ * For additional documentation, see <a href="http://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- *
- *  @param <Key> the generic type of key on this priority queue
+ * @param <Key> the generic type of key on this priority queue
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
     private int maxN;        // maximum number of elements on PQ
@@ -50,16 +48,17 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Initializes an empty indexed priority queue with indices between <tt>0</tt>
      * and <tt>maxN - 1</tt>.
-     * @param  maxN the keys on this priority queue are index from <tt>0</tt>
-     *         <tt>maxN - 1</tt>
+     *
+     * @param maxN the keys on this priority queue are index from <tt>0</tt>
+     * <tt>maxN - 1</tt>
      * @throws IllegalArgumentException if <tt>maxN</tt> &lt; <tt>0</tt>
      */
     public IndexMinPQ(int maxN) {
         if (maxN < 0) throw new IllegalArgumentException();
         this.maxN = maxN;
         keys = (Key[]) new Comparable[maxN + 1];    // make this of length maxN??
-        pq   = new int[maxN + 1];
-        qp   = new int[maxN + 1];                   // make this of length maxN??
+        pq = new int[maxN + 1];
+        qp = new int[maxN + 1];                   // make this of length maxN??
         for (int i = 0; i <= maxN; i++)
             qp[i] = -1;
     }
@@ -68,7 +67,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * Returns true if this priority queue is empty.
      *
      * @return <tt>true</tt> if this priority queue is empty;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     public boolean isEmpty() {
         return N == 0;
@@ -77,9 +76,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Is <tt>i</tt> an index on this priority queue?
      *
-     * @param  i an index
+     * @param i an index
      * @return <tt>true</tt> if <tt>i</tt> is an index on this priority queue;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
      */
     public boolean contains(int i) {
@@ -99,11 +98,11 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Associates key with index <tt>i</tt>.
      *
-     * @param  i an index
-     * @param  key the key to associate with index <tt>i</tt>
+     * @param i an index
+     * @param key the key to associate with index <tt>i</tt>
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
-     * @throws IllegalArgumentException if there already is an item associated
-     *         with index <tt>i</tt>
+     * @throws IllegalArgumentException  if there already is an item associated
+     *                                   with index <tt>i</tt>
      */
     public void insert(int i, Key key) {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
@@ -139,6 +138,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
 
     /**
      * Removes a minimum key and returns its associated index.
+     *
      * @return an index associated with a minimum key
      * @throws NoSuchElementException if this priority queue is empty
      */
@@ -147,34 +147,37 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         int min = pq[1];
         exch(1, N--);
         sink(1);
-        assert min == pq[N+1];
+        assert min == pq[N + 1];
         qp[min] = -1;        // delete
         keys[min] = null;    // to help with garbage collection
-        pq[N+1] = -1;        // not needed
+        pq[N + 1] = -1;        // not needed
         return min;
     }
 
     /**
      * Returns the key associated with index <tt>i</tt>.
      *
-     * @param  i the index of the key to return
+     * @param i the index of the key to return
      * @return the key associated with index <tt>i</tt>
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
-     * @throws NoSuchElementException no key is associated with index <tt>i</tt>
+     * @throws NoSuchElementException    no key is associated with index <tt>i</tt>
      */
     public Key keyOf(int i) {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
-        if (!contains(i)) throw new NoSuchElementException("index is not in the priority queue");
-        else return keys[i];
+        if (!contains(i)) {
+            throw new NoSuchElementException("index is not in the priority queue");
+        } else {
+            return keys[i];
+        }
     }
 
     /**
      * Change the key associated with index <tt>i</tt> to the specified value.
      *
-     * @param  i the index of the key to change
-     * @param  key change the key associated with index <tt>i</tt> to this key
+     * @param i the index of the key to change
+     * @param key change the key associated with index <tt>i</tt> to this key
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
-     * @throws NoSuchElementException no key is associated with index <tt>i</tt>
+     * @throws NoSuchElementException    no key is associated with index <tt>i</tt>
      */
     public void changeKey(int i, Key key) {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
@@ -187,8 +190,8 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Change the key associated with index <tt>i</tt> to the specified value.
      *
-     * @param  i the index of the key to change
-     * @param  key change the key associated with index <tt>i</tt> to this key
+     * @param i the index of the key to change
+     * @param key change the key associated with index <tt>i</tt> to this key
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
      * @deprecated Replaced by {@link #changeKey(int, Key)}.
      */
@@ -199,17 +202,18 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Decrease the key associated with index <tt>i</tt> to the specified value.
      *
-     * @param  i the index of the key to decrease
-     * @param  key decrease the key associated with index <tt>i</tt> to this key
+     * @param i the index of the key to decrease
+     * @param key decrease the key associated with index <tt>i</tt> to this key
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
-     * @throws IllegalArgumentException if key &ge; key associated with index <tt>i</tt>
-     * @throws NoSuchElementException no key is associated with index <tt>i</tt>
+     * @throws IllegalArgumentException  if key &ge; key associated with index <tt>i</tt>
+     * @throws NoSuchElementException    no key is associated with index <tt>i</tt>
      */
     public void decreaseKey(int i, Key key) {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
         if (!contains(i)) throw new NoSuchElementException("index is not in the priority queue");
-        if (keys[i].compareTo(key) <= 0)
+        if (keys[i].compareTo(key) <= 0) {
             throw new IllegalArgumentException("Calling decreaseKey() with given argument would not strictly decrease the key");
+        }
         keys[i] = key;
         swim(qp[i]);
     }
@@ -217,17 +221,18 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Increase the key associated with index <tt>i</tt> to the specified value.
      *
-     * @param  i the index of the key to increase
-     * @param  key increase the key associated with index <tt>i</tt> to this key
+     * @param i the index of the key to increase
+     * @param key increase the key associated with index <tt>i</tt> to this key
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
-     * @throws IllegalArgumentException if key &le; key associated with index <tt>i</tt>
-     * @throws NoSuchElementException no key is associated with index <tt>i</tt>
+     * @throws IllegalArgumentException  if key &le; key associated with index <tt>i</tt>
+     * @throws NoSuchElementException    no key is associated with index <tt>i</tt>
      */
     public void increaseKey(int i, Key key) {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
         if (!contains(i)) throw new NoSuchElementException("index is not in the priority queue");
-        if (keys[i].compareTo(key) >= 0)
+        if (keys[i].compareTo(key) >= 0) {
             throw new IllegalArgumentException("Calling increaseKey() with given argument would not strictly increase the key");
+        }
         keys[i] = key;
         sink(qp[i]);
     }
@@ -235,9 +240,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
     /**
      * Remove the key associated with index <tt>i</tt>.
      *
-     * @param  i the index of the key to remove
+     * @param i the index of the key to remove
      * @throws IndexOutOfBoundsException unless 0 &le; <tt>i</tt> &lt; <tt>maxN</tt>
-     * @throws NoSuchElementException no key is associated with index <t>i</tt>
+     * @throws NoSuchElementException    no key is associated with index <t>i</tt>
      */
     public void delete(int i) {
         if (i < 0 || i >= maxN) throw new IndexOutOfBoundsException();
@@ -250,10 +255,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         qp[i] = -1;
     }
 
-
-   /***************************************************************************
-    * General helper functions.
-    ***************************************************************************/
+    /***************************************************************************
+     * General helper functions.
+     ***************************************************************************/
     private boolean greater(int i, int j) {
         return keys[pq[i]].compareTo(keys[pq[j]]) > 0;
     }
@@ -266,31 +270,29 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         qp[pq[j]] = j;
     }
 
-
-   /***************************************************************************
-    * Heap helper functions.
-    ***************************************************************************/
+    /***************************************************************************
+     * Heap helper functions.
+     ***************************************************************************/
     private void swim(int k) {
-        while (k > 1 && greater(k/2, k)) {
-            exch(k, k/2);
-            k = k/2;
+        while (k > 1 && greater(k / 2, k)) {
+            exch(k, k / 2);
+            k = k / 2;
         }
     }
 
     private void sink(int k) {
-        while (2*k <= N) {
-            int j = 2*k;
-            if (j < N && greater(j, j+1)) j++;
+        while (2 * k <= N) {
+            int j = 2 * k;
+            if (j < N && greater(j, j + 1)) j++;
             if (!greater(k, j)) break;
             exch(k, j);
             k = j;
         }
     }
 
-
-   /***************************************************************************
-    * Iterators.
-    ***************************************************************************/
+    /***************************************************************************
+     * Iterators.
+     ***************************************************************************/
 
     /**
      * Returns an iterator that iterates over the keys on the
@@ -299,7 +301,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
      *
      * @return an iterator that iterates over the keys in ascending order
      */
-    public Iterator<Integer> iterator() { return new HeapIterator(); }
+    public Iterator<Integer> iterator() {
+        return new HeapIterator();
+    }
 
     private class HeapIterator implements Iterator<Integer> {
         // create a new pq
@@ -313,8 +317,13 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
                 copy.insert(pq[i], keys[pq[i]]);
         }
 
-        public boolean hasNext()  { return !copy.isEmpty();                     }
-        public void remove()      { throw new UnsupportedOperationException();  }
+        public boolean hasNext() {
+            return !copy.isEmpty();
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
 
         public Integer next() {
             if (!hasNext()) throw new NoSuchElementException();
@@ -322,13 +331,12 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         }
     }
 
-
     /**
      * Unit tests the <tt>IndexMinPQ</tt> data type.
      */
     public static void main(String[] args) {
         // insert a bunch of strings
-        String[] strings = { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
+        String[] strings = {"it", "was", "the", "best", "of", "times", "it", "was", "the", "worst"};
 
         IndexMinPQ<String> pq = new IndexMinPQ<String>(strings.length);
         for (int i = 0; i < strings.length; i++) {
@@ -359,25 +367,25 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

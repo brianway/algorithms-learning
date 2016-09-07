@@ -1,33 +1,31 @@
 /******************************************************************************
- *  Compilation:  javac GrahamaScan.java
- *  Execution:    java GrahamScan < input.txt
- *  Dependencies: Point2D.java
- * 
- *  Create points from standard input and compute the convex hull using
- *  Graham scan algorithm.
+ * Compilation:  javac GrahamaScan.java
+ * Execution:    java GrahamScan < input.txt
+ * Dependencies: Point2D.java
  *
- *  May be floating-point issues if x- and y-coordinates are not integers.
+ * Create points from standard input and compute the convex hull using
+ * Graham scan algorithm.
  *
+ * May be floating-point issues if x- and y-coordinates are not integers.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 import java.util.Arrays;
 
-
 /**
- *  The <tt>GrahamScan</tt> data type provides methods for computing the 
- *  convex hull of a set of <em>N</em> points in the plane.
- *  <p>
- *  The implementation uses the Graham-Scan convex hull algorithm.
- *  It runs in O(<em>N</em> log <em>N</em>) time in the worst case
- *  and uses O(<em>N</em>) extra memory.
- *  <p>
- *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/99scientific">Section 9.9</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>GrahamScan</tt> data type provides methods for computing the
+ * convex hull of a set of <em>N</em> points in the plane.
+ * <p>
+ * The implementation uses the Graham-Scan convex hull algorithm.
+ * It runs in O(<em>N</em> log <em>N</em>) time in the worst case
+ * and uses O(<em>N</em>) extra memory.
+ * <p>
+ * For additional documentation, see <a href="http://algs4.cs.princeton.edu/99scientific">Section 9.9</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class GrahamScan {
     private Stack<Point2D> hull = new Stack<Point2D>();
@@ -35,9 +33,9 @@ public class GrahamScan {
     /**
      * Computes the convex hull of the specified array of points.
      *
-     * @param  pts the array of points
+     * @param pts the array of points
      * @throws NullPointerException if <tt>points</tt> is <tt>null</tt> or if any
-     *         entry in <tt>points[]</tt> is <tt>null</tt>
+     *                              entry in <tt>points[]</tt> is <tt>null</tt>
      */
     public GrahamScan(Point2D[] pts) {
 
@@ -68,7 +66,7 @@ public class GrahamScan {
         int k2;
         for (k2 = k1 + 1; k2 < N; k2++)
             if (Point2D.ccw(points[0], points[k1], points[k2]) != 0) break;
-        hull.push(points[k2-1]);    // points[k2-1] is second extreme point
+        hull.push(points[k2 - 1]);    // points[k2-1] is second extreme point
 
         // Graham scan; note that points[N-1] is extreme point different from points[0]
         for (int i = k2; i < N; i++) {
@@ -106,14 +104,14 @@ public class GrahamScan {
         }
 
         for (int i = 0; i < N; i++) {
-            if (Point2D.ccw(points[i], points[(i+1) % N], points[(i+2) % N]) <= 0) {
+            if (Point2D.ccw(points[i], points[(i + 1) % N], points[(i + 2) % N]) <= 0) {
                 return false;
             }
         }
         return true;
     }
 
-   /**
+    /**
      * Unit tests the <tt>ClosestPair</tt> data type.
      * Reads in an integer <tt>N</tt> and <tt>N</tt> points (specified by
      * their <em>x</em>- and <em>y</em>-coordinates) from standard input;
@@ -136,25 +134,25 @@ public class GrahamScan {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

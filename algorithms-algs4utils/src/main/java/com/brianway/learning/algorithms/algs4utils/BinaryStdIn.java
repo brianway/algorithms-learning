@@ -1,13 +1,12 @@
 /******************************************************************************
- *  Compilation:  javac BinaryStdIn.java
- *  Execution:    java BinaryStdIn < input > output
- *  Dependencies: none             
- *  
- *  Supports reading binary data from standard input.
+ * Compilation:  javac BinaryStdIn.java
+ * Execution:    java BinaryStdIn < input > output
+ * Dependencies: none
  *
- *  % java BinaryStdIn < input.jpg > output.jpg
- *  % diff input.jpg output.jpg
+ * Supports reading binary data from standard input.
  *
+ * % java BinaryStdIn < input.jpg > output.jpg
+ * % diff input.jpg output.jpg
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
@@ -16,23 +15,23 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 
 /**
- *  <i>Binary standard input</i>. This class provides methods for reading
- *  in bits from standard input, either one bit at a time (as a <tt>boolean</tt>),
- *  8 bits at a time (as a <tt>byte</tt> or <tt>char</tt>),
- *  16 bits at a time (as a <tt>short</tt>), 32 bits at a time
- *  (as an <tt>int</tt> or <tt>float</tt>), or 64 bits at a time (as a
- *  <tt>double</tt> or <tt>long</tt>).
- *  <p>
- *  All primitive types are assumed to be represented using their 
- *  standard Java representations, in big-endian (most significant
- *  byte first) order.
- *  <p>
- *  The client should not intermix calls to <tt>BinaryStdIn</tt> with calls
- *  to <tt>StdIn</tt> or <tt>System.in</tt>;
- *  otherwise unexpected behavior will result.
+ * <i>Binary standard input</i>. This class provides methods for reading
+ * in bits from standard input, either one bit at a time (as a <tt>boolean</tt>),
+ * 8 bits at a time (as a <tt>byte</tt> or <tt>char</tt>),
+ * 16 bits at a time (as a <tt>short</tt>), 32 bits at a time
+ * (as an <tt>int</tt> or <tt>float</tt>), or 64 bits at a time (as a
+ * <tt>double</tt> or <tt>long</tt>).
+ * <p>
+ * All primitive types are assumed to be represented using their
+ * standard Java representations, in big-endian (most significant
+ * byte first) order.
+ * <p>
+ * The client should not intermix calls to <tt>BinaryStdIn</tt> with calls
+ * to <tt>StdIn</tt> or <tt>System.in</tt>;
+ * otherwise unexpected behavior will result.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public final class BinaryStdIn {
     private static BufferedInputStream in = new BufferedInputStream(System.in);
@@ -47,42 +46,42 @@ public final class BinaryStdIn {
     }
 
     // don't instantiate
-    private BinaryStdIn() { }
+    private BinaryStdIn() {
+    }
 
     private static void fillBuffer() {
         try {
             buffer = in.read();
             n = 8;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("EOF");
             buffer = EOF;
             n = -1;
         }
     }
 
-   /**
+    /**
      * Close this input stream and release any associated system resources.
      */
     public static void close() {
         try {
             in.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Could not close BinaryStdIn");
         }
     }
 
-   /**
+    /**
      * Returns true if standard input is empty.
+     *
      * @return true if and only if standard input is empty
      */
     public static boolean isEmpty() {
         return buffer == EOF;
     }
 
-   /**
+    /**
      * Reads the next bit of data from standard input and return as a boolean.
      *
      * @return the next bit of data from standard input as a <tt>boolean</tt>
@@ -96,7 +95,7 @@ public final class BinaryStdIn {
         return bit;
     }
 
-   /**
+    /**
      * Reads the next 8 bits from standard input and return as an 8-bit char.
      * Note that <tt>char</tt> is a 16-bit type;
      * to read the next 16 bits as a char, use <tt>readChar(16)</tt>.
@@ -127,10 +126,10 @@ public final class BinaryStdIn {
         // because buffer will be -1, so there is a special case for aligned byte
     }
 
-   /**
+    /**
      * Reads the next r bits from standard input and return as an r-bit character.
      *
-     * @param  r number of bits to read.
+     * @param r number of bits to read.
      * @return the next r bits of data from standard input as a <tt>char</tt>
      * @throws IllegalArgumentException if there are fewer than r bits available on standard input
      * @throws IllegalArgumentException unless 1 &le; r &le; 16
@@ -150,12 +149,12 @@ public final class BinaryStdIn {
         return x;
     }
 
-   /**
-     * Reads the remaining bytes of data from standard input and return as a string. 
+    /**
+     * Reads the remaining bytes of data from standard input and return as a string.
      *
      * @return the remaining bytes of data from standard input as a <tt>String</tt>
      * @throws RuntimeException if standard input is empty or if the number of bits
-     *         available on standard input is not a multiple of 8 (byte-aligned)
+     *                          available on standard input is not a multiple of 8 (byte-aligned)
      */
     public static String readString() {
         if (isEmpty()) throw new RuntimeException("Reading from empty input stream");
@@ -168,8 +167,7 @@ public final class BinaryStdIn {
         return sb.toString();
     }
 
-
-   /**
+    /**
      * Reads the next 16 bits from standard input and return as a 16-bit short.
      *
      * @return the next 16 bits of data from standard input as a <tt>short</tt>
@@ -185,7 +183,7 @@ public final class BinaryStdIn {
         return x;
     }
 
-   /**
+    /**
      * Reads the next 32 bits from standard input and return as a 32-bit int.
      *
      * @return the next 32 bits of data from standard input as a <tt>int</tt>
@@ -201,10 +199,10 @@ public final class BinaryStdIn {
         return x;
     }
 
-   /**
+    /**
      * Reads the next r bits from standard input and return as an r-bit int.
      *
-     * @param  r number of bits to read.
+     * @param r number of bits to read.
      * @return the next r bits of data from standard input as a <tt>int</tt>
      * @throws IllegalArgumentException if there are fewer than r bits available on standard input
      * @throws IllegalArgumentException unless 1 &le; r &le; 32
@@ -224,7 +222,7 @@ public final class BinaryStdIn {
         return x;
     }
 
-   /**
+    /**
      * Reads the next 64 bits from standard input and return as a 64-bit long.
      *
      * @return the next 64 bits of data from standard input as a <tt>long</tt>
@@ -240,8 +238,7 @@ public final class BinaryStdIn {
         return x;
     }
 
-
-   /**
+    /**
      * Reads the next 64 bits from standard input and return as a 64-bit double.
      *
      * @return the next 64 bits of data from standard input as a <tt>double</tt>
@@ -251,7 +248,7 @@ public final class BinaryStdIn {
         return Double.longBitsToDouble(readLong());
     }
 
-   /**
+    /**
      * Reads the next 32 bits from standard input and return as a 32-bit float.
      *
      * @return the next 32 bits of data from standard input as a <tt>float</tt>
@@ -261,8 +258,7 @@ public final class BinaryStdIn {
         return Float.intBitsToFloat(readInt());
     }
 
-
-   /**
+    /**
      * Reads the next 8 bits from standard input and return as an 8-bit byte.
      *
      * @return the next 8 bits of data from standard input as a <tt>byte</tt>
@@ -273,8 +269,8 @@ public final class BinaryStdIn {
         byte x = (byte) (c & 0xff);
         return x;
     }
-    
-   /**
+
+    /**
      * Test client. Reads in a binary input file from standard input and writes
      * it to standard output.
      */
@@ -290,25 +286,25 @@ public final class BinaryStdIn {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

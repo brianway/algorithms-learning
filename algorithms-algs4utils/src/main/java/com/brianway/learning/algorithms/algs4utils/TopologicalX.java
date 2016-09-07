@@ -1,41 +1,40 @@
 /******************************************************************************
- *  Compilation:  javac TopologicalX.java
- *  Execution:    java TopologicalX V E F
- *  Dependencies: Queue.java Digraph.java
+ * Compilation:  javac TopologicalX.java
+ * Execution:    java TopologicalX V E F
+ * Dependencies: Queue.java Digraph.java
  *
- *  Compute topological ordering of a DAG using queue-based algorithm.
- *  Runs in O(E + V) time.
- *
+ * Compute topological ordering of a DAG using queue-based algorithm.
+ * Runs in O(E + V) time.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>TopologicalX</tt> class represents a data type for 
- *  determining a topological order of a directed acyclic graph (DAG).
- *  Recall, a digraph has a topological order if and only if it is a DAG.
- *  The <em>hasOrder</em> operation determines whether the digraph has
- *  a topological order, and if so, the <em>order</em> operation
- *  returns one.
- *  <p>
- *  This implementation uses a nonrecursive, queue-based algorithm.
- *  The constructor takes time proportional to <em>V</em> + <em>E</em>
- *  (in the worst case),
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  Afterwards, the <em>hasOrder</em> and <em>rank</em> operations takes constant time;
- *  the <em>order</em> operation takes time proportional to <em>V</em>.
- *  <p>
- *  See {@link DirectedCycle}, {@link DirectedCycleX}, and
- *  {@link EdgeWeightedDirectedCycle} to compute a
- *  directed cycle if the digraph is not a DAG.
- *  See {@link Topological} for a recursive version that uses depth-first search.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>TopologicalX</tt> class represents a data type for
+ * determining a topological order of a directed acyclic graph (DAG).
+ * Recall, a digraph has a topological order if and only if it is a DAG.
+ * The <em>hasOrder</em> operation determines whether the digraph has
+ * a topological order, and if so, the <em>order</em> operation
+ * returns one.
+ * <p>
+ * This implementation uses a nonrecursive, queue-based algorithm.
+ * The constructor takes time proportional to <em>V</em> + <em>E</em>
+ * (in the worst case),
+ * where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
+ * Afterwards, the <em>hasOrder</em> and <em>rank</em> operations takes constant time;
+ * the <em>order</em> operation takes time proportional to <em>V</em>.
+ * <p>
+ * See {@link DirectedCycle}, {@link DirectedCycleX}, and
+ * {@link EdgeWeightedDirectedCycle} to compute a
+ * directed cycle if the digraph is not a DAG.
+ * See {@link Topological} for a recursive version that uses depth-first search.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class TopologicalX {
     private Queue<Integer> order;     // vertices in topological order
@@ -44,6 +43,7 @@ public class TopologicalX {
     /**
      * Determines whether the digraph <tt>G</tt> has a topological order and, if so,
      * finds such a topological order.
+     *
      * @param G the digraph
      */
     public TopologicalX(Digraph G) {
@@ -55,7 +55,7 @@ public class TopologicalX {
         }
 
         // initialize 
-        rank = new int[G.V()]; 
+        rank = new int[G.V()];
         order = new Queue<Integer>();
         int count = 0;
 
@@ -85,6 +85,7 @@ public class TopologicalX {
     /**
      * Determines whether the edge-weighted digraph <tt>G</tt> has a
      * topological order and, if so, finds such a topological order.
+     *
      * @param G the digraph
      */
     public TopologicalX(EdgeWeightedDigraph G) {
@@ -96,7 +97,7 @@ public class TopologicalX {
         }
 
         // initialize 
-        rank = new int[G.V()]; 
+        rank = new int[G.V()];
         order = new Queue<Integer>();
         int count = 0;
 
@@ -127,9 +128,10 @@ public class TopologicalX {
     /**
      * Returns a topological order if the digraph has a topologial order,
      * and <tt>null</tt> otherwise.
+     *
      * @return a topological order of the vertices (as an interable) if the
-     *    digraph has a topological order (or equivalently, if the digraph is a DAG),
-     *    and <tt>null</tt> otherwise
+     * digraph has a topological order (or equivalently, if the digraph is a DAG),
+     * and <tt>null</tt> otherwise
      */
     public Iterable<Integer> order() {
         return order;
@@ -137,8 +139,9 @@ public class TopologicalX {
 
     /**
      * Does the digraph have a topological order?
+     *
      * @return <tt>true</tt> if the digraph has a topological order (or equivalently,
-     *    if the digraph is a DAG), and <tt>false</tt> otherwise
+     * if the digraph is a DAG), and <tt>false</tt> otherwise
      */
     public boolean hasOrder() {
         return order != null;
@@ -147,15 +150,19 @@ public class TopologicalX {
     /**
      * The the rank of vertex <tt>v</tt> in the topological order;
      * -1 if the digraph is not a DAG
+     *
      * @return the position of vertex <tt>v</tt> in a topological order
-     *    of the digraph; -1 if the digraph is not a DAG
+     * of the digraph; -1 if the digraph is not a DAG
      * @throws IndexOutOfBoundsException unless <tt>v</tt> is between 0 and
-     *    <em>V</em> &minus; 1
+     *                                   <em>V</em> &minus; 1
      */
     public int rank(int v) {
         validateVertex(v);
-        if (hasOrder()) return rank[v];
-        else            return -1;
+        if (hasOrder()) {
+            return rank[v];
+        } else {
+            return -1;
+        }
     }
 
     // certify that digraph is acyclic
@@ -180,7 +187,7 @@ public class TopologicalX {
                 for (int w : G.adj(v)) {
                     if (rank(v) > rank(w)) {
                         System.err.printf("%d-%d: rank(%d) = %d, rank(%d) = %d\n",
-                                          v, w, v, rank(v), w, rank(w));
+                                v, w, v, rank(v), w, rank(w));
                         return false;
                     }
                 }
@@ -196,7 +203,6 @@ public class TopologicalX {
                 r++;
             }
         }
-
 
         return true;
     }
@@ -224,7 +230,7 @@ public class TopologicalX {
                     int w = e.to();
                     if (rank(v) > rank(w)) {
                         System.err.printf("%d-%d: rank(%d) = %d, rank(%d) = %d\n",
-                                          v, w, v, rank(v), w, rank(w));
+                                v, w, v, rank(v), w, rank(w));
                         return false;
                     }
                 }
@@ -241,15 +247,15 @@ public class TopologicalX {
             }
         }
 
-
         return true;
     }
 
     // throw an IndexOutOfBoundsException unless 0 <= v < V
     private void validateVertex(int v) {
         int V = rank.length;
-        if (v < 0 || v >= V)
-            throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V-1));
+        if (v < 0 || v >= V) {
+            throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V - 1));
+        }
     }
 
     /**
@@ -316,25 +322,25 @@ public class TopologicalX {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

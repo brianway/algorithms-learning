@@ -1,41 +1,40 @@
 /******************************************************************************
- *  Compilation:  javac PictureDump.java
- *  Execution:    java PictureDump width height < file
- *  Dependencies: BinaryStdIn.java Picture.java
- *  Data file:    http://introcs.cs.princeton.edu/stdlib/abra.txt
- *  
- *  Reads in a binary file and writes out the bits as w-by-h picture,
- *  with the 1 bits in black and the 0 bits in white.
+ * Compilation:  javac PictureDump.java
+ * Execution:    java PictureDump width height < file
+ * Dependencies: BinaryStdIn.java Picture.java
+ * Data file:    http://introcs.cs.princeton.edu/stdlib/abra.txt
  *
- *  % more abra.txt 
- *  ABRACADABRA!
+ * Reads in a binary file and writes out the bits as w-by-h picture,
+ * with the 1 bits in black and the 0 bits in white.
  *
- *  % java PictureDump 16 6 < abra.txt
+ * % more abra.txt
+ * ABRACADABRA!
  *
+ * % java PictureDump 16 6 < abra.txt
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
-import java.awt.Color;
-
+import java.awt.*;
 
 /**
- *  The <tt>PictureDump</tt> class provides a client for displaying the contents
- *  of a binary file as a black-and-white picture.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/55compress">Section 5.5</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *  <p>
- *  See also {@link BinaryDump} and {@link HexDump}.
+ * The <tt>PictureDump</tt> class provides a client for displaying the contents
+ * of a binary file as a black-and-white picture.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/55compress">Section 5.5</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * <p>
+ * See also {@link BinaryDump} and {@link HexDump}.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class PictureDump {
 
     // Do not instantiate.
-    private PictureDump() { }
+    private PictureDump() {
+    }
 
     /**
      * Reads in a sequence of bytes from standard input and draws
@@ -51,10 +50,12 @@ public class PictureDump {
             for (int col = 0; col < width; col++) {
                 if (!BinaryStdIn.isEmpty()) {
                     boolean bit = BinaryStdIn.readBoolean();
-                    if (bit) picture.set(col, row, Color.BLACK);
-                    else     picture.set(col, row, Color.WHITE);
-                }
-                else {
+                    if (bit) {
+                        picture.set(col, row, Color.BLACK);
+                    } else {
+                        picture.set(col, row, Color.WHITE);
+                    }
+                } else {
                     picture.set(col, row, Color.RED);
                 }
             }
@@ -64,25 +65,25 @@ public class PictureDump {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

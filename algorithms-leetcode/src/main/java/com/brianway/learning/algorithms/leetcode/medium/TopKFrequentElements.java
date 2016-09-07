@@ -1,6 +1,12 @@
 package com.brianway.learning.algorithms.leetcode.medium;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * Created by brian on 16/6/5.
@@ -32,15 +38,14 @@ public class TopKFrequentElements {
      *
      * 时间复杂度 O(n*log(k)),分析?
      * 空间复杂度 O(n)? 感觉应该是nums中unique elements的个数m,O(m)
-     *
      */
-    public class TopKFrequentElements0 extends TopKFrequentElements{
+    public class TopKFrequentElements0 extends TopKFrequentElements {
 
-        class Pair{
+        class Pair {
             int num;
             int count;
 
-            public Pair(int num,int count) {
+            public Pair(int num, int count) {
                 this.count = count;
                 this.num = num;
             }
@@ -48,39 +53,39 @@ public class TopKFrequentElements {
 
         @Override
         public List<Integer> topKFrequent(int[] nums, int k) {
-            HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
+            HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
 
             //统计频数
-            for(int i=0;i<nums.length;i++){
-                if(hashMap.containsKey(nums[i])){
-                    hashMap.put(nums[i],hashMap.get(nums[i])+1);
-                }else{
-                    hashMap.put(nums[i],1);
+            for (int i = 0; i < nums.length; i++) {
+                if (hashMap.containsKey(nums[i])) {
+                    hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
+                } else {
+                    hashMap.put(nums[i], 1);
                 }
             }
             //使用优先队列找出前k个key
-            Comparator<Pair>comparator = new Comparator<Pair>() {
+            Comparator<Pair> comparator = new Comparator<Pair>() {
                 public int compare(Pair o1, Pair o2) {
-                    return o1.count-o2.count;
+                    return o1.count - o2.count;
                 }
             };
 
-            PriorityQueue<Pair> priorityQueue = new PriorityQueue<Pair>(k,comparator);
+            PriorityQueue<Pair> priorityQueue = new PriorityQueue<Pair>(k, comparator);
 
-            for(Map.Entry<Integer,Integer> entry: hashMap.entrySet()){
-                Pair pair = new Pair(entry.getKey(),entry.getValue());
+            for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+                Pair pair = new Pair(entry.getKey(), entry.getValue());
                 Pair peek = priorityQueue.peek();
-                if(priorityQueue.size()<k){
+                if (priorityQueue.size() < k) {
                     priorityQueue.offer(pair);
-                }else if(comparator.compare(pair,peek)>0){
+                } else if (comparator.compare(pair, peek) > 0) {
                     priorityQueue.poll();
                     priorityQueue.offer(pair);
                 }
             }
 
             //返回value最大的前k个key
-            List<Integer> list  = new ArrayList<Integer>(k);
-            while(priorityQueue.size()>0){
+            List<Integer> list = new ArrayList<Integer>(k);
+            while (priorityQueue.size() > 0) {
                 list.add(priorityQueue.poll().num);
             }
 
@@ -94,49 +99,49 @@ public class TopKFrequentElements {
      * 哈希表+桶排序
      * 遍历一遍,统计数字出现的次数
      * 使用桶排序:
-     *    桶的size为最大频数
-     *    桶的bindex为hashmap的value,即频数count;
-     *    桶中的元素为具有相同频数的num;
+     * 桶的size为最大频数
+     * 桶的bindex为hashmap的value,即频数count;
+     * 桶中的元素为具有相同频数的num;
      *
      * 时间复杂度 O(n)
      * 空间复杂度 O(n+m)?
      */
-    public class TopKFrequentElements1 extends TopKFrequentElements{
+    public class TopKFrequentElements1 extends TopKFrequentElements {
         @Override
         public List<Integer> topKFrequent(int[] nums, int k) {
-            HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
+            HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
 
             //统计频数
-            for(int i=0;i<nums.length;i++){
-                if(hashMap.containsKey(nums[i])){
-                    hashMap.put(nums[i],hashMap.get(nums[i])+1);
-                }else{
-                    hashMap.put(nums[i],1);
+            for (int i = 0; i < nums.length; i++) {
+                if (hashMap.containsKey(nums[i])) {
+                    hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
+                } else {
+                    hashMap.put(nums[i], 1);
                 }
             }
 
             //get the max frequency
             int max = 0;
-            for(Map.Entry<Integer, Integer> entry: hashMap.entrySet()){
+            for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
                 max = Math.max(max, entry.getValue());
             }
 
             //initialize an array of ArrayList. index is frequency, value is list of numbers
-            ArrayList<Integer>[] bucket = (ArrayList<Integer>[]) new ArrayList[max+1];
-            for(int i=0;i<=max;i++){
+            ArrayList<Integer>[] bucket = (ArrayList<Integer>[]) new ArrayList[max + 1];
+            for (int i = 0; i <= max; i++) {
                 bucket[i] = new ArrayList<Integer>();
             }
 
-            for(Map.Entry<Integer, Integer> entry: hashMap.entrySet()){
-                int count  = entry.getValue();
+            for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+                int count = entry.getValue();
                 int num = entry.getKey();
                 bucket[count].add(num);
             }
 
-            List<Integer>result = new ArrayList<Integer>(k);
-            for(int i = max;i>0&&result.size()<k;i--){
-                if(bucket[i].size()>0){
-                    for(int num : bucket[i]){
+            List<Integer> result = new ArrayList<Integer>(k);
+            for (int i = max; i > 0 && result.size() < k; i--) {
+                if (bucket[i].size() > 0) {
+                    for (int num : bucket[i]) {
                         result.add(num);
                     }
                 }
@@ -144,6 +149,5 @@ public class TopKFrequentElements {
             return result;
         }
     }
-
 
 }

@@ -1,11 +1,10 @@
 /******************************************************************************
- *  Compilation:  javac AdjMatrixEdgeWeightedDigraph.java
- *  Execution:    java AdjMatrixEdgeWeightedDigraph V E
- *  Dependencies: StdOut.java
+ * Compilation:  javac AdjMatrixEdgeWeightedDigraph.java
+ * Execution:    java AdjMatrixEdgeWeightedDigraph V E
+ * Dependencies: StdOut.java
  *
- *  An edge-weighted digraph, implemented using an adjacency matrix.
- *  Parallel edges are disallowed; self-loops are allowed.
- *  
+ * An edge-weighted digraph, implemented using an adjacency matrix.
+ * Parallel edges are disallowed; self-loops are allowed.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
@@ -14,26 +13,26 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- *  The <tt>AdjMatrixEdgeWeightedDigraph</tt> class represents a edge-weighted
- *  digraph of vertices named 0 through <em>V</em> - 1, where each
- *  directed edge is of type {@link DirectedEdge} and has a real-valued weight.
- *  It supports the following two primary operations: add a directed edge
- *  to the digraph and iterate over all of edges incident from a given vertex.
- *  It also provides
- *  methods for returning the number of vertices <em>V</em> and the number
- *  of edges <em>E</em>. Parallel edges are disallowed; self-loops are permitted.
- *  <p>
- *  This implementation uses an adjacency-matrix representation.
- *  All operations take constant time (in the worst case) except
- *  iterating over the edges incident from a given vertex, which takes
- *  time proportional to <em>V</em>.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/44sp">Section 4.4</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>AdjMatrixEdgeWeightedDigraph</tt> class represents a edge-weighted
+ * digraph of vertices named 0 through <em>V</em> - 1, where each
+ * directed edge is of type {@link DirectedEdge} and has a real-valued weight.
+ * It supports the following two primary operations: add a directed edge
+ * to the digraph and iterate over all of edges incident from a given vertex.
+ * It also provides
+ * methods for returning the number of vertices <em>V</em> and the number
+ * of edges <em>E</em>. Parallel edges are disallowed; self-loops are permitted.
+ * <p>
+ * This implementation uses an adjacency-matrix representation.
+ * All operations take constant time (in the worst case) except
+ * iterating over the edges incident from a given vertex, which takes
+ * time proportional to <em>V</em>.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/44sp">Section 4.4</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class AdjMatrixEdgeWeightedDigraph {
     private static final String NEWLINE = System.getProperty("line.separator");
@@ -41,10 +40,11 @@ public class AdjMatrixEdgeWeightedDigraph {
     private int V;
     private int E;
     private DirectedEdge[][] adj;
-    
+
     /**
      * Initializes an empty edge-weighted digraph with <tt>V</tt> vertices and 0 edges.
      * param V the number of vertices
+     *
      * @throws IllegalArgumentException if <tt>V</tt> < 0
      */
     public AdjMatrixEdgeWeightedDigraph(int V) {
@@ -58,13 +58,14 @@ public class AdjMatrixEdgeWeightedDigraph {
      * Initializes a random edge-weighted digraph with <tt>V</tt> vertices and <em>E</em> edges.
      * param V the number of vertices
      * param E the number of edges
+     *
      * @throws IllegalArgumentException if <tt>V</tt> < 0
      * @throws IllegalArgumentException if <tt>E</tt> < 0
      */
     public AdjMatrixEdgeWeightedDigraph(int V, int E) {
         this(V);
         if (E < 0) throw new RuntimeException("Number of edges must be nonnegative");
-        if (E > V*V) throw new RuntimeException("Too many edges");
+        if (E > V * V) throw new RuntimeException("Too many edges");
 
         // can be inefficient
         while (this.E != E) {
@@ -77,6 +78,7 @@ public class AdjMatrixEdgeWeightedDigraph {
 
     /**
      * Returns the number of vertices in the edge-weighted digraph.
+     *
      * @return the number of vertices in the edge-weighted digraph
      */
     public int V() {
@@ -85,6 +87,7 @@ public class AdjMatrixEdgeWeightedDigraph {
 
     /**
      * Returns the number of edges in the edge-weighted digraph.
+     *
      * @return the number of edges in the edge-weighted digraph
      */
     public int E() {
@@ -94,6 +97,7 @@ public class AdjMatrixEdgeWeightedDigraph {
     /**
      * Adds the directed edge <tt>e</tt> to the edge-weighted digraph (if there
      * is not already an edge with the same endpoints).
+     *
      * @param e the edge
      */
     public void addEdge(DirectedEdge e) {
@@ -107,6 +111,7 @@ public class AdjMatrixEdgeWeightedDigraph {
 
     /**
      * Returns the directed edges incident from vertex <tt>v</tt>.
+     *
      * @param v the vertex
      * @return the directed edges incident from vertex <tt>v</tt> as an Iterable
      * @throws IndexOutOfBoundsException unless 0 <= v < V
@@ -151,8 +156,9 @@ public class AdjMatrixEdgeWeightedDigraph {
     /**
      * Returns a string representation of the edge-weighted digraph. This method takes
      * time proportional to <em>V</em><sup>2</sup>.
+     *
      * @return the number of vertices <em>V</em>, followed by the number of edges <em>E</em>,
-     *   followed by the <em>V</em> adjacency lists of edges
+     * followed by the <em>V</em> adjacency lists of edges
      */
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -180,25 +186,25 @@ public class AdjMatrixEdgeWeightedDigraph {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

@@ -1,25 +1,24 @@
 /******************************************************************************
- *  Compilation:  javac RectHV.java
- *  Execution:    none
- *  Dependencies: Point2D.java
+ * Compilation:  javac RectHV.java
+ * Execution:    none
+ * Dependencies: Point2D.java
  *
- *  Immutable data type for 2D axis-aligned rectangle.
- *
+ * Immutable data type for 2D axis-aligned rectangle.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>RectHV</tt> class is an immutable data type to encapsulate a
- *  two-dimensional axis-aligned rectagle with real-value coordinates.
- *  The rectangle is <em>closed</em>&mdash;it includes the points on the boundary.
- *  <p>
- *  For additional documentation, 
- *  see <a href="http://algs4.cs.princeton.edu/12oop">Section 1.2</a> of 
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne. 
+ * The <tt>RectHV</tt> class is an immutable data type to encapsulate a
+ * two-dimensional axis-aligned rectagle with real-value coordinates.
+ * The rectangle is <em>closed</em>&mdash;it includes the points on the boundary.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/12oop">Section 1.2</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 
 public final class RectHV {
@@ -30,21 +29,23 @@ public final class RectHV {
      * Initializes a new rectangle [<em>xmin</em>, <em>xmax</em>]
      * x [<em>ymin</em>, <em>ymax</em>].
      *
-     * @param  xmin the <em>x</em>-coordinate of the lower-left endpoint
-     * @param  xmax the <em>x</em>-coordinate of the upper-right endpoint
-     * @param  ymin the <em>y</em>-coordinate of the lower-left endpoint
-     * @param  ymax the <em>y</em>-coordinate of the upper-right endpoint
+     * @param xmin the <em>x</em>-coordinate of the lower-left endpoint
+     * @param xmax the <em>x</em>-coordinate of the upper-right endpoint
+     * @param ymin the <em>y</em>-coordinate of the lower-left endpoint
+     * @param ymax the <em>y</em>-coordinate of the upper-right endpoint
      * @throws IllegalArgumentException if any of <tt>xmin</tt>,
-     *         <tt>xmax</tt>, <tt>ymin</tt>, or <tt>ymax</tt>
-     *         is <tt>Double.NaN</tt>.
+     *                                  <tt>xmax</tt>, <tt>ymin</tt>, or <tt>ymax</tt>
+     *                                  is <tt>Double.NaN</tt>.
      * @throws IllegalArgumentException if <tt>xmax</tt> &lt;
-     *         <tt>xmin</tt> or <tt>ymax</tt> &lt; <tt>ymin</tt>.
+     *                                  <tt>xmin</tt> or <tt>ymax</tt> &lt; <tt>ymin</tt>.
      */
     public RectHV(double xmin, double ymin, double xmax, double ymax) {
-        if (Double.isNaN(xmin) || Double.isNaN(xmax))
+        if (Double.isNaN(xmin) || Double.isNaN(xmax)) {
             throw new IllegalArgumentException("x-coordinate cannot be NaN");
-        if (Double.isNaN(ymin) || Double.isNaN(ymax))
+        }
+        if (Double.isNaN(ymin) || Double.isNaN(ymax)) {
             throw new IllegalArgumentException("y-coordinates cannot be NaN");
+        }
         if (xmax < xmin || ymax < ymin) {
             throw new IllegalArgumentException("Invalid rectangle");
         }
@@ -111,32 +112,33 @@ public final class RectHV {
     /**
      * Returns true if the two rectangles intersect.
      *
-     * @param  that the other rectangle
+     * @param that the other rectangle
      * @return <tt>true</tt> if this rectangle intersect the argument
-               rectagnle at one or more points, including on the boundary
+     * rectagnle at one or more points, including on the boundary
      */
     public boolean intersects(RectHV that) {
         return this.xmax >= that.xmin && this.ymax >= that.ymin
-            && that.xmax >= this.xmin && that.ymax >= this.ymin;
+                && that.xmax >= this.xmin && that.ymax >= this.ymin;
     }
 
     /**
      * Returns true if this rectangle contain the point.
-     * @param  p the point
+     *
+     * @param p the point
      * @return <tt>true</tt> if this rectangle contain the point <tt>p</tt>,
-               possibly at the boundary; <tt>false</tt> otherwise
+     * possibly at the boundary; <tt>false</tt> otherwise
      */
     public boolean contains(Point2D p) {
         return (p.x() >= xmin) && (p.x() <= xmax)
-            && (p.y() >= ymin) && (p.y() <= ymax);
+                && (p.y() >= ymin) && (p.y() <= ymax);
     }
 
     /**
      * Returns the Euclidean distance between this rectangle and the point <tt>p</tt>.
      *
-     * @param  p the point
+     * @param p the point
      * @return the Euclidean distance between the point <tt>p</tt> and the closest point
-               on this rectangle; 0 if the point is contained in this rectangle
+     * on this rectangle; 0 if the point is contained in this rectangle
      */
     public double distanceTo(Point2D p) {
         return Math.sqrt(this.distanceSquaredTo(p));
@@ -145,26 +147,28 @@ public final class RectHV {
     /**
      * Returns the square of the Euclidean distance between this rectangle and the point <tt>p</tt>.
      *
-     * @param  p the point
+     * @param p the point
      * @return the square of the Euclidean distance between the point <tt>p</tt> and
-     *         the closest point on this rectangle; 0 if the point is contained
-     *         in this rectangle
+     * the closest point on this rectangle; 0 if the point is contained
+     * in this rectangle
      */
     public double distanceSquaredTo(Point2D p) {
         double dx = 0.0, dy = 0.0;
-        if      (p.x() < xmin) dx = p.x() - xmin;
-        else if (p.x() > xmax) dx = p.x() - xmax;
-        if      (p.y() < ymin) dy = p.y() - ymin;
-        else if (p.y() > ymax) dy = p.y() - ymax;
-        return dx*dx + dy*dy;
+        if (p.x() < xmin) {
+            dx = p.x() - xmin;
+        } else if (p.x() > xmax) dx = p.x() - xmax;
+        if (p.y() < ymin) {
+            dy = p.y() - ymin;
+        } else if (p.y() > ymax) dy = p.y() - ymax;
+        return dx * dx + dy * dy;
     }
 
     /**
      * Compares this rectangle to the specified rectangle.
      *
-     * @param  other the other rectangle
+     * @param other the other rectangle
      * @return <tt>true</tt> if this rectangle equals <tt>other</tt>;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     @Override
     public boolean equals(Object other) {
@@ -181,6 +185,7 @@ public final class RectHV {
 
     /**
      * Returns an integer hash code for this rectangle.
+     *
      * @return an integer hash code for this rectangle
      */
     @Override
@@ -189,14 +194,14 @@ public final class RectHV {
         int hash2 = ((Double) ymin).hashCode();
         int hash3 = ((Double) xmax).hashCode();
         int hash4 = ((Double) ymax).hashCode();
-        return 31*(31*(31*hash1 + hash2) + hash3) + hash4;
+        return 31 * (31 * (31 * hash1 + hash2) + hash3) + hash4;
     }
 
     /**
      * Returns a string representation of this rectangle.
      *
      * @return a string representation of this rectangle, using the format
-     *         <tt>[xmin, xmax] x [ymin, ymax]</tt>
+     * <tt>[xmin, xmax] x [ymin, ymax]</tt>
      */
     @Override
     public String toString() {
@@ -213,29 +218,28 @@ public final class RectHV {
         StdDraw.line(xmin, ymax, xmin, ymin);
     }
 
-
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

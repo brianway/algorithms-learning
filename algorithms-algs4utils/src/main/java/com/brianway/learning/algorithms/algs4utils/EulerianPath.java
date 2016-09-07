@@ -1,36 +1,33 @@
 /******************************************************************************
- *  Compilation:  javac EulerianPath.java
- *  Execution:    java EulerianPath V E
- *  Dependencies: Graph.java Stack.java StdOut.java
+ * Compilation:  javac EulerianPath.java
+ * Execution:    java EulerianPath V E
+ * Dependencies: Graph.java Stack.java StdOut.java
  *
- *  Find an Eulerian path in a graph, if one exists.
- *
+ * Find an Eulerian path in a graph, if one exists.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
-import java.util.Iterator;
-
 /**
- *  The <tt>EulerianPath</tt> class represents a data type
- *  for finding an Eulerian path in a graph.
- *  An <em>Eulerian path</em> is a path (not necessarily simple) that
- *  uses every edge in the graph exactly once.
- *  <p>
- *  This implementation uses a nonrecursive depth-first search.
- *  The constructor runs in O(<em>E</em> + <em>V</em>) time,
- *  and uses O(<em>E</em> + <em>V</em>) extra space,
- *  where <em>E</em> is the number of edges and <em>V</em> the number of vertices
- *  All other methods take O(1) time.
- *  <p>
- *  To compute Eulerian cycles in graphs, see {@link EulerianCycle}.
- *  To compute Eulerian cycles and paths in digraphs, see
- *  {@link DirectedEulerianCycle} and {@link DirectedEulerianPath}.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/41graph">Section 4.1</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- * 
+ * The <tt>EulerianPath</tt> class represents a data type
+ * for finding an Eulerian path in a graph.
+ * An <em>Eulerian path</em> is a path (not necessarily simple) that
+ * uses every edge in the graph exactly once.
+ * <p>
+ * This implementation uses a nonrecursive depth-first search.
+ * The constructor runs in O(<em>E</em> + <em>V</em>) time,
+ * and uses O(<em>E</em> + <em>V</em>) extra space,
+ * where <em>E</em> is the number of edges and <em>V</em> the number of vertices
+ * All other methods take O(1) time.
+ * <p>
+ * To compute Eulerian cycles in graphs, see {@link EulerianCycle}.
+ * To compute Eulerian cycles and paths in digraphs, see
+ * {@link DirectedEulerianCycle} and {@link DirectedEulerianPath}.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/41graph">Section 4.1</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ *
  * @author Robert Sedgewick
  * @author Kevin Wayne
  * @author Nate Liu
@@ -52,15 +49,19 @@ public class EulerianPath {
 
         // returns the other vertex of the edge
         public int other(int vertex) {
-            if      (vertex == v) return w;
-            else if (vertex == w) return v;
-            else throw new IllegalArgumentException("Illegal endpoint");
+            if (vertex == v) {
+                return w;
+            } else if (vertex == w) {
+                return v;
+            } else {
+                throw new IllegalArgumentException("Illegal endpoint");
+            }
         }
     }
 
     /**
      * Computes an Eulerian path in the specified graph, if one exists.
-     * 
+     *
      * @param G the graph
      */
     public EulerianPath(Graph G) {
@@ -101,8 +102,7 @@ public class EulerianPath {
                         adj[w].enqueue(e);
                     }
                     selfLoops++;
-                }
-                else if (v < w) {
+                } else if (v < w) {
                     Edge e = new Edge(v, w);
                     adj[v].enqueue(e);
                     adj[w].enqueue(e);
@@ -130,17 +130,18 @@ public class EulerianPath {
         }
 
         // check if all edges are used
-        if (path.size() != G.E() + 1)
+        if (path.size() != G.E() + 1) {
             path = null;
+        }
 
         assert certifySolution(G);
     }
 
     /**
      * Returns the sequence of vertices on an Eulerian path.
-     * 
+     *
      * @return the sequence of vertices on an Eulerian path;
-     *         <tt>null</tt> if no such path
+     * <tt>null</tt> if no such path
      */
     public Iterable<Integer> path() {
         return path;
@@ -148,28 +149,25 @@ public class EulerianPath {
 
     /**
      * Returns true if the graph has an Eulerian path.
-     * 
+     *
      * @return <tt>true</tt> if the graph has an Eulerian path;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     public boolean hasEulerianPath() {
         return path != null;
     }
 
-
     // returns any non-isolated vertex; -1 if no such vertex
     private static int nonIsolatedVertex(Graph G) {
         for (int v = 0; v < G.V(); v++)
-            if (G.degree(v) > 0)
+            if (G.degree(v) > 0) {
                 return v;
+            }
         return -1;
     }
 
-
     /**************************************************************************
-     *
-     *  The code below is solely for testing correctness of the data type.
-     *
+     * The code below is solely for testing correctness of the data type.
      **************************************************************************/
 
     // Determines whether a graph has an Eulerian path using necessary
@@ -183,16 +181,18 @@ public class EulerianPath {
         // Condition 1: degree(v) is even except for possibly two
         int oddDegreeVertices = 0;
         for (int v = 0; v < G.V(); v++)
-            if (G.degree(v) % 2 != 0)
+            if (G.degree(v) % 2 != 0) {
                 oddDegreeVertices++;
+            }
         if (oddDegreeVertices > 2) return false;
 
         // Condition 2: graph is connected, ignoring isolated vertices
         int s = nonIsolatedVertex(G);
         BreadthFirstPaths bfs = new BreadthFirstPaths(G, s);
         for (int v = 0; v < G.V(); v++)
-            if (G.degree(v) > 0 && !bfs.hasPathTo(v))
+            if (G.degree(v) > 0 && !bfs.hasPathTo(v)) {
                 return false;
+            }
 
         return true;
     }
@@ -218,7 +218,6 @@ public class EulerianPath {
         return true;
     }
 
-
     private static void unitTest(Graph G, String description) {
         StdOut.println(description);
         StdOut.println("-------------------------------------");
@@ -232,13 +231,11 @@ public class EulerianPath {
                 StdOut.print(v + " ");
             }
             StdOut.println();
-        }
-        else {
+        } else {
             StdOut.println("none");
         }
         StdOut.println();
     }
-
 
     /**
      * Unit tests the <tt>EulerianPath</tt> data type.
@@ -246,7 +243,6 @@ public class EulerianPath {
     public static void main(String[] args) {
         int V = Integer.parseInt(args[0]);
         int E = Integer.parseInt(args[1]);
-
 
         // Eulerian cycle
         Graph G1 = GraphGenerator.eulerianCycle(V, E);
@@ -283,25 +279,25 @@ public class EulerianPath {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

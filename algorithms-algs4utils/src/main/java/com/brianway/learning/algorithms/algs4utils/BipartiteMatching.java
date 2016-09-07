@@ -1,56 +1,55 @@
 /******************************************************************************
- *  Compilation:  javac BipartiteMatching.java
- *  Execution:    java BipartiteMatching V1 V2 E
- *  Dependencies: BipartiteX.java
+ * Compilation:  javac BipartiteMatching.java
+ * Execution:    java BipartiteMatching V1 V2 E
+ * Dependencies: BipartiteX.java
  *
- *  Find a maximum cardinality matching (and minimum cardinality vertex cover)
- *  in a bipartite graph using the alternating path algorithm.
- *
+ * Find a maximum cardinality matching (and minimum cardinality vertex cover)
+ * in a bipartite graph using the alternating path algorithm.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>BipartiteMatching</tt> class represents a data type for computing a
- *  <em>maximum (cardinality) matching</em> and a
- *  <em>minimum (cardinality) vertex cover</em> in a bipartite graph.
- *  A <em>bipartite graph</em> in a graph whose vertices can be partitioned
- *  into two disjoint sets such that every edge has one endpoint in either set.
- *  A <em>matching</em> in a graph is a subset of its edges with no common
- *  vertices. A <em>maximum matching</em> is a matching with the maximum number
- *  of edges.
- *  A <em>perfect matching</em> is a matching which matches all vertices in the graph.
- *  A <em>vertex cover</em> in a graph is a subset of its vertices such that
- *  every edge is incident to at least one vertex. A <em>minimum vertex cover</em>
- *  is a vertex cover with the minimum number of vertices.
- *  By Konig's theorem, in any biparite
- *  graph, the maximum number of edges in matching equals the minimum number
- *  of vertices in a vertex cover.
- *  The maximum matching problem in <em>nonbipartite</em> graphs is
- *  also important, but all known algorithms for this more general problem
- *  are substantially more complicated.
- *  <p>
- *  This implementation uses the <em>alternating path algorithm</em>.
- *  It is equivalent to reducing to the maximum flow problem and running
- *  the augmenting path algorithm on the resulting flow network, but it
- *  does so with less overhead.
- *  The order of growth of the running time in the worst case is
- *  (<em>E</em> + <em>V</em>) <em>V</em>,
- *  where <em>E</em> is the number of edges and <em>V</em> is the number
- *  of vertices in the graph. It uses extra space (not including the graph)
- *  proportional to <em>V</em>.
- *  <p>
- *  See also {@link HopcroftKarp}, which solves the problem in  O(<em>E</em> sqrt(<em>V</em>))
- *  using the Hopcroft-Karp algorithm and
- *  <a href = "http://algs4.cs.princeton.edu/65reductions/BipartiteMatchingToMaxflow.java.html">BipartiteMatchingToMaxflow</a>, which solves the problem in
- *  O(<em>E V</em>) time via a reduction to maxflow.
- *  <p>
- *  For additional documentation, see
- *  <a href="http://algs4.cs.princeton.edu/65reductions">Section 6.5</a>
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>BipartiteMatching</tt> class represents a data type for computing a
+ * <em>maximum (cardinality) matching</em> and a
+ * <em>minimum (cardinality) vertex cover</em> in a bipartite graph.
+ * A <em>bipartite graph</em> in a graph whose vertices can be partitioned
+ * into two disjoint sets such that every edge has one endpoint in either set.
+ * A <em>matching</em> in a graph is a subset of its edges with no common
+ * vertices. A <em>maximum matching</em> is a matching with the maximum number
+ * of edges.
+ * A <em>perfect matching</em> is a matching which matches all vertices in the graph.
+ * A <em>vertex cover</em> in a graph is a subset of its vertices such that
+ * every edge is incident to at least one vertex. A <em>minimum vertex cover</em>
+ * is a vertex cover with the minimum number of vertices.
+ * By Konig's theorem, in any biparite
+ * graph, the maximum number of edges in matching equals the minimum number
+ * of vertices in a vertex cover.
+ * The maximum matching problem in <em>nonbipartite</em> graphs is
+ * also important, but all known algorithms for this more general problem
+ * are substantially more complicated.
+ * <p>
+ * This implementation uses the <em>alternating path algorithm</em>.
+ * It is equivalent to reducing to the maximum flow problem and running
+ * the augmenting path algorithm on the resulting flow network, but it
+ * does so with less overhead.
+ * The order of growth of the running time in the worst case is
+ * (<em>E</em> + <em>V</em>) <em>V</em>,
+ * where <em>E</em> is the number of edges and <em>V</em> is the number
+ * of vertices in the graph. It uses extra space (not including the graph)
+ * proportional to <em>V</em>.
+ * <p>
+ * See also {@link HopcroftKarp}, which solves the problem in  O(<em>E</em> sqrt(<em>V</em>))
+ * using the Hopcroft-Karp algorithm and
+ * <a href = "http://algs4.cs.princeton.edu/65reductions/BipartiteMatchingToMaxflow.java.html">BipartiteMatchingToMaxflow</a>, which solves the problem in
+ * O(<em>E V</em>) time via a reduction to maxflow.
+ * <p>
+ * For additional documentation, see
+ * <a href="http://algs4.cs.princeton.edu/65reductions">Section 6.5</a>
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class BipartiteMatching {
     private static final int UNMATCHED = -1;
@@ -59,7 +58,7 @@ public class BipartiteMatching {
     private BipartiteX bipartition;      // the bipartition
     private int cardinality;             // cardinality of current matching
     private int[] mate;                  // mate[v] =  w if v-w is an edge in current matching
-                                         //         = -1 if v is not in current matching
+    //         = -1 if v is not in current matching
     private boolean[] inMinVertexCover;  // inMinVertexCover[v] = true iff v is in min vertex cover
     private boolean[] marked;            // marked[v] = true iff v is reachable via alternating path
     private int[] edgeTo;                // edgeTo[v] = w if v-w is last edge on path to w
@@ -68,7 +67,7 @@ public class BipartiteMatching {
      * Determines a maximum matching (and a minimum vertex cover)
      * in a bipartite graph.
      *
-     * @param  G the bipartite graph
+     * @param G the bipartite graph
      * @throws IllegalArgumentException if <tt>G</tt> is not bipartite
      */
     public BipartiteMatching(Graph G) {
@@ -114,7 +113,6 @@ public class BipartiteMatching {
 
         assert certifySolution(G);
     }
-
 
     // is there an augmenting path?
     // an alternating path is a path whose edges belong alternately to the matching and not to the matching
@@ -164,7 +162,7 @@ public class BipartiteMatching {
 
     // is the edge v-w a forward edge not in the matching or a reverse edge in the matching?
     private boolean isResidualGraphEdge(int v, int w) {
-        if ((mate[v] != w) &&  bipartition.color(v)) return true;
+        if ((mate[v] != w) && bipartition.color(v)) return true;
         if ((mate[v] == w) && !bipartition.color(v)) return true;
         return false;
     }
@@ -173,11 +171,10 @@ public class BipartiteMatching {
      * Returns the vertex to which the specified vertex is matched in
      * the maximum matching computed by the algorithm.
      *
-     * @param  v the vertex
+     * @param v the vertex
      * @return the vertex to which vertex <tt>v</tt> is matched in the
-     *         maximum matching; <tt>-1</tt> if the vertex is not matched
+     * maximum matching; <tt>-1</tt> if the vertex is not matched
      * @throws IllegalArgumentException unless <tt>0 &le; v &lt; V</tt>
-     *
      */
     public int mate(int v) {
         validate(v);
@@ -188,11 +185,10 @@ public class BipartiteMatching {
      * Returns true if the specified vertex is matched in the maximum matching
      * computed by the algorithm.
      *
-     * @param  v the vertex
+     * @param v the vertex
      * @return <tt>true</tt> if vertex <tt>v</tt> is matched in maximum matching;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      * @throws IllegalArgumentException unless <tt>0 &le; v &lt; V</tt>
-     *
      */
     public boolean isMatched(int v) {
         validate(v);
@@ -214,7 +210,7 @@ public class BipartiteMatching {
      * of the number of vertices in the graph (so that every vertex is matched).
      *
      * @return <tt>true</tt> if the graph contains a perfect matching;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     public boolean isPerfect() {
         return cardinality * 2 == V;
@@ -224,9 +220,9 @@ public class BipartiteMatching {
      * Returns true if the specified vertex is in the minimum vertex cover
      * computed by the algorithm.
      *
-     * @param  v the vertex
+     * @param v the vertex
      * @return <tt>true</tt> if vertex <tt>v</tt> is in the minimum vertex cover;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      * @throws IllegalArgumentException unless <tt>0 &le; v &lt; V</tt>
      */
     public boolean inMinVertexCover(int v) {
@@ -235,14 +231,13 @@ public class BipartiteMatching {
     }
 
     private void validate(int v) {
-        if (v < 0 || v >= V)
-            throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V-1));
+        if (v < 0 || v >= V) {
+            throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V - 1));
+        }
     }
 
     /**************************************************************************
-     *
-     *  The code below is solely for testing correctness of the data type.
-     *
+     * The code below is solely for testing correctness of the data type.
      **************************************************************************/
 
     // check that mate[] and inVertexCover[] define a max matching and min vertex cover, respectively
@@ -259,7 +254,7 @@ public class BipartiteMatching {
         for (int v = 0; v < V; v++) {
             if (mate(v) != -1) matchedVertices++;
         }
-        if (2*size() != matchedVertices) return false;
+        if (2 * size() != matchedVertices) return false;
 
         // check that size() is consistent with minVertexCover()
         int sizeOfMinVertexCover = 0;
@@ -307,13 +302,13 @@ public class BipartiteMatching {
     public static void main(String[] args) {
         int V1 = Integer.parseInt(args[0]);
         int V2 = Integer.parseInt(args[1]);
-        int E  = Integer.parseInt(args[2]);
+        int E = Integer.parseInt(args[2]);
         Graph G = GraphGenerator.bipartite(V1, V2, E);
 
         if (G.V() < 1000) StdOut.println(G);
 
         BipartiteMatching matching = new BipartiteMatching(G);
-        
+
         // print maximum matching
         StdOut.printf("Number of edges in max matching        = %d\n", matching.size());
         StdOut.printf("Number of vertices in min vertex cover = %d\n", matching.size());
@@ -326,40 +321,43 @@ public class BipartiteMatching {
         for (int v = 0; v < G.V(); v++) {
             int w = matching.mate(v);
             if (matching.isMatched(v) && v < w)  // print each edge only once
+            {
                 StdOut.print(v + "-" + w + " ");
+            }
         }
         StdOut.println();
 
         // print minimum vertex cover
         StdOut.print("Min vertex cover: ");
         for (int v = 0; v < G.V(); v++)
-            if (matching.inMinVertexCover(v))
+            if (matching.inMinVertexCover(v)) {
                 StdOut.print(v + " ");
+            }
         StdOut.println();
     }
 
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

@@ -1,26 +1,25 @@
 /******************************************************************************
- *  Compilation:  javac AVLTreeST.java
- *  Execution:    java AVLTreeST < input.txt
- *  Dependencies: StdIn.java StdOut.java  
- *  Data files:   http://algs4.cs.princeton.edu/33balanced/tinyST.txt  
- *    
- *  A symbol table implemented using an AVL tree.
+ * Compilation:  javac AVLTreeST.java
+ * Execution:    java AVLTreeST < input.txt
+ * Dependencies: StdIn.java StdOut.java
+ * Data files:   http://algs4.cs.princeton.edu/33balanced/tinyST.txt
  *
- *  % more tinyST.txt
- *  S E A R C H E X A M P L E
- *  
- *  % java AVLTreeST < tinyST.txt
- *  A 8
- *  C 4
- *  E 12
- *  H 5
- *  L 11
- *  M 9
- *  P 10
- *  R 3
- *  S 0
- *  X 7
+ * A symbol table implemented using an AVL tree.
  *
+ * % more tinyST.txt
+ * S E A R C H E X A M P L E
+ *
+ * % java AVLTreeST < tinyST.txt
+ * A 8
+ * C 4
+ * E 12
+ * H 5
+ * L 11
+ * M 9
+ * P 10
+ * R 3
+ * S 0
+ * X 7
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
@@ -28,40 +27,40 @@ package com.brianway.learning.algorithms.algs4utils;
 import java.util.NoSuchElementException;
 
 /**
- *  The <code>AVLTreeST</code> class represents an ordered symbol table of
- *  generic key-value pairs. It supports the usual <em>put</em>, <em>get</em>,
- *  <em>contains</em>, <em>delete</em>, <em>size</em>, and <em>is-empty</em>
- *  methods. It also provides ordered methods for finding the <em>minimum</em>,
- *  <em>maximum</em>, <em>floor</em>, and <em>ceiling</em>. It also provides a
- *  <em>keys</em> method for iterating over all of the keys. A symbol table
- *  implements the <em>associative array</em> abstraction: when associating a
- *  value with a key that is already in the symbol table, the convention is to
- *  replace the old value with the new value. Unlike {@link java.util.Map}, this
- *  class uses the convention that values cannot be <code>null</code>
- *  &mdash;setting the value associated with a key to <code>null</code> is
- *  equivalent to deleting the key from the symbol table.
- *  <p>
- *  This symbol table implementation uses internally an
- *  <a href="https://en.wikipedia.org/wiki/AVL_tree"> AVL tree </a> (Georgy
- *  Adelson-Velsky and Evgenii Landis' tree) which is a self-balancing BST.
- *  In an AVL tree, the heights of the two child subtrees of any
- *  node differ by at most one; if at any time they differ by more than one,
- *  rebalancing is done to restore this property.
- *  <p>
- *  This implementation requires that the key type implements the
- *  <code>Comparable</code> interface and calls the <code>compareTo()</code> and
- *  method to compare two keys. It does not call either <code>equals()</code> or
- *  <code>hashCode()</code>. The <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>minimum</em>, <em>maximum</em>, <em>ceiling</em>, and
- *  <em>floor</em> operations each take logarithmic time in the worst case. The
- *  <em>size</em>, and <em>is-empty</em> operations take constant time.
- *  Construction also takes constant time.
- * 
- *  For other implementations of the same API, see {@link ST}, {@link BinarySearchST},
- *  {@link SequentialSearchST}, {@link BST}, {@link RedBlackBST},
- *  {@link SeparateChainingHashST}, and {@link LinearProbingHashST}.
- * 
- *  @author Marcelo Silva
+ * The <code>AVLTreeST</code> class represents an ordered symbol table of
+ * generic key-value pairs. It supports the usual <em>put</em>, <em>get</em>,
+ * <em>contains</em>, <em>delete</em>, <em>size</em>, and <em>is-empty</em>
+ * methods. It also provides ordered methods for finding the <em>minimum</em>,
+ * <em>maximum</em>, <em>floor</em>, and <em>ceiling</em>. It also provides a
+ * <em>keys</em> method for iterating over all of the keys. A symbol table
+ * implements the <em>associative array</em> abstraction: when associating a
+ * value with a key that is already in the symbol table, the convention is to
+ * replace the old value with the new value. Unlike {@link java.util.Map}, this
+ * class uses the convention that values cannot be <code>null</code>
+ * &mdash;setting the value associated with a key to <code>null</code> is
+ * equivalent to deleting the key from the symbol table.
+ * <p>
+ * This symbol table implementation uses internally an
+ * <a href="https://en.wikipedia.org/wiki/AVL_tree"> AVL tree </a> (Georgy
+ * Adelson-Velsky and Evgenii Landis' tree) which is a self-balancing BST.
+ * In an AVL tree, the heights of the two child subtrees of any
+ * node differ by at most one; if at any time they differ by more than one,
+ * rebalancing is done to restore this property.
+ * <p>
+ * This implementation requires that the key type implements the
+ * <code>Comparable</code> interface and calls the <code>compareTo()</code> and
+ * method to compare two keys. It does not call either <code>equals()</code> or
+ * <code>hashCode()</code>. The <em>put</em>, <em>get</em>, <em>contains</em>,
+ * <em>delete</em>, <em>minimum</em>, <em>maximum</em>, <em>ceiling</em>, and
+ * <em>floor</em> operations each take logarithmic time in the worst case. The
+ * <em>size</em>, and <em>is-empty</em> operations take constant time.
+ * Construction also takes constant time.
+ *
+ * For other implementations of the same API, see {@link ST}, {@link BinarySearchST},
+ * {@link SequentialSearchST}, {@link BST}, {@link RedBlackBST},
+ * {@link SeparateChainingHashST}, and {@link LinearProbingHashST}.
+ *
+ * @author Marcelo Silva
  */
 
 public class AVLTreeST<Key extends Comparable<Key>, Value> {
@@ -98,7 +97,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if the symbol table is empty.
-     * 
+     *
      * @return <code>true</code> if the symbol table is empty.
      */
     public boolean isEmpty() {
@@ -107,7 +106,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the number key-value pairs in the symbol table.
-     * 
+     *
      * @return the number key-value pairs in the symbol table
      */
     public int size() {
@@ -116,9 +115,8 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the number of nodes in the subtree.
-     * 
+     *
      * @param x the subtree
-     * 
      * @return the number of nodes in the subtree
      */
     private int size(Node x) {
@@ -130,7 +128,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * Returns the height of the internal AVL tree. It is assumed that the
      * height of an empty tree is -1 and the height of a tree with just one node
      * is 0.
-     * 
+     *
      * @return the height of the internal AVL tree
      */
     public int height() {
@@ -139,9 +137,8 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the height of the subtree.
-     * 
+     *
      * @param x the subtree
-     * 
      * @return the height of the subtree.
      */
     private int height(Node x) {
@@ -151,11 +148,11 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the value associated with the given key.
-     * 
+     *
      * @param key the key
      * @return the value associated with the given key if the key is in the
-     *         symbol table and <code>null</code> if the key is not in the
-     *         symbol table
+     * symbol table and <code>null</code> if the key is not in the
+     * symbol table
      * @throws NullPointerException if <code>key</code> is <code>null</code>
      */
     public Value get(Key key) {
@@ -168,26 +165,30 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Returns value associated with the given key in the subtree or
      * <code>null</code> if no such key.
-     * 
+     *
      * @param x the subtree
      * @param key the key
      * @return value associated with the given key in the subtree or
-     *         <code>null</code> if no such key
+     * <code>null</code> if no such key
      */
     private Node get(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if (cmp < 0) return get(x.left, key);
-        else if (cmp > 0) return get(x.right, key);
-        else return x;
+        if (cmp < 0) {
+            return get(x.left, key);
+        } else if (cmp > 0) {
+            return get(x.right, key);
+        } else {
+            return x;
+        }
     }
 
     /**
      * Checks if the symbol table contains the given key.
-     * 
+     *
      * @param key the key
      * @return <code>true</code> if the symbol table contains <code>key</code>
-     *         and <code>false</code> otherwise
+     * and <code>false</code> otherwise
      * @throws NullPointerException if <code>key</code> is <code>null</code>
      */
     public boolean contains(Key key) {
@@ -199,7 +200,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * the old value with the new value if the symbol table already contains the
      * specified key. Deletes the specified key (and its associated value) from
      * this symbol table if the specified value is <code>null</code>.
-     * 
+     *
      * @param key the key
      * @param val the value
      * @throws NullPointerException if <code>key</code> is <code>null</code>
@@ -219,7 +220,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * with the new value if the symbol table already contains the specified key
      * and deletes the specified key (and its associated value) from this symbol
      * table if the specified value is <code>null</code>.
-     * 
+     *
      * @param x the subtree
      * @param key the key
      * @param val the value
@@ -230,11 +231,9 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
             x.left = put(x.left, key, val);
-        }
-        else if (cmp > 0) {
+        } else if (cmp > 0) {
             x.right = put(x.right, key, val);
-        }
-        else {
+        } else {
             x.val = val;
             return x;
         }
@@ -245,7 +244,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Restores the AVL tree property of the subtree.
-     * 
+     *
      * @param x the subtree
      * @return the subtree with restored AVL property
      */
@@ -255,8 +254,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
                 x.right = rotateRight(x.right);
             }
             x = rotateLeft(x);
-        }
-        else if (balanceFactor(x) > 1) {
+        } else if (balanceFactor(x) > 1) {
             if (balanceFactor(x.left) < 0) {
                 x.left = rotateLeft(x.left);
             }
@@ -271,7 +269,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * this order. Therefore, a subtree with a balance factor of -1, 0 or 1 has
      * the AVL property since the heights of the two child subtrees differ by at
      * most one.
-     * 
+     *
      * @param x the subtree
      * @return the balance factor of the subtree
      */
@@ -281,7 +279,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Rotates the given subtree to the right.
-     * 
+     *
      * @param x the subtree
      * @return the right rotated subtree
      */
@@ -298,7 +296,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Rotates the given subtree to the left.
-     * 
+     *
      * @param x the subtree
      * @return the left rotated subtree
      */
@@ -316,7 +314,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the specified key and its associated value from the symbol table
      * (if the key is in the symbol table).
-     * 
+     *
      * @param key the key
      * @throws NullPointerException if <code>key</code> is <code>null</code>
      */
@@ -330,7 +328,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Removes the specified key and its associated value from the given
      * subtree.
-     * 
+     *
      * @param x the subtree
      * @param key the key
      * @return the updated subtree
@@ -339,18 +337,14 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
             x.left = delete(x.left, key);
-        }
-        else if (cmp > 0) {
+        } else if (cmp > 0) {
             x.right = delete(x.right, key);
-        }
-        else {
+        } else {
             if (x.left == null) {
                 return x.right;
-            }
-            else if (x.right == null) {
+            } else if (x.right == null) {
                 return x.left;
-            }
-            else {
+            } else {
                 Node y = x;
                 x = min(y.right);
                 x.right = deleteMin(y.right);
@@ -364,7 +358,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Removes the smallest key and associated value from the symbol table.
-     * 
+     *
      * @throws NoSuchElementException if the symbol table is empty
      */
     public void deleteMin() {
@@ -374,7 +368,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Removes the smallest key and associated value from the given subtree.
-     * 
+     *
      * @param x the subtree
      * @return the updated subtree
      */
@@ -388,7 +382,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Removes the largest key and associated value from the symbol table.
-     * 
+     *
      * @throws NoSuchElementException if the symbol table is empty
      */
     public void deleteMax() {
@@ -398,7 +392,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Removes the largest key and associated value from the given subtree.
-     * 
+     *
      * @param x the subtree
      * @return the updated subtree
      */
@@ -412,7 +406,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the smallest key in the symbol table.
-     * 
+     *
      * @return the smallest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
@@ -423,7 +417,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the node with the smallest key in the subtree.
-     * 
+     *
      * @param x the subtree
      * @return the node with the smallest key in the subtree
      */
@@ -434,7 +428,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the largest key in the symbol table.
-     * 
+     *
      * @return the largest key in the symbol table
      * @throws NoSuchElementException if the symbol table is empty
      */
@@ -445,7 +439,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the node with the largest key in the subtree.
-     * 
+     *
      * @param x the subtree
      * @return the node with the largest key in the subtree
      */
@@ -457,29 +451,32 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Returns the largest key in the symbol table less than or equal to
      * <code>key</code>.
-     * 
+     *
      * @param key the key
      * @return the largest key in the symbol table less than or equal to
-     *         <code>key</code>
+     * <code>key</code>
      * @throws NoSuchElementException if the symbol table is empty
-     * @throws NullPointerException if <code>key</code> is <code>null</code>
+     * @throws NullPointerException   if <code>key</code> is <code>null</code>
      */
     public Key floor(Key key) {
         if (key == null) throw new NullPointerException("argument to floor() is null");
         if (isEmpty()) throw new NoSuchElementException("called floor() with empty symbol table");
         Node x = floor(root, key);
-        if (x == null) return null;
-        else return x.key;
+        if (x == null) {
+            return null;
+        } else {
+            return x.key;
+        }
     }
 
     /**
      * Returns the node in the subtree with the largest key less than or equal
      * to the given key.
-     * 
+     *
      * @param x the subtree
      * @param key the key
      * @return the node in the subtree with the largest key less than or equal
-     *         to the given key
+     * to the given key
      */
     private Node floor(Node x, Key key) {
         if (x == null) return null;
@@ -487,36 +484,42 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
         if (cmp == 0) return x;
         if (cmp < 0) return floor(x.left, key);
         Node y = floor(x.right, key);
-        if (y != null) return y;
-        else return x;
+        if (y != null) {
+            return y;
+        } else {
+            return x;
+        }
     }
 
     /**
      * Returns the smallest key in the symbol table greater than or equal to
      * <code>key</code>.
-     * 
+     *
      * @param key the key
      * @return the smallest key in the symbol table greater than or equal to
-     *         <code>key</code>
+     * <code>key</code>
      * @throws NoSuchElementException if the symbol table is empty
-     * @throws NullPointerException if <code>key</code> is <code>null</code>
+     * @throws NullPointerException   if <code>key</code> is <code>null</code>
      */
     public Key ceiling(Key key) {
         if (key == null) throw new NullPointerException("argument to ceiling() is null");
         if (isEmpty()) throw new NoSuchElementException("called ceiling() with empty symbol table");
         Node x = ceiling(root, key);
-        if (x == null) return null;
-        else return x.key;
+        if (x == null) {
+            return null;
+        } else {
+            return x.key;
+        }
     }
 
     /**
      * Returns the node in the subtree with the smallest key greater than or
      * equal to the given key.
-     * 
+     *
      * @param x the subtree
      * @param key the key
      * @return the node in the subtree with the smallest key greater than or
-     *         equal to the given key
+     * equal to the given key
      */
     private Node ceiling(Node x, Key key) {
         if (x == null) return null;
@@ -524,17 +527,20 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
         if (cmp == 0) return x;
         if (cmp > 0) return ceiling(x.right, key);
         Node y = ceiling(x.left, key);
-        if (y != null) return y;
-        else return x;
+        if (y != null) {
+            return y;
+        } else {
+            return x;
+        }
     }
 
     /**
      * Returns the kth smallest key in the symbol table.
-     * 
+     *
      * @param k the order statistic
      * @return the kth smallest key in the symbol table
      * @throws IllegalArgumentException unless <code>k</code> is between 0 and
-     *             <code> size() -1 </code>
+     *                                  <code> size() -1 </code>
      */
     public Key select(int k) {
         if (k < 0 || k >= size()) throw new IllegalArgumentException("k is not in range 0-" + (size() - 1));
@@ -544,7 +550,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the node with key the kth smallest key in the subtree.
-     * 
+     *
      * @param x the subtree
      * @param k the kth smallest key in the subtree
      * @return the node with key the kth smallest key in the subtree
@@ -552,18 +558,22 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     private Node select(Node x, int k) {
         if (x == null) return null;
         int t = size(x.left);
-        if (t > k) return select(x.left, k);
-        else if (t < k) return select(x.right, k - t - 1);
-        else return x;
+        if (t > k) {
+            return select(x.left, k);
+        } else if (t < k) {
+            return select(x.right, k - t - 1);
+        } else {
+            return x;
+        }
     }
 
     /**
      * Returns the number of keys in the symbol table strictly less than
      * <code>key</code>.
-     * 
+     *
      * @param key the key
      * @return the number of keys in the symbol table strictly less than
-     *         <code>key</code>
+     * <code>key</code>
      * @throws NullPointerException if <code>key</code> is <code>null</code>
      */
     public int rank(Key key) {
@@ -573,7 +583,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the number of keys in the subtree less than key.
-     * 
+     *
      * @param key the key
      * @param x the subtree
      * @return the number of keys in the subtree less than key
@@ -581,14 +591,18 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     private int rank(Key key, Node x) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
-        if (cmp < 0) return rank(key, x.left);
-        else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
-        else return size(x.left);
+        if (cmp < 0) {
+            return rank(key, x.left);
+        } else if (cmp > 0) {
+            return 1 + size(x.left) + rank(key, x.right);
+        } else {
+            return size(x.left);
+        }
     }
 
     /**
      * Returns all keys in the symbol table.
-     * 
+     *
      * @return all keys in the symbol table
      */
     public Iterable<Key> keys() {
@@ -597,7 +611,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns all keys in the symbol table following an in-order traversal.
-     * 
+     *
      * @return all keys in the symbol table following an in-order traversal
      */
     public Iterable<Key> keysInOrder() {
@@ -608,7 +622,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Adds the keys in the subtree to queue following an in-order traversal.
-     * 
+     *
      * @param x the subtree
      * @param queue the queue
      */
@@ -621,7 +635,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns all keys in the symbol table following a level-order traversal.
-     * 
+     *
      * @return all keys in the symbol table following a level-order traversal.
      */
     public Iterable<Key> keysLevelOrder() {
@@ -645,13 +659,13 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns all keys in the symbol table in the given range.
-     * 
+     *
      * @param lo the lowest key
      * @param hi the highest key
      * @return all keys in the symbol table between <code>lo</code> (inclusive)
-     *         and <code>hi</code> (exclusive)
+     * and <code>hi</code> (exclusive)
      * @throws NullPointerException if either <code>lo</code> or <code>hi</code>
-     *             is <code>null</code>
+     *                              is <code>null</code>
      */
     public Iterable<Key> keys(Key lo, Key hi) {
         if (lo == null) throw new NullPointerException("first argument to keys() is null");
@@ -664,7 +678,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * Adds the keys between <code>lo</code> and <code>hi</code> in the subtree
      * to the <code>queue</code>.
-     * 
+     *
      * @param x the subtree
      * @param queue the queue
      * @param lo the lowest key
@@ -681,23 +695,26 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Returns the number of keys in the symbol table in the given range.
-     * 
+     *
      * @return the number of keys in the symbol table between <code>lo</code>
-     *         (inclusive) and <code>hi</code> (exclusive)
+     * (inclusive) and <code>hi</code> (exclusive)
      * @throws NullPointerException if either <code>lo</code> or <code>hi</code>
-     *             is <code>null</code>
+     *                              is <code>null</code>
      */
     public int size(Key lo, Key hi) {
         if (lo == null) throw new NullPointerException("first argument to size() is null");
         if (hi == null) throw new NullPointerException("second argument to size() is null");
         if (lo.compareTo(hi) > 0) return 0;
-        if (contains(hi)) return rank(hi) - rank(lo) + 1;
-        else return rank(hi) - rank(lo);
+        if (contains(hi)) {
+            return rank(hi) - rank(lo) + 1;
+        } else {
+            return rank(hi) - rank(lo);
+        }
     }
 
     /**
      * Checks if the AVL tree invariants are fine.
-     * 
+     *
      * @return <code>true</code> if the AVL tree invariants are fine
      */
     private boolean check() {
@@ -710,7 +727,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if AVL property is consistent.
-     * 
+     *
      * @return <code>true</code> if AVL property is consistent.
      */
     private boolean isAVL() {
@@ -719,7 +736,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if AVL property is consistent in the subtree.
-     * 
+     *
      * @param x the subtree
      * @return <code>true</code> if AVL property is consistent in the subtree
      */
@@ -732,7 +749,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if the symmetric order is consistent.
-     * 
+     *
      * @return <code>true</code> if the symmetric order is consistent
      */
     private boolean isBST() {
@@ -743,7 +760,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * Checks if the tree rooted at x is a BST with all keys strictly between
      * min and max (if min or max is null, treat as empty constraint) Credit:
      * Bob Dondero's elegant solution
-     * 
+     *
      * @param x the subtree
      * @param min the minimum key in subtree
      * @param max the maximum key in subtree
@@ -758,7 +775,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if size is consistent.
-     * 
+     *
      * @return <code>true</code> if size is consistent
      */
     private boolean isSizeConsistent() {
@@ -767,7 +784,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if the size of the subtree is consistent.
-     * 
+     *
      * @return <code>true</code> if the size of the subtree is consistent
      */
     private boolean isSizeConsistent(Node x) {
@@ -778,7 +795,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 
     /**
      * Checks if rank is consistent.
-     * 
+     *
      * @return <code>true</code> if rank is consistent
      */
     private boolean isRankConsistent() {
@@ -805,25 +822,25 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

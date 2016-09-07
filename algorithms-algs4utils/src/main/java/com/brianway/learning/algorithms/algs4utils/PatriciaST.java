@@ -1,97 +1,96 @@
 /******************************************************************************
- *  Compilation:  javac PatriciaST.java
- *  Execution:    java PatriciaST
- *  Dependencies: StdOut.java StdRandom.java Queue.java
- *  Data files:   n/a
+ * Compilation:  javac PatriciaST.java
+ * Execution:    java PatriciaST
+ * Dependencies: StdOut.java StdRandom.java Queue.java
+ * Data files:   n/a
  *
- *  A symbol table implementation based on PATRICIA.
+ * A symbol table implementation based on PATRICIA.
  *
- *  % java PatriciaST 1000000 1
- *  Creating dataset (1000000 items)...
- *  Shuffling...
- *  Adding (1000000 items)...
- *  Iterating...
- *  1000000 items iterated
- *  Shuffling...
- *  Deleting (500000 items)...
- *  Iterating...
- *  500000 items iterated
- *  Checking...
- *  500000 items found and 500000 (deleted) items missing
- *  Deleting the rest (500000 items)...
- *  PASS 1 TESTS SUCCEEDED
- *  %
- *
+ * % java PatriciaST 1000000 1
+ * Creating dataset (1000000 items)...
+ * Shuffling...
+ * Adding (1000000 items)...
+ * Iterating...
+ * 1000000 items iterated
+ * Shuffling...
+ * Deleting (500000 items)...
+ * Iterating...
+ * 500000 items iterated
+ * Checking...
+ * 500000 items found and 500000 (deleted) items missing
+ * Deleting the rest (500000 items)...
+ * PASS 1 TESTS SUCCEEDED
+ * %
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <code>PatriciaST</code> class provides an implementation of an unordered
- *  symbol table of key-value pairs, with the restriction that the key is of
- *  class {@link String}. It supports the usual <em>put</em>,
- *  <em>get</em>, <em>contains</em>, <em>delete</em>, <em>size</em>, and
- *  <em>is-empty</em> methods. It also provides a <em>keys</em> method for
- *  iterating over all of the keys. A symbol table implements the
- *  <em>associative array</em> abstraction: when associating a value with a key
- *  that is already in the symbol table, the convention is to replace the old
- *  value with the new value. Unlike {@link java.util.Map}, this class uses the
- *  convention that values cannot be <code>null</code>&mdash;setting the value
- *  associated with a key to <code>null</code> is equivalent to deleting the key
- *  from the symbol table.
- *  <p>
- *  This unordered symbol table class implements PATRICIA (Practical Algorithm
- *  to Retrieve Information Coded In Alphanumeric). In spite of the acronym,
- *  string keys are not limited to alphanumeric content. A key may possess any
- *  string value, except for the string of zero length (the empty string).
- *  <p>
- *  Unlike other generic symbol table implementations that can accept a
- *  parameterized key type, this symbol table class can only accommodate keys
- *  of class {@link String}. This unfortunate restriction stems from a
- *  limitation in Java. Although Java provides excellent support for generic
- *  programming, the current infrastructure somewhat limits generic collection
- *  implementations to those that employ comparison-based or hash-based methods.
- *  PATRICIA does not employ comparisons or hashing; instead, it relies on
- *  bit-test operations. Because Java does not furnish any generic abstractions
- *  (or implementations) for bit-testing the contents of an object, providing
- *  support for generic keys using PATRICIA does not seem practical.
- *  <p>
- *  PATRICIA is a variation of a trie, and it is often classified as a
- *  space-optimized trie. In a classical trie, each level represents a
- *  subsequent digit in a key. In PATRICIA, nodes only exist to identify the
- *  digits (bits) that distinguish the individual keys within the trie. Because
- *  PATRICIA uses a radix of two, each node has only two children, like a binary
- *  tree. Also like a binary tree, the number of nodes, within the trie, equals
- *  the number of keys. Consequently, some classify PATRICIA as a tree.
- *  <p>
- *  The analysis of PATRICIA is complicated. The theoretical wost-case
- *  performance for a <em>get</em>, <em>put</em>, or <em>delete</em> operation
- *  is <strong>O(N)</strong>, when <strong>N</strong> is less than
- *  <strong>W</strong> (where <strong>W</strong> is the length in bits of the
- *  longest key), and <strong>O(W)</strong>, when <strong>N</strong> is greater
- *  than <strong>W</strong>. However, the worst case is unlikely to occur with
- *  typical use. The average (and usual) performance of PATRICIA is
- *  approximately <strong>~lg N</strong> for each <em>get</em>, <em>put</em>, or
- *  <em>delete</em> operation. Although this appears to put PATRICIA on the same
- *  footing as binary trees, this time complexity represents the number of
- *  single-bit test operations (under PATRICIA), and not full-key comparisons
- *  (as required by binary trees). After the single-bit tests conclude, PATRICIA
- *  requires just one full-key comparison to confirm the existence (or absence)
- *  of the key (per <em>get</em>, <em>put</em>, or <em>delete</em> operation).
- *  <p>
- *  In practice, decent implementations of PATRICIA can often outperform
- *  balanced binary trees, and even hash tables. Although this particular
- *  implementation performs well, the source code was written with an emphasis
- *  on clarity, and not performance. PATRICIA performs admirably when its
- *  bit-testing loops are well tuned. Consider using the source code as a guide,
- *  should you need to produce an optimized implementation, for anther key type,
- *  or in another programming language.
- *  <p>
- *  Other resources for PATRICIA:<br>
- *  Sedgewick, R. (1990) <i>Algorithms in C</i>, Addison-Wesley<br>
- *  Knuth, D. (1973) <i>The Art of Computer Programming</i>, Addison-Wesley<br>
+ * The <code>PatriciaST</code> class provides an implementation of an unordered
+ * symbol table of key-value pairs, with the restriction that the key is of
+ * class {@link String}. It supports the usual <em>put</em>,
+ * <em>get</em>, <em>contains</em>, <em>delete</em>, <em>size</em>, and
+ * <em>is-empty</em> methods. It also provides a <em>keys</em> method for
+ * iterating over all of the keys. A symbol table implements the
+ * <em>associative array</em> abstraction: when associating a value with a key
+ * that is already in the symbol table, the convention is to replace the old
+ * value with the new value. Unlike {@link java.util.Map}, this class uses the
+ * convention that values cannot be <code>null</code>&mdash;setting the value
+ * associated with a key to <code>null</code> is equivalent to deleting the key
+ * from the symbol table.
+ * <p>
+ * This unordered symbol table class implements PATRICIA (Practical Algorithm
+ * to Retrieve Information Coded In Alphanumeric). In spite of the acronym,
+ * string keys are not limited to alphanumeric content. A key may possess any
+ * string value, except for the string of zero length (the empty string).
+ * <p>
+ * Unlike other generic symbol table implementations that can accept a
+ * parameterized key type, this symbol table class can only accommodate keys
+ * of class {@link String}. This unfortunate restriction stems from a
+ * limitation in Java. Although Java provides excellent support for generic
+ * programming, the current infrastructure somewhat limits generic collection
+ * implementations to those that employ comparison-based or hash-based methods.
+ * PATRICIA does not employ comparisons or hashing; instead, it relies on
+ * bit-test operations. Because Java does not furnish any generic abstractions
+ * (or implementations) for bit-testing the contents of an object, providing
+ * support for generic keys using PATRICIA does not seem practical.
+ * <p>
+ * PATRICIA is a variation of a trie, and it is often classified as a
+ * space-optimized trie. In a classical trie, each level represents a
+ * subsequent digit in a key. In PATRICIA, nodes only exist to identify the
+ * digits (bits) that distinguish the individual keys within the trie. Because
+ * PATRICIA uses a radix of two, each node has only two children, like a binary
+ * tree. Also like a binary tree, the number of nodes, within the trie, equals
+ * the number of keys. Consequently, some classify PATRICIA as a tree.
+ * <p>
+ * The analysis of PATRICIA is complicated. The theoretical wost-case
+ * performance for a <em>get</em>, <em>put</em>, or <em>delete</em> operation
+ * is <strong>O(N)</strong>, when <strong>N</strong> is less than
+ * <strong>W</strong> (where <strong>W</strong> is the length in bits of the
+ * longest key), and <strong>O(W)</strong>, when <strong>N</strong> is greater
+ * than <strong>W</strong>. However, the worst case is unlikely to occur with
+ * typical use. The average (and usual) performance of PATRICIA is
+ * approximately <strong>~lg N</strong> for each <em>get</em>, <em>put</em>, or
+ * <em>delete</em> operation. Although this appears to put PATRICIA on the same
+ * footing as binary trees, this time complexity represents the number of
+ * single-bit test operations (under PATRICIA), and not full-key comparisons
+ * (as required by binary trees). After the single-bit tests conclude, PATRICIA
+ * requires just one full-key comparison to confirm the existence (or absence)
+ * of the key (per <em>get</em>, <em>put</em>, or <em>delete</em> operation).
+ * <p>
+ * In practice, decent implementations of PATRICIA can often outperform
+ * balanced binary trees, and even hash tables. Although this particular
+ * implementation performs well, the source code was written with an emphasis
+ * on clarity, and not performance. PATRICIA performs admirably when its
+ * bit-testing loops are well tuned. Consider using the source code as a guide,
+ * should you need to produce an optimized implementation, for anther key type,
+ * or in another programming language.
+ * <p>
+ * Other resources for PATRICIA:<br>
+ * Sedgewick, R. (1990) <i>Algorithms in C</i>, Addison-Wesley<br>
+ * Knuth, D. (1973) <i>The Art of Computer Programming</i>, Addison-Wesley<br>
  *
- *  @author John Hentosh (based on an implementation by Robert Sedgewick)
+ * @author John Hentosh (based on an implementation by Robert Sedgewick)
  */
 public class PatriciaST<Value> {
     private Node head;
@@ -111,7 +110,9 @@ public class PatriciaST<Value> {
             this.val = val;
             this.b = b;
         }
-    };
+    }
+
+    ;
 
     /**
      * Initializes an empty PATRICIA-based symbol table.
@@ -131,9 +132,10 @@ public class PatriciaST<Value> {
      * contains the specified key, then its associated value becomes updated.
      * If the value provided is <code>null</code>, then the key becomes removed
      * from the symbol table.
+     *
      * @param key the key
      * @param val the value
-     * @throws NullPointerException if <code>key</code> is <code>null</code>
+     * @throws NullPointerException     if <code>key</code> is <code>null</code>
      * @throws IllegalArgumentException if <code>key</code> is the empty string.
      */
     public void put(String key, Value val) {
@@ -144,39 +146,49 @@ public class PatriciaST<Value> {
         Node x = head;
         do {
             p = x;
-            if (safeBitTest(key, x.b)) x = x.right;
-            else                       x = x.left;
+            if (safeBitTest(key, x.b)) {
+                x = x.right;
+            } else {
+                x = x.left;
+            }
         } while (p.b < x.b);
         if (!x.key.equals(key)) {
             int b = firstDifferingBit(x.key, key);
             x = head;
             do {
                 p = x;
-                if (safeBitTest(key, x.b)) x = x.right;
-                else                       x = x.left;
+                if (safeBitTest(key, x.b)) {
+                    x = x.right;
+                } else {
+                    x = x.left;
+                }
             } while (p.b < x.b && x.b < b);
             Node t = new Node(key, val, b);
             if (safeBitTest(key, b)) {
-                t.left  = x;
+                t.left = x;
                 t.right = t;
-            }
-            else {
-                t.left  = t;
+            } else {
+                t.left = t;
                 t.right = x;
             }
-            if (safeBitTest(key, p.b)) p.right = t;
-            else                       p.left  = t;
+            if (safeBitTest(key, p.b)) {
+                p.right = t;
+            } else {
+                p.left = t;
+            }
             count++;
+        } else {
+            x.val = val;
         }
-        else x.val = val;
     }
 
     /**
      * Retrieves the value associated with the given key.
+     *
      * @param key the key
      * @return the value associated with the given key if the key is in the
      * symbol table and <code>null</code> if the key is not in the symbol table
-     * @throws NullPointerException if <code>key</code> is <code>null</code>
+     * @throws NullPointerException     if <code>key</code> is <code>null</code>
      * @throws IllegalArgumentException if <code>key</code> is the empty string.
      */
     public Value get(String key) {
@@ -186,18 +198,25 @@ public class PatriciaST<Value> {
         Node x = head;
         do {
             p = x;
-            if (safeBitTest(key, x.b)) x = x.right;
-            else                       x = x.left;
+            if (safeBitTest(key, x.b)) {
+                x = x.right;
+            } else {
+                x = x.left;
+            }
         } while (p.b < x.b);
-        if (x.key.equals(key)) return x.val;
-        else                   return null;
+        if (x.key.equals(key)) {
+            return x.val;
+        } else {
+            return null;
+        }
     }
 
     /**
      * Removes a key and its associated value from the symbol table, if it
      * exists.
+     *
      * @param key the key
-     * @throws NullPointerException if <code>key</code> is <code>null</code>
+     * @throws NullPointerException     if <code>key</code> is <code>null</code>
      * @throws IllegalArgumentException if <code>key</code> is the empty string.
      */
     public void delete(String key) {
@@ -209,32 +228,52 @@ public class PatriciaST<Value> {
         do {
             g = p;
             p = x;
-            if (safeBitTest(key, x.b)) x = x.right;
-            else                       x = x.left;
+            if (safeBitTest(key, x.b)) {
+                x = x.right;
+            } else {
+                x = x.left;
+            }
         } while (p.b < x.b);
         if (x.key.equals(key)) {
             Node z;
             Node y = head;
             do {            // find the true parent (z) of x
                 z = y;
-                if (safeBitTest(key, y.b)) y = y.right;
-                else                       y = y.left;
+                if (safeBitTest(key, y.b)) {
+                    y = y.right;
+                } else {
+                    y = y.left;
+                }
             } while (y != x);
             if (x == p) {   // case 1: remove (leaf node) x
                 Node c;     // child of x
-                if (safeBitTest(key, x.b)) c = x.left;
-                else                       c = x.right;
-                if (safeBitTest(key, z.b)) z.right = c;
-                else                       z.left  = c;
-            }
-            else {          // case 2: p replaces (internal node) x
+                if (safeBitTest(key, x.b)) {
+                    c = x.left;
+                } else {
+                    c = x.right;
+                }
+                if (safeBitTest(key, z.b)) {
+                    z.right = c;
+                } else {
+                    z.left = c;
+                }
+            } else {          // case 2: p replaces (internal node) x
                 Node c;     // child of p
-                if (safeBitTest(key, p.b)) c = p.left;
-                else                       c = p.right;
-                if (safeBitTest(key, g.b)) g.right = c;
-                else                       g.left  = c;
-                if (safeBitTest(key, z.b)) z.right = p;
-                else                       z.left  = p;
+                if (safeBitTest(key, p.b)) {
+                    c = p.left;
+                } else {
+                    c = p.right;
+                }
+                if (safeBitTest(key, g.b)) {
+                    g.right = c;
+                } else {
+                    g.left = c;
+                }
+                if (safeBitTest(key, z.b)) {
+                    z.right = p;
+                } else {
+                    z.left = p;
+                }
                 p.left = x.left;
                 p.right = x.right;
                 p.b = x.b;
@@ -246,10 +285,11 @@ public class PatriciaST<Value> {
     /**
      * Returns <code>true</code> if the key-value pair, specified by the given
      * key, exists within the symbol table.
+     *
      * @param key the key
      * @return <code>true</code> if this symbol table contains the given
      * <code>key</code> and <code>false</code> otherwise
-     * @throws NullPointerException if <code>key</code> is <code>null</code>
+     * @throws NullPointerException     if <code>key</code> is <code>null</code>
      * @throws IllegalArgumentException if <code>key</code> is the empty string.
      */
     public boolean contains(String key) {
@@ -258,6 +298,7 @@ public class PatriciaST<Value> {
 
     /**
      * Returns <code>true</code> if the symbol table is empty.
+     *
      * @return <code>true</code> if this symbol table is empty and
      * <code>false</code> otherwise
      */
@@ -267,6 +308,7 @@ public class PatriciaST<Value> {
 
     /**
      * Returns the number of key-value pairs within the symbol table.
+     *
      * @return the number of key-value pairs within this symbol table
      */
     int size() {
@@ -278,11 +320,12 @@ public class PatriciaST<Value> {
      * To iterate over all of the keys in the symbol table named
      * <code>st</code>, use the foreach notation:
      * <code>for (Key key : st.keys())</code>.
+     *
      * @return all keys in the sybol table as an <code>Iterable</code>
      */
     public Iterable<String> keys() {
         Queue<String> queue = new Queue<String>();
-        if (head.left  != head) keys(head.left,  0, queue);
+        if (head.left != head) keys(head.left, 0, queue);
         if (head.right != head) keys(head.right, 0, queue);
         return queue;
     }
@@ -311,9 +354,10 @@ public class PatriciaST<Value> {
      * (because these methods do not regard string lengths).
      */
     private static boolean safeBitTest(String key, int b) {
-        if (b < key.length() * 16)      return bitTest(key, b) != 0;
+        if (b < key.length() * 16) return bitTest(key, b) != 0;
         if (b > key.length() * 16 + 15) return false;   // padding
-        /* 16 bits of 0xffff */         return true;    // end marker
+        /* 16 bits of 0xffff */
+        return true;    // end marker
     }
 
     private static int bitTest(String key, int b) {
@@ -327,8 +371,11 @@ public class PatriciaST<Value> {
      */
     private static int safeCharAt(String key, int i) {
         if (i < key.length()) return key.charAt(i);
-        if (i > key.length()) return 0x0000;            // padding
-        else                  return 0xffff;            // end marker
+        if (i > key.length()) {
+            return 0x0000;            // padding
+        } else {
+            return 0xffff;            // end marker
+        }
     }
 
     /* For efficiency's sake, the firstDifferingBit function compares entire
@@ -380,7 +427,7 @@ public class PatriciaST<Value> {
 
         do {
             String[] a = new String[limitItem];
-            int[]    v = new int[limitItem];
+            int[] v = new int[limitItem];
 
             StdOut.printf("Creating dataset (%d items)...\n", limitItem);
             for (int i = 0; i < limitItem; i++) {
@@ -415,7 +462,7 @@ public class PatriciaST<Value> {
             for (String key : st.keys()) countKeys++;
             StdOut.printf("%d items iterated\n", countKeys);
             if (countKeys != limitItem - limitDelete) ok = false;
-            if (countKeys != st.size())               ok = false;
+            if (countKeys != st.size()) ok = false;
 
             int countDelete = 0;
             int countRemain = 0;
@@ -423,27 +470,29 @@ public class PatriciaST<Value> {
             for (int i = 0; i < limitItem; i++) {
                 if (i < limitDelete) {
                     if (!st.contains(a[v[i]])) countDelete++;
-                }
-                else {
+                } else {
                     int val = st.get(a[v[i]]);
                     if (val == v[i]) countRemain++;
                 }
             }
             StdOut.printf("%d items found and %d (deleted) items missing\n",
-                countRemain, countDelete);
+                    countRemain, countDelete);
             if (countRemain + countDelete != limitItem) ok = false;
-            if (countRemain               != st.size()) ok = false;
-            if (st.isEmpty())                           ok = false;
+            if (countRemain != st.size()) ok = false;
+            if (st.isEmpty()) ok = false;
 
             StdOut.printf("Deleting the rest (%d items)...\n",
-                limitItem - countDelete);
+                    limitItem - countDelete);
             for (int i = countDelete; i < limitItem; i++)
                 st.delete(a[v[i]]);
             if (!st.isEmpty()) ok = false;
 
             countPass++;
-            if (ok) StdOut.printf("PASS %d TESTS SUCCEEDED\n", countPass);
-            else    StdOut.printf("PASS %d TESTS FAILED\n",    countPass);
+            if (ok) {
+                StdOut.printf("PASS %d TESTS SUCCEEDED\n", countPass);
+            } else {
+                StdOut.printf("PASS %d TESTS FAILED\n", countPass);
+            }
         } while (ok && countPass < limitPass);
 
         if (!ok) throw new RuntimeException("TESTS FAILED");
@@ -451,25 +500,25 @@ public class PatriciaST<Value> {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

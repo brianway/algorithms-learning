@@ -1,49 +1,48 @@
 /******************************************************************************
- *  Compilation:  javac KMP.java
- *  Execution:    java KMP pattern text
- *  Dependencies: StdOut.java
+ * Compilation:  javac KMP.java
+ * Execution:    java KMP pattern text
+ * Dependencies: StdOut.java
  *
- *  Reads in two strings, the pattern and the input text, and
- *  searches for the pattern in the input text using the
- *  KMP algorithm.
+ * Reads in two strings, the pattern and the input text, and
+ * searches for the pattern in the input text using the
+ * KMP algorithm.
  *
- *  % java KMP abracadabra abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad 
- *  pattern:               abracadabra          
+ * % java KMP abracadabra abacadabrabracabracadabrabrabracad
+ * text:    abacadabrabracabracadabrabrabracad
+ * pattern:               abracadabra
  *
- *  % java KMP rab abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad 
- *  pattern:         rab
+ * % java KMP rab abacadabrabracabracadabrabrabracad
+ * text:    abacadabrabracabracadabrabrabracad
+ * pattern:         rab
  *
- *  % java KMP bcara abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad 
- *  pattern:                                   bcara
+ * % java KMP bcara abacadabrabracabracadabrabrabracad
+ * text:    abacadabrabracabracadabrabrabracad
+ * pattern:                                   bcara
  *
- *  % java KMP rabrabracad abacadabrabracabracadabrabrabracad 
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern:                        rabrabracad
+ * % java KMP rabrabracad abacadabrabracabracadabrabrabracad
+ * text:    abacadabrabracabracadabrabrabracad
+ * pattern:                        rabrabracad
  *
- *  % java KMP abacad abacadabrabracabracadabrabrabracad
- *  text:    abacadabrabracabracadabrabrabracad
- *  pattern: abacad
- *
+ * % java KMP abacad abacadabrabracabracadabrabrabracad
+ * text:    abacadabrabracabracadabrabrabracad
+ * pattern: abacad
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>KMP</tt> class finds the first occurrence of a pattern string
- *  in a text string.
- *  <p>
- *  This implementation uses a version of the Knuth-Morris-Pratt substring search
- *  algorithm. The version takes time as space proportional to
- *  <em>N</em> + <em>M R</em> in the worst case, where <em>N</em> is the length
- *  of the text string, <em>M</em> is the length of the pattern, and <em>R</em>
- *  is the alphabet size.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/53substring">Section 5.3</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>KMP</tt> class finds the first occurrence of a pattern string
+ * in a text string.
+ * <p>
+ * This implementation uses a version of the Knuth-Morris-Pratt substring search
+ * algorithm. The version takes time as space proportional to
+ * <em>N</em> + <em>M R</em> in the worst case, where <em>N</em> is the length
+ * of the text string, <em>M</em> is the length of the pattern, and <em>R</em>
+ * is the alphabet size.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/53substring">Section 5.3</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  */
 public class KMP {
     private final int R;       // the radix
@@ -63,15 +62,15 @@ public class KMP {
 
         // build DFA from pattern
         int M = pat.length();
-        dfa = new int[R][M]; 
-        dfa[pat.charAt(0)][0] = 1; 
+        dfa = new int[R][M];
+        dfa[pat.charAt(0)][0] = 1;
         for (int X = 0, j = 1; j < M; j++) {
-            for (int c = 0; c < R; c++) 
+            for (int c = 0; c < R; c++)
                 dfa[c][j] = dfa[c][X];     // Copy mismatch cases. 
-            dfa[pat.charAt(j)][j] = j+1;   // Set match case. 
+            dfa[pat.charAt(j)][j] = j + 1;   // Set match case.
             X = dfa[pat.charAt(j)][X];     // Update restart state. 
-        } 
-    } 
+        }
+    }
 
     /**
      * Preprocesses the pattern string.
@@ -87,23 +86,23 @@ public class KMP {
 
         // build DFA from pattern
         int M = pattern.length;
-        dfa = new int[R][M]; 
-        dfa[pattern[0]][0] = 1; 
+        dfa = new int[R][M];
+        dfa[pattern[0]][0] = 1;
         for (int X = 0, j = 1; j < M; j++) {
-            for (int c = 0; c < R; c++) 
+            for (int c = 0; c < R; c++)
                 dfa[c][j] = dfa[c][X];     // Copy mismatch cases. 
-            dfa[pattern[j]][j] = j+1;      // Set match case. 
+            dfa[pattern[j]][j] = j + 1;      // Set match case.
             X = dfa[pattern[j]][X];        // Update restart state. 
-        } 
-    } 
+        }
+    }
 
     /**
      * Returns the index of the first occurrrence of the pattern string
      * in the text string.
      *
-     * @param  txt the text string
+     * @param txt the text string
      * @return the index of the first occurrence of the pattern string
-     *         in the text string; N if no such match
+     * in the text string; N if no such match
      */
     public int search(String txt) {
 
@@ -122,9 +121,9 @@ public class KMP {
      * Returns the index of the first occurrrence of the pattern string
      * in the text string.
      *
-     * @param  text the text string
+     * @param text the text string
      * @return the index of the first occurrence of the pattern string
-     *         in the text string; N if no such match
+     * in the text string; N if no such match
      */
     public int search(char[] text) {
 
@@ -139,8 +138,7 @@ public class KMP {
         return N;                    // not found
     }
 
-
-    /** 
+    /**
      * Takes a pattern string and an input string as command-line arguments;
      * searches for the pattern string in the text string; and prints
      * the first occurrence of the pattern string in the text string.
@@ -149,7 +147,7 @@ public class KMP {
         String pat = args[0];
         String txt = args[1];
         char[] pattern = pat.toCharArray();
-        char[] text    = txt.toCharArray();
+        char[] text = txt.toCharArray();
 
         KMP kmp1 = new KMP(pat);
         int offset1 = kmp1.search(txt);
@@ -173,25 +171,25 @@ public class KMP {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

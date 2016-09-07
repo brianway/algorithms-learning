@@ -9,7 +9,6 @@ import java.util.List;
  * LeetCode 15
  * Question:https://leetcode.com/problems/3sum/
  * 关键题设：must not contain duplicate triplets
- *
  */
 public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -30,26 +29,27 @@ public class ThreeSum {
      *
      * 时间复杂度 O(n^2)
      * 空间复杂度 O(1)
-     *
      */
-    public class ThreeSum0 extends ThreeSum{
+    public class ThreeSum0 extends ThreeSum {
         @Override
         public List<List<Integer>> threeSum(int[] nums) {
-            List<List<Integer>> all=new ArrayList<List<Integer>>();
-            if(nums==null||nums.length<3) {
+            List<List<Integer>> all = new ArrayList<List<Integer>>();
+            if (nums == null || nums.length < 3) {
                 //throw new IllegalArgumentException("at least 3 numbers");
                 return all;
             }
             Arrays.sort(nums);
-            for(int i = 0;i<nums.length-2;i++){
-                if(i>0&&nums[i]==nums[i-1]){continue;}//continue,not i++
+            for (int i = 0; i < nums.length - 2; i++) {
+                if (i > 0 && nums[i] == nums[i - 1]) {
+                    continue;
+                }//continue,not i++
 
-                int left = i+1;
-                int right = nums.length-1;
-                while(left<right){
-                    int twoSum = nums[left]+nums[right];
+                int left = i + 1;
+                int right = nums.length - 1;
+                while (left < right) {
+                    int twoSum = nums[left] + nums[right];
                     int reTarget = 0 - nums[i];
-                    if(twoSum ==  reTarget){
+                    if (twoSum == reTarget) {
                         List<Integer> match = new ArrayList<Integer>(3);
                         match.add(nums[i]);
                         match.add(nums[left]);
@@ -60,12 +60,12 @@ public class ThreeSum {
                         right--;
 
                         //跳过重复的,确保left<right,否则会出现越界,如[0,0,0]
-                        while(left<right&&nums[left]==nums[left-1])left++;
-                        while (left<right&&nums[right]==nums[right+1])right--;
+                        while (left < right && nums[left] == nums[left - 1]) left++;
+                        while (left < right && nums[right] == nums[right + 1]) right--;
 
-                    }else if(twoSum<reTarget){
+                    } else if (twoSum < reTarget) {
                         left++;
-                    }else {
+                    } else {
                         right--;
                     }
 

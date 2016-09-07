@@ -16,7 +16,6 @@ public class IntersectionofTwoArrays {
         return null;
     }
 
-
     /**
      * 哈希表
      * 遍历两个数组各一遍,没有键值则添加,有键值则+1
@@ -26,39 +25,38 @@ public class IntersectionofTwoArrays {
      * 时间复杂度 O(n1+n2)
      * 空间复杂度 O(n1)
      */
-    public class IntersectionofTwoArrays0 extends IntersectionofTwoArrays{
+    public class IntersectionofTwoArrays0 extends IntersectionofTwoArrays {
         @Override
         public int[] intersection(int[] nums1, int[] nums2) {
-            HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
-            for(int num:nums1){
-                if(!hashMap.containsKey(num)){
-                    hashMap.put(num,1);
+            HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+            for (int num : nums1) {
+                if (!hashMap.containsKey(num)) {
+                    hashMap.put(num, 1);
                 }
             }
             //这里做了点简化,若hashMap中不含该键值,则不用添加,因为num1中没有,肯定不是交集
-            for(int num:nums2){
-                if(hashMap.containsKey(num)){
-                    hashMap.put(num,2);
+            for (int num : nums2) {
+                if (hashMap.containsKey(num)) {
+                    hashMap.put(num, 2);
                 }
             }
 
-            List<Integer> list =new ArrayList<Integer>();
+            List<Integer> list = new ArrayList<Integer>();
 
-            for(Map.Entry<Integer,Integer>entry : hashMap.entrySet()){
-                if(entry.getValue()==2){
+            for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+                if (entry.getValue() == 2) {
                     list.add(entry.getKey());
                 }
             }
 
-            int [] result = new int[list.size()];
-            for(int i=0;i<list.size();i++){
-                result[i]=list.get(i);
+            int[] result = new int[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                result[i] = list.get(i);
             }
             return result;
 
         }
     }
-
 
     /**
      * 哈希表
@@ -68,32 +66,32 @@ public class IntersectionofTwoArrays {
      * 时间复杂度 O(n1+n2)
      * 空间复杂度 O(n1+n1交n2)
      */
-    public class IntersectionofTwoArrays1 extends IntersectionofTwoArrays{
+    public class IntersectionofTwoArrays1 extends IntersectionofTwoArrays {
         @Override
         public int[] intersection(int[] nums1, int[] nums2) {
-            HashMap<Integer,Integer> hashMap1 = new HashMap<Integer, Integer>();
-            HashMap<Integer,Integer> hashMap2 = new HashMap<Integer, Integer>();
-            for(int num:nums1){
-                if(!hashMap1.containsKey(num)){
-                    hashMap1.put(num,1);
+            HashMap<Integer, Integer> hashMap1 = new HashMap<Integer, Integer>();
+            HashMap<Integer, Integer> hashMap2 = new HashMap<Integer, Integer>();
+            for (int num : nums1) {
+                if (!hashMap1.containsKey(num)) {
+                    hashMap1.put(num, 1);
                 }
             }
 
-            for(int num:nums2){
-                if(hashMap1.containsKey(num)){
-                    hashMap2.put(num,2);
+            for (int num : nums2) {
+                if (hashMap1.containsKey(num)) {
+                    hashMap2.put(num, 2);
                 }
             }
 
-            List<Integer> list =new ArrayList<Integer>();
+            List<Integer> list = new ArrayList<Integer>();
 
-            for(Map.Entry<Integer,Integer>entry : hashMap2.entrySet()){
+            for (Map.Entry<Integer, Integer> entry : hashMap2.entrySet()) {
                 list.add(entry.getKey());
             }
 
-            int [] result = new int[list.size()];
-            for(int i=0;i<list.size();i++){
-                result[i]=list.get(i);
+            int[] result = new int[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                result[i] = list.get(i);
             }
             return result;
         }

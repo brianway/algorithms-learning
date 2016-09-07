@@ -11,16 +11,16 @@ public class MaximumSubarrayTest {
 
     private MaximumSubarray testObject;
 
-    int []nums = new int[]{-2,1,-3,4,-1,2,1,-5,4};
-    int  result = 6;
+    int[] nums = new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    int result = 6;
 
     @Before
-    public void SetUp(){
-        testObject =  new MaximumSubarray().new MaximumSubarray1();
+    public void SetUp() {
+        testObject = new MaximumSubarray().new MaximumSubarray1();
     }
 
     @Test
-    public void testMaximumSubarray(){
-        Assert.assertEquals(result,testObject.maxSubArray(nums));
+    public void testMaximumSubarray() {
+        Assert.assertEquals(result, testObject.maxSubArray(nums));
     }
 }

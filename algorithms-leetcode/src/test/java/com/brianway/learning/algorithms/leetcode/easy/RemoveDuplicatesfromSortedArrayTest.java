@@ -11,17 +11,16 @@ public class RemoveDuplicatesfromSortedArrayTest {
 
     private RemoveDuplicatesfromSortedArray testObject;
 
-    int []nums = new int[]{1,1,2,2,3,4, 7, 7, 15};
+    int[] nums = new int[] {1, 1, 2, 2, 3, 4, 7, 7, 15};
     int result = 6;
 
-
     @Before
-    public void SetUp(){
+    public void SetUp() {
         testObject = new RemoveDuplicatesfromSortedArray().new RemoveDuplicatesfromSortedArray0();
     }
 
     @Test
-    public void testremoveDuplicates(){
-        Assert.assertEquals(result,testObject.removeDuplicates(nums));
+    public void testremoveDuplicates() {
+        Assert.assertEquals(result, testObject.removeDuplicates(nums));
     }
 }

@@ -23,21 +23,21 @@ public class MajorityElement {
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
      */
-    public class MajorityElement0 extends MajorityElement{
+    public class MajorityElement0 extends MajorityElement {
         @Override
         public int majorityElement(int[] nums) {
-            HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
-            int max=0;
-            int key=0;
-            for(int i=0;i<nums.length;i++){
-                if(map.containsKey(nums[i])){
-                    map.put(nums[i],map.get(nums[i])+1);
-                }else{
-                    map.put(nums[i],1);
+            HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+            int max = 0;
+            int key = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (map.containsKey(nums[i])) {
+                    map.put(nums[i], map.get(nums[i]) + 1);
+                } else {
+                    map.put(nums[i], 1);
                 }
             }
-            for(Map.Entry<Integer,Integer> entry : map.entrySet()){
-                if(entry.getValue()>max){
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                if (entry.getValue() > max) {
                     max = entry.getValue();
                     key = entry.getKey();
                 }
@@ -46,13 +46,12 @@ public class MajorityElement {
         }
     }
 
-
     /**
      * 快排，使用Java的Arrays工具类自带的sort方法
      * 时间复杂度 O(nlog(n))
      * 空间复杂度 O(1)
      */
-    public class MajorityElement1 extends MajorityElement{
+    public class MajorityElement1 extends MajorityElement {
         @Override
         public int majorityElement(int[] nums) {
             if (nums.length == 1) {
@@ -64,7 +63,6 @@ public class MajorityElement {
         }
     }
 
-
     /**
      * 计数，相同就加1，不同就减1，只有到0时才会更新当前被计数的key
      * 因为MajorityElement appears more than ⌊ n/2 ⌋ times.
@@ -73,17 +71,17 @@ public class MajorityElement {
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class MajorityElement2 extends MajorityElement{
+    public class MajorityElement2 extends MajorityElement {
         @Override
         public int majorityElement(int[] nums) {
-            int result=0,count=0;
-            for(int i=0;i<nums.length;i++){
-                if(count==0){
+            int result = 0, count = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (count == 0) {
                     result = nums[i];
                     count++;
-                }else if(result == nums[i]){
+                } else if (result == nums[i]) {
                     count++;
-                }else{
+                } else {
                     count--;
                 }
             }

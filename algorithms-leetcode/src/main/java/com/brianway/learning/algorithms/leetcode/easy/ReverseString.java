@@ -23,16 +23,16 @@ public class ReverseString {
      * 时间复杂度 O(n/2)
      * 空间复杂度 O(1)
      */
-    public class ReverseString0 extends ReverseString{
+    public class ReverseString0 extends ReverseString {
         @Override
         public String reverseString(String s) {
             char[] array = s.toCharArray();
             int length = array.length;
             char tmp;
-            for(int i =0;i<length/2;i++){
+            for (int i = 0; i < length / 2; i++) {
                 tmp = array[i];
-                array[i]= array[length-1-i];
-                array[length-1-i] = tmp;
+                array[i] = array[length - 1 - i];
+                array[length - 1 - i] = tmp;
             }
             return new String(array);
         }

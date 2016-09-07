@@ -1,9 +1,8 @@
 /******************************************************************************
- *  Compilation:  javac SegmentTree.java
- *  Execution:    java SegmentTree
- *  
- *  A segment tree data structure.
+ * Compilation:  javac SegmentTree.java
+ * Execution:    java SegmentTree
  *
+ * A segment tree data structure.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
@@ -31,8 +30,8 @@ import java.util.Arrays;
  *
  * Memory usage:  O(n)
  *
- * @author Ricardo Pacheco 
- * <p/>
+ * @author Ricardo Pacheco
+ *         <p/>
  */
 public class SegmentTree {
 
@@ -52,7 +51,6 @@ public class SegmentTree {
         heap = new Node[size];
         build(1, 0, array.length);
     }
-
 
     public int size() {
         return array.length;
@@ -112,7 +110,7 @@ public class SegmentTree {
 
     /**
      * Range Min Query
-     * 
+     *
      * Time-Complexity: O(log(n))
      */
     public int RMinQ(int from, int to) {
@@ -121,7 +119,6 @@ public class SegmentTree {
 
     private int RMinQ(int v, int from, int to) {
         Node n = heap[v];
-
 
         //If you did a range update that contained this node, you can infer the Min value without going down the tree
         if (n.pendingVal != null && contains(n.from, n.to, from, to)) {
@@ -142,7 +139,6 @@ public class SegmentTree {
 
         return Integer.MAX_VALUE;
     }
-
 
     /**
      * Range Update Operation.
@@ -262,7 +258,6 @@ public class SegmentTree {
      */
     public static void main(String[] args) {
 
-
         SegmentTree st = null;
 
         String cmd = "cmp";
@@ -294,8 +289,7 @@ public class SegmentTree {
                     array[i] = Integer.parseInt(line[i + 1]);
                 }
                 st = new SegmentTree(array);
-            }
-            else if (line[0].equals("init")) {
+            } else if (line[0].equals("init")) {
                 array = new int[arg1];
                 Arrays.fill(array, arg2);
                 st = new SegmentTree(array);
@@ -304,27 +298,21 @@ public class SegmentTree {
                     StdOut.print(st.RSQ(i, i) + " ");
                 }
                 StdOut.println();
-            }
-
-            else if (line[0].equals("up")) {
+            } else if (line[0].equals("up")) {
                 st.update(arg1, arg2, arg3);
                 for (int i = 0; i < st.size(); i++) {
                     StdOut.print(st.RSQ(i, i) + " ");
                 }
                 StdOut.println();
-            }
-            else if (line[0].equals("rsq")) {
+            } else if (line[0].equals("rsq")) {
                 StdOut.printf("Sum from %d to %d = %d%n", arg1, arg2, st.RSQ(arg1, arg2));
-            }
-            else if (line[0].equals("rmq")) {
+            } else if (line[0].equals("rmq")) {
                 StdOut.printf("Min from %d to %d = %d%n", arg1, arg2, st.RMinQ(arg1, arg2));
-            }
-            else {
+            } else {
                 StdOut.println("Invalid command");
             }
 
         }
-
 
         StdOut.close();
     }
@@ -332,25 +320,25 @@ public class SegmentTree {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

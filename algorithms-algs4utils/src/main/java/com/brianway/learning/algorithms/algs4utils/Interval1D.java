@@ -1,10 +1,9 @@
 /******************************************************************************
- *  Compilation:  javac Interval1D.java
- *  Execution:    java Interval1D
- *  Dependencies: StdOut.java
- *  
- *  1-dimensional interval data type.
+ * Compilation:  javac Interval1D.java
+ * Execution:    java Interval1D
+ * Dependencies: StdOut.java
  *
+ * 1-dimensional interval data type.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
@@ -13,25 +12,25 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- *  The <tt>Interval1D</tt> class represents a one-dimensional interval.
- *  The interval is <em>closed</em>&mdash;it contains both endpoints.
- *  Intervals are immutable: their values cannot be changed after they are created.
- *  The class <code>Interval1D</code> includes methods for checking whether
- *  an interval contains a point and determining whether two intervals intersect.
- *  <p>
- *  For additional documentation, 
- *  see <a href="http://algs4.cs.princeton.edu/12oop">Section 1.2</a> of 
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne. 
+ * The <tt>Interval1D</tt> class represents a one-dimensional interval.
+ * The interval is <em>closed</em>&mdash;it contains both endpoints.
+ * Intervals are immutable: their values cannot be changed after they are created.
+ * The class <code>Interval1D</code> includes methods for checking whether
+ * an interval contains a point and determining whether two intervals intersect.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/12oop">Section 1.2</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class Interval1D {
 
     /**
      * Compares two intervals by min endpoint.
      */
-    public static final Comparator<Interval1D> MIN_ENDPOINT_ORDER  = new MinEndpointComparator();
+    public static final Comparator<Interval1D> MIN_ENDPOINT_ORDER = new MinEndpointComparator();
 
     /**
      * Compares two intervals by max endpoint.
@@ -49,19 +48,20 @@ public class Interval1D {
     /**
      * Initializes a closed interval [min, max].
      *
-     * @param  min the smaller endpoint
-     * @param  max the larger endpoint
+     * @param min the smaller endpoint
+     * @param max the larger endpoint
      * @throws IllegalArgumentException if the min endpoint is greater than the max endpoint
      * @throws IllegalArgumentException if either <tt>min</tt> or <tt>max</tt>
-     *         is <tt>Double.NaN</tt>, <tt>Double.POSITIVE_INFINITY</tt> or
-     *         <tt>Double.NEGATIVE_INFINITY</tt>
-
+     *                                  is <tt>Double.NaN</tt>, <tt>Double.POSITIVE_INFINITY</tt> or
+     *                                  <tt>Double.NEGATIVE_INFINITY</tt>
      */
     public Interval1D(double min, double max) {
-        if (Double.isInfinite(min) || Double.isInfinite(max))
+        if (Double.isInfinite(min) || Double.isInfinite(max)) {
             throw new IllegalArgumentException("Endpoints must be finite");
-        if (Double.isNaN(min) || Double.isNaN(max))
+        }
+        if (Double.isNaN(min) || Double.isNaN(max)) {
             throw new IllegalArgumentException("Endpoints cannot be NaN");
+        }
 
         // convert -0.0 to +0.0
         if (min == 0.0) min = 0.0;
@@ -70,8 +70,9 @@ public class Interval1D {
         if (min <= max) {
             this.min = min;
             this.max = max;
+        } else {
+            throw new IllegalArgumentException("Illegal interval");
         }
-        else throw new IllegalArgumentException("Illegal interval");
     }
 
     /**
@@ -80,16 +81,17 @@ public class Interval1D {
      * @return the left endpoint of this interval
      * @deprecated Replaced by {@link #min()}.
      */
-    public double left() { 
+    public double left() {
         return min;
     }
 
     /**
      * Returns the right endpoint of this interval.
+     *
      * @return the right endpoint of this interval
      * @deprecated Replaced by {@link #max()}.
      */
-    public double right() { 
+    public double right() {
         return max;
     }
 
@@ -98,7 +100,7 @@ public class Interval1D {
      *
      * @return the min endpoint of this interval
      */
-    public double min() { 
+    public double min() {
         return min;
     }
 
@@ -107,16 +109,16 @@ public class Interval1D {
      *
      * @return the max endpoint of this interval
      */
-    public double max() { 
+    public double max() {
         return max;
     }
 
     /**
      * Returns true if this interval intersects the specified interval.
      *
-     * @param  that the other interval
+     * @param that the other interval
      * @return <tt>true</tt> if this interval intersects the argument interval;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     public boolean intersects(Interval1D that) {
         if (this.max < that.min) return false;
@@ -129,7 +131,7 @@ public class Interval1D {
      *
      * @param x the value
      * @return <tt>true</tt> if this interval contains the value <tt>x</tt>;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     public boolean contains(double x) {
         return (min <= x) && (x <= max);
@@ -156,9 +158,9 @@ public class Interval1D {
     /**
      * Compares this transaction to the specified object.
      *
-     * @param  other the other interval
+     * @param other the other interval
      * @return <tt>true</tt> if this interval equals the other interval;
-     *         <tt>false</tt> otherwise
+     * <tt>false</tt> otherwise
      */
     public boolean equals(Object other) {
         if (other == this) return true;
@@ -176,28 +178,40 @@ public class Interval1D {
     public int hashCode() {
         int hash1 = ((Double) min).hashCode();
         int hash2 = ((Double) max).hashCode();
-        return 31*hash1 + hash2;
+        return 31 * hash1 + hash2;
     }
 
     // ascending order of min endpoint, breaking ties by max endpoint
     private static class MinEndpointComparator implements Comparator<Interval1D> {
         public int compare(Interval1D a, Interval1D b) {
-            if      (a.min < b.min) return -1;
-            else if (a.min > b.min) return +1;
-            else if (a.max < b.max) return -1;
-            else if (a.max > b.max) return +1;
-            else                    return  0;
+            if (a.min < b.min) {
+                return -1;
+            } else if (a.min > b.min) {
+                return +1;
+            } else if (a.max < b.max) {
+                return -1;
+            } else if (a.max > b.max) {
+                return +1;
+            } else {
+                return 0;
+            }
         }
     }
 
     // ascending order of max endpoint, breaking ties by min endpoint
     private static class MaxEndpointComparator implements Comparator<Interval1D> {
         public int compare(Interval1D a, Interval1D b) {
-            if      (a.min < b.max) return -1;
-            else if (a.min > b.max) return +1;
-            else if (a.min < b.min) return -1;
-            else if (a.min > b.min) return +1;
-            else                    return  0;
+            if (a.min < b.max) {
+                return -1;
+            } else if (a.min > b.max) {
+                return +1;
+            } else if (a.min < b.min) {
+                return -1;
+            } else if (a.min > b.min) {
+                return +1;
+            } else {
+                return 0;
+            }
         }
     }
 
@@ -206,14 +220,15 @@ public class Interval1D {
         public int compare(Interval1D a, Interval1D b) {
             double alen = a.length();
             double blen = b.length();
-            if      (alen < blen) return -1;
-            else if (alen > blen) return +1;
-            else                  return  0;
+            if (alen < blen) {
+                return -1;
+            } else if (alen > blen) {
+                return +1;
+            } else {
+                return 0;
+            }
         }
     }
-
-
-
 
     /**
      * Unit tests the <tt>Interval1D</tt> data type.
@@ -229,7 +244,7 @@ public class Interval1D {
         for (int i = 0; i < intervals.length; i++)
             StdOut.println(intervals[i]);
         StdOut.println();
-        
+
         StdOut.println("Sort by min endpoint");
         Arrays.sort(intervals, Interval1D.MIN_ENDPOINT_ORDER);
         for (int i = 0; i < intervals.length; i++)
@@ -251,25 +266,25 @@ public class Interval1D {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

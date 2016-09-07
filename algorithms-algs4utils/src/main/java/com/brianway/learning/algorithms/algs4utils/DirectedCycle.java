@@ -1,47 +1,46 @@
 /******************************************************************************
- *  Compilation:  javac DirectedCycle.java
- *  Execution:    java DirectedCycle input.txt
- *  Dependencies: Digraph.java Stack.java StdOut.java In.java
- *  Data files:   http://algs4.cs.princeton.edu/42digraph/tinyDG.txt
- *                http://algs4.cs.princeton.edu/42digraph/tinyDAG.txt
+ * Compilation:  javac DirectedCycle.java
+ * Execution:    java DirectedCycle input.txt
+ * Dependencies: Digraph.java Stack.java StdOut.java In.java
+ * Data files:   http://algs4.cs.princeton.edu/42digraph/tinyDG.txt
+ * http://algs4.cs.princeton.edu/42digraph/tinyDAG.txt
  *
- *  Finds a directed cycle in a digraph.
- *  Runs in O(E + V) time.
+ * Finds a directed cycle in a digraph.
+ * Runs in O(E + V) time.
  *
- *  % java DirectedCycle tinyDG.txt 
- *  Directed cycle: 3 5 4 3 
+ * % java DirectedCycle tinyDG.txt
+ * Directed cycle: 3 5 4 3
  *
- *  %  java DirectedCycle tinyDAG.txt 
- *  No directed cycle
- *
+ * %  java DirectedCycle tinyDAG.txt
+ * No directed cycle
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>DirectedCycle</tt> class represents a data type for 
- *  determining whether a digraph has a directed cycle.
- *  The <em>hasCycle</em> operation determines whether the digraph has
- *  a directed cycle and, and of so, the <em>cycle</em> operation
- *  returns one.
- *  <p>
- *  This implementation uses depth-first search.
- *  The constructor takes time proportional to <em>V</em> + <em>E</em>
- *  (in the worst case),
- *  where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
- *  Afterwards, the <em>hasCycle</em> operation takes constant time;
- *  the <em>cycle</em> operation takes time proportional
- *  to the length of the cycle.
- *  <p>
- *  See {@link Topological} to compute a topological order if the
- *  digraph is acyclic.
- *  <p>
- *  For additional documentation,
- *  see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>DirectedCycle</tt> class represents a data type for
+ * determining whether a digraph has a directed cycle.
+ * The <em>hasCycle</em> operation determines whether the digraph has
+ * a directed cycle and, and of so, the <em>cycle</em> operation
+ * returns one.
+ * <p>
+ * This implementation uses depth-first search.
+ * The constructor takes time proportional to <em>V</em> + <em>E</em>
+ * (in the worst case),
+ * where <em>V</em> is the number of vertices and <em>E</em> is the number of edges.
+ * Afterwards, the <em>hasCycle</em> operation takes constant time;
+ * the <em>cycle</em> operation takes time proportional
+ * to the length of the cycle.
+ * <p>
+ * See {@link Topological} to compute a topological order if the
+ * digraph is acyclic.
+ * <p>
+ * For additional documentation,
+ * see <a href="http://algs4.cs.princeton.edu/42digraph">Section 4.2</a> of
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class DirectedCycle {
     private boolean[] marked;        // marked[v] = has vertex v been marked?
@@ -52,12 +51,13 @@ public class DirectedCycle {
     /**
      * Determines whether the digraph <tt>G</tt> has a directed cycle and, if so,
      * finds such a cycle.
+     *
      * @param G the digraph
      */
     public DirectedCycle(Digraph G) {
-        marked  = new boolean[G.V()];
+        marked = new boolean[G.V()];
         onStack = new boolean[G.V()];
-        edgeTo  = new int[G.V()];
+        edgeTo = new int[G.V()];
         for (int v = 0; v < G.V(); v++)
             if (!marked[v] && cycle == null) dfs(G, v);
     }
@@ -69,7 +69,9 @@ public class DirectedCycle {
         for (int w : G.adj(v)) {
 
             // short circuit if directed cycle found
-            if (cycle != null) return;
+            if (cycle != null) {
+                return;
+            }
 
             //found new vertex, so recur
             else if (!marked[w]) {
@@ -93,6 +95,7 @@ public class DirectedCycle {
 
     /**
      * Does the digraph have a directed cycle?
+     *
      * @return <tt>true</tt> if the digraph has a directed cycle, <tt>false</tt> otherwise
      */
     public boolean hasCycle() {
@@ -101,13 +104,13 @@ public class DirectedCycle {
 
     /**
      * Returns a directed cycle if the digraph has a directed cycle, and <tt>null</tt> otherwise.
+     *
      * @return a directed cycle (as an iterable) if the digraph has a directed cycle,
-     *    and <tt>null</tt> otherwise
+     * and <tt>null</tt> otherwise
      */
     public Iterable<Integer> cycle() {
         return cycle;
     }
-
 
     // certify that digraph has a directed cycle if it reports one
     private boolean check() {
@@ -124,7 +127,6 @@ public class DirectedCycle {
                 return false;
             }
         }
-
 
         return true;
     }
@@ -143,9 +145,7 @@ public class DirectedCycle {
                 StdOut.print(v + " ");
             }
             StdOut.println();
-        }
-
-        else {
+        } else {
             StdOut.println("No directed cycle");
         }
         StdOut.println();
@@ -154,25 +154,25 @@ public class DirectedCycle {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

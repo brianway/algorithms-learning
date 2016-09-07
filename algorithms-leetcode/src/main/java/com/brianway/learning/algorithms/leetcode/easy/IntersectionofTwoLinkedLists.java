@@ -10,7 +10,6 @@ import com.brianway.learning.algorithms.leetcode.common.ListNode;
  */
 public class IntersectionofTwoLinkedLists {
 
-
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         return null;
     }
@@ -20,40 +19,40 @@ public class IntersectionofTwoLinkedLists {
      * 时间复杂度O(n1+n2)
      * 空间复杂度O(1)
      */
-    public class IntersectionofTwoLinkedLists0 extends IntersectionofTwoLinkedLists{
+    public class IntersectionofTwoLinkedLists0 extends IntersectionofTwoLinkedLists {
         @Override
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
             ListNode a = headA;
             ListNode b = headB;
-            int countA =0;
-            int countB =0;
+            int countA = 0;
+            int countB = 0;
 
-            while (a!=null){
+            while (a != null) {
                 countA++;
-                a=a.next;
+                a = a.next;
             }
-            while (b!=null){
+            while (b != null) {
                 countB++;
-                b=b.next;
+                b = b.next;
             }
             a = headA;
             b = headB;
-            if(countA>countB){
-                for(int i=0;i<countA-countB;i++){
+            if (countA > countB) {
+                for (int i = 0; i < countA - countB; i++) {
                     a = a.next;
                 }
-            }else{
-                for(int i=0;i<countB-countA;i++){
+            } else {
+                for (int i = 0; i < countB - countA; i++) {
                     b = b.next;
                 }
             }
 
-            while(a!=null){
-                if(a==b){
+            while (a != null) {
+                if (a == b) {
                     return a;
                 }
-                a=a.next;
-                b=b.next;
+                a = a.next;
+                b = b.next;
             }
 
             return null;

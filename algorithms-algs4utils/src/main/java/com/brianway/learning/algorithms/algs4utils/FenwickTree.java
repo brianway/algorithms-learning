@@ -1,15 +1,11 @@
 /******************************************************************************
- *  Compilation:  javac FenwickTree.java
- *  Execution:    java FenwickTree
+ * Compilation:  javac FenwickTree.java
+ * Execution:    java FenwickTree
  *
- *  A Fenwick tree.
- *
+ * A Fenwick tree.
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by ricardodpsx@gmail.com on 4/01/15.
@@ -42,7 +38,7 @@ import java.util.Arrays;
  * <p/>
  * Memory usage:  O(n)
  *
- * @author Ricardo Pacheco 
+ * @author Ricardo Pacheco
  */
 public class FenwickTree {
 
@@ -102,7 +98,6 @@ public class FenwickTree {
         return array.length - 1;
     }
 
-
     /**
      * Read the following commands:
      * init n     Initializes the array of size n all zeroes
@@ -124,7 +119,6 @@ public class FenwickTree {
      * @param args
      */
     public static void main(String[] args) {
-
 
         FenwickTree ft = null;
 
@@ -154,57 +148,50 @@ public class FenwickTree {
                     StdOut.print(ft.rsq(i, i) + " ");
                 }
                 StdOut.println();
-            }
-            else if (line[0].equals("set")) {
+            } else if (line[0].equals("set")) {
                 ft = new FenwickTree(line.length - 1);
                 for (int i = 1; i <= line.length - 1; i++) {
                     ft.update(i, Integer.parseInt(line[i]));
                 }
-            }
-
-            else if (line[0].equals("up")) {
+            } else if (line[0].equals("up")) {
                 ft.update(arg1, arg2);
                 for (int i = 1; i <= ft.size(); i++) {
                     StdOut.print(ft.rsq(i, i) + " ");
                 }
                 StdOut.println();
-            }
-            else if (line[0].equals("rsq")) {
+            } else if (line[0].equals("rsq")) {
                 StdOut.printf("Sum from %d to %d = %d%n", arg1, arg2, ft.rsq(arg1, arg2));
-            }
-            else {
+            } else {
                 StdOut.println("Invalid command");
             }
 
         }
 
-
         StdOut.close();
     }
-
 
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/

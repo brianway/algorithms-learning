@@ -11,17 +11,16 @@ public class MajorityElementTest {
 
     private MajorityElement testObject;
 
-    int []nums = new int[]{1,1,1,2,2,2,2,2,3};
+    int[] nums = new int[] {1, 1, 1, 2, 2, 2, 2, 2, 3};
     int result = 2;
 
-
     @Before
-    public void SetUp(){
+    public void SetUp() {
         testObject = new MajorityElement().new MajorityElement0();
     }
 
     @Test
-    public void testremoveDuplicates(){
-        Assert.assertEquals(result,testObject.majorityElement(nums));
+    public void testremoveDuplicates() {
+        Assert.assertEquals(result, testObject.majorityElement(nums));
     }
 }

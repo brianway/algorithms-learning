@@ -7,7 +7,6 @@ import java.util.HashSet;
  * LeetCode 202
  * Question:https://leetcode.com/problems/happy-number/
  * 关键题设： or it loops endlessly in a cycle which does not include 1
-
  */
 public class HappyNumber {
     public boolean isHappy(int n) {
@@ -21,27 +20,26 @@ public class HappyNumber {
      * 若不存在则添加进HashSet，更新n
      * TODO 时间复杂度 空间复杂度
      */
-    public class HappyNumber0 extends HappyNumber{
+    public class HappyNumber0 extends HappyNumber {
         @Override
         public boolean isHappy(int n) {
             HashSet<Integer> set = new HashSet<Integer>();
-            int sum =0;
-            while (true){
+            int sum = 0;
+            while (true) {
                 sum = 0;
-                while(n!=0){
-                    sum += (n%10)*(n%10);
-                    n=n/10;
+                while (n != 0) {
+                    sum += (n % 10) * (n % 10);
+                    n = n / 10;
                 }
-                if(set.contains(sum)){
-                    return sum==1;
-                }else{
+                if (set.contains(sum)) {
+                    return sum == 1;
+                } else {
                     set.add(sum);
-                    n=sum;
+                    n = sum;
                 }
             }
 
         }
     }
-
 
 }

@@ -21,18 +21,18 @@ public class MaximumSubarray {
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class MaximumSubarray0 extends MaximumSubarray{
+    public class MaximumSubarray0 extends MaximumSubarray {
         @Override
         public int maxSubArray(int[] nums) {
-            if(nums == null || nums.length == 0){
+            if (nums == null || nums.length == 0) {
                 return 0;
             }
             int sum = 0;
             int max = Integer.MIN_VALUE;
-            for(int i=0;i<nums.length;i++){
-                sum+=nums[i];
-                max = sum>max?sum:max;
-                sum = sum>0?sum:0;
+            for (int i = 0; i < nums.length; i++) {
+                sum += nums[i];
+                max = sum > max ? sum : max;
+                sum = sum > 0 ? sum : 0;
             }
             return max;
         }
@@ -45,17 +45,17 @@ public class MaximumSubarray {
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class MaximumSubarray1 extends MaximumSubarray{
+    public class MaximumSubarray1 extends MaximumSubarray {
         @Override
         public int maxSubArray(int[] nums) {
-            if(nums == null || nums.length == 0){
+            if (nums == null || nums.length == 0) {
                 return 0;
             }
             int local = nums[0];
             int global = nums[0];
-            for(int i=1;i<nums.length;i++){
-                local = local+nums[i]>nums[i]?local+nums[i]:nums[i];
-                global = global>local?global:local;
+            for (int i = 1; i < nums.length; i++) {
+                local = local + nums[i] > nums[i] ? local + nums[i] : nums[i];
+                global = global > local ? global : local;
             }
             return global;
         }

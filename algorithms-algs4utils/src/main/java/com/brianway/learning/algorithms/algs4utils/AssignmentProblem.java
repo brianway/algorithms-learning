@@ -1,42 +1,41 @@
 /******************************************************************************
- *  Compilation:  javac AssignmentProblem.java
- *  Execution:    java AssignmentProblem N
- *  Dependencies: DijkstraSP.java DirectedEdge.java
+ * Compilation:  javac AssignmentProblem.java
+ * Execution:    java AssignmentProblem N
+ * Dependencies: DijkstraSP.java DirectedEdge.java
  *
- *  Solve an N-by-N assignment problem in N^3 log N time using the
- *  successive shortest path algorithm.
+ * Solve an N-by-N assignment problem in N^3 log N time using the
+ * successive shortest path algorithm.
  *
- *  Assumes N-by-N cost matrix is nonnegative.
- *  TODO: remove this assumption
- *
+ * Assumes N-by-N cost matrix is nonnegative.
+ * TODO: remove this assumption
  ******************************************************************************/
 
 package com.brianway.learning.algorithms.algs4utils;
 
 /**
- *  The <tt>AssignmentProblem</tt> class represents a data type for computing
- *  an optimal solution to an <em>N</em>-by-<em>N</em> <em>assignment problem</em>.
- *  The assignment problem is to find a minimum weight matching in an
- *  edge-weighted complete bipartite graph.
- *  <p>
- *  The data type supplies methods for determining the optimal solution
- *  and the corresponding dual solution.
- *  <p>
- *  This implementation uses the <em>successive shortest paths algorithm</em>.
- *  The order of growth of the running time in the worst case is
- *  O(<em>N</em>^3 log <em>N</em>) to solve an <em>N</em>-by-<em>N</em>
- *  instance.
- *  <p>
- *  See also {@link WeightedBipartiteMatching}, which solves the problem
- *  in O(<em>E V</em> log <em>V</em>) time in the worst case
- *  for bipartite graphs with <em>V</em> vertices and <em>E</em> edges.
- *  <p>
- *  For additional documentation, see
- *  <a href="http://algs4.cs.princeton.edu/65reductions">Section 6.5</a>
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * The <tt>AssignmentProblem</tt> class represents a data type for computing
+ * an optimal solution to an <em>N</em>-by-<em>N</em> <em>assignment problem</em>.
+ * The assignment problem is to find a minimum weight matching in an
+ * edge-weighted complete bipartite graph.
+ * <p>
+ * The data type supplies methods for determining the optimal solution
+ * and the corresponding dual solution.
+ * <p>
+ * This implementation uses the <em>successive shortest paths algorithm</em>.
+ * The order of growth of the running time in the worst case is
+ * O(<em>N</em>^3 log <em>N</em>) to solve an <em>N</em>-by-<em>N</em>
+ * instance.
+ * <p>
+ * See also {@link WeightedBipartiteMatching}, which solves the problem
+ * in O(<em>E V</em> log <em>V</em>) time in the worst case
+ * for bipartite graphs with <em>V</em> vertices and <em>E</em> edges.
+ * <p>
+ * For additional documentation, see
+ * <a href="http://algs4.cs.princeton.edu/65reductions">Section 6.5</a>
+ * <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * @author Robert Sedgewick
+ * @author Kevin Wayne
  */
 public class AssignmentProblem {
     private static final int UNMATCHED = -1;
@@ -51,17 +50,18 @@ public class AssignmentProblem {
     /**
      * Determines an optimal solution to the assignment problem.
      *
-     * @param  weight the <em>N</em>-by-<em>N</em> matrix of weights
+     * @param weight the <em>N</em>-by-<em>N</em> matrix of weights
      * @throws IllegalArgumentException unless all weights are nonnegative
-     * @throws NullPointerException if <tt>weight</tt> is <tt>null</tt>
-     */ 
+     * @throws NullPointerException     if <tt>weight</tt> is <tt>null</tt>
+     */
     public AssignmentProblem(double[][] weight) {
         N = weight.length;
         this.weight = new double[N][N];
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (!(weight[i][j] >= 0.0))
+                if (!(weight[i][j] >= 0.0)) {
                     throw new IllegalArgumentException("weights must be nonnegative");
+                }
                 this.weight[i][j] = weight[i][j];
             }
         }
@@ -74,9 +74,9 @@ public class AssignmentProblem {
         xy = new int[N];
         yx = new int[N];
         for (int i = 0; i < N; i++)
-             xy[i] = UNMATCHED;
+            xy[i] = UNMATCHED;
         for (int j = 0; j < N; j++)
-             yx[j] = UNMATCHED;
+            yx[j] = UNMATCHED;
 
         // add N edges to matching
         for (int k = 0; k < N; k++) {
@@ -91,20 +91,25 @@ public class AssignmentProblem {
     private void augment() {
 
         // build residual graph
-        EdgeWeightedDigraph G = new EdgeWeightedDigraph(2*N+2);
-        int s = 2*N, t = 2*N+1;
+        EdgeWeightedDigraph G = new EdgeWeightedDigraph(2 * N + 2);
+        int s = 2 * N, t = 2 * N + 1;
         for (int i = 0; i < N; i++) {
-            if (xy[i] == UNMATCHED)
+            if (xy[i] == UNMATCHED) {
                 G.addEdge(new DirectedEdge(s, i, 0.0));
+            }
         }
         for (int j = 0; j < N; j++) {
-            if (yx[j] == UNMATCHED)
-                G.addEdge(new DirectedEdge(N+j, t, py[j]));
+            if (yx[j] == UNMATCHED) {
+                G.addEdge(new DirectedEdge(N + j, t, py[j]));
+            }
         }
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (xy[i] == j) G.addEdge(new DirectedEdge(N+j, i, 0.0));
-                else            G.addEdge(new DirectedEdge(i, N+j, reducedCost(i, j)));
+                if (xy[i] == j) {
+                    G.addEdge(new DirectedEdge(N + j, i, 0.0));
+                } else {
+                    G.addEdge(new DirectedEdge(i, N + j, reducedCost(i, j)));
+                }
             }
         }
 
@@ -124,7 +129,7 @@ public class AssignmentProblem {
         for (int i = 0; i < N; i++)
             px[i] += spt.distTo(i);
         for (int j = 0; j < N; j++)
-            py[j] += spt.distTo(N+j);
+            py[j] += spt.distTo(N + j);
     }
 
     // reduced cost of i-j
@@ -135,10 +140,9 @@ public class AssignmentProblem {
     /**
      * Returns the dual optimal value for the specified row.
      *
-     * @param  i the row index
+     * @param i the row index
      * @return the dual optimal value for row <tt>i</tt>
      * @throws IndexOutOfBoundsException unless <tt>0 &le; i &lt; N</tt>
-     *
      */
     // dual variable for row i
     public double dualRow(int i) {
@@ -149,10 +153,9 @@ public class AssignmentProblem {
     /**
      * Returns the dual optimal value for the specified column.
      *
-     * @param  j the column index
+     * @param j the column index
      * @return the dual optimal value for column <tt>j</tt>
      * @throws IndexOutOfBoundsException unless <tt>0 &le; j &lt; N</tt>
-     *
      */
     public double dualCol(int j) {
         validate(j);
@@ -162,10 +165,9 @@ public class AssignmentProblem {
     /**
      * Returns the column associated with the specified row in the optimal solution.
      *
-     * @param  i the row index
+     * @param i the row index
      * @return the column matched to row <tt>i</tt> in the optimal solution
      * @throws IndexOutOfBoundsException unless <tt>0 &le; i &lt; N</tt>
-     *
      */
     public int sol(int i) {
         validate(i);
@@ -176,13 +178,13 @@ public class AssignmentProblem {
      * Returns the total weight of the optimal solution
      *
      * @return the total weight of the optimal solution
-     *
      */
     public double weight() {
         double total = 0.0;
         for (int i = 0; i < N; i++) {
-            if (xy[i] != UNMATCHED)
+            if (xy[i] != UNMATCHED) {
                 total += weight[i][xy[i]];
+            }
         }
         return total;
     }
@@ -191,11 +193,8 @@ public class AssignmentProblem {
         if (i < 0 || i >= N) throw new IndexOutOfBoundsException();
     }
 
-
     /**************************************************************************
-     *
-     *  The code below is solely for testing correctness of the data type.
-     *
+     * The code below is solely for testing correctness of the data type.
      **************************************************************************/
 
     // check that dual variables are feasible
@@ -286,10 +285,11 @@ public class AssignmentProblem {
         if (N <= 20) return;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (j == assignment.sol(i))
+                if (j == assignment.sol(i)) {
                     StdOut.printf("*%.0f ", weight[i][j]);
-                else
+                } else {
                     StdOut.printf(" %.0f ", weight[i][j]);
+                }
             }
             StdOut.println();
         }
@@ -298,25 +298,25 @@ public class AssignmentProblem {
 }
 
 /******************************************************************************
- *  Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
+ * Copyright 2002-2015, Robert Sedgewick and Kevin Wayne.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
+ * This file is part of algs4.jar, which accompanies the textbook
  *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
+ * Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
+ * http://algs4.cs.princeton.edu
  *
  *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * algs4.jar is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * algs4.jar is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
+ * You should have received a copy of the GNU General Public License
+ * along with algs4.jar.  If not, see http://www.gnu.org/licenses.
  ******************************************************************************/
