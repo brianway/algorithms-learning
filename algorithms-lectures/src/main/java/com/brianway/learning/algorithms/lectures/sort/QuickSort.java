@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.lectures;
+package com.brianway.learning.algorithms.lectures.sort;
 
 import java.util.Random;
 

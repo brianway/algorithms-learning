@@ -1,23 +1,25 @@
-package com.brianway.learning.algorithms.lectures;
+package com.brianway.learning.algorithms.lectures.sort;
 
 /**
  * Created by brian on 16/11/3.
- *
- * 冒泡排序
  */
 
-public class BubbleSort {
-    public int[] bubbleSort(int[] A, int n) {
+public class SelectionSort {
+    public int[] selectionSort(int[] A, int n) {
         if (n == 0 || A == null) {
             return null;
         }
+        int min = 0;
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
-                if (A[j] > A[j + 1]) {
-                    swap(A, j, j + 1);
+            min = i;
+            for (int j = i; j < n; j++) {
+                if (A[j] < A[min]) {
+                    min = j;
                 }
             }
+            swap(A, min, i);
         }
+
         return A;
     }
 
