@@ -5,35 +5,33 @@ package com.brianway.learning.algorithms.lectures.sort;
  */
 public class HeapSort {
     public int[] heapSort(int[] A, int n) {
-        if(A == null || n == 0){
+        if (A == null || n == 0) {
             return null;
         }
-        for(int i = n/2-1;i>=0;i--){
-            sink(A,i,n);
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            sink(A, i, n);
         }
-        int last = n-1;
-        while(last>0){
-            swap(A,0,last--);
-            sink(A,0,last+1);
+        int last = n - 1;
+        while (last > 0) {
+            swap(A, 0, last--);
+            sink(A, 0, last + 1);
         }
         return A;
-
     }
-    public void sink(int[] a, int i,int len) {
-        while(2*(i+1)-1<len){
-            int j = 2*(i+1)-1;
-            if(j<len-1 && a[j]<a[j+1]){
-                j++;
+
+    public void sink(int[] a, int i, int len) {
+        while (2 * (i + 1) - 1 < len) {
+            int child = 2 * (i + 1) - 1;
+            if (child < len - 1 && a[child] < a[child + 1]) {
+                child++;
             }
-            if(a[i]>=a[j]){
+            if (a[i] >= a[child]) {
                 break;
             }
 
-            swap(a,i,j);
-            i = j;
+            swap(a, i, child);
+            i = child;
         }
-
-
     }
 
     private void swap(int[] a, int i, int j) {
