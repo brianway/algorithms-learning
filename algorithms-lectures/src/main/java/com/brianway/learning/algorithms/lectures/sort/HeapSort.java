@@ -2,6 +2,8 @@ package com.brianway.learning.algorithms.lectures.sort;
 
 /**
  * Created by brian on 16/11/4.
+ *
+ * 堆排序
  */
 public class HeapSort {
     public int[] heapSort(int[] A, int n) {

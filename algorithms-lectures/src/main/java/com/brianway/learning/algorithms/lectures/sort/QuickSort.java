@@ -4,6 +4,8 @@ import java.util.Random;
 
 /**
  * Created by brian on 16/11/3.
+ *
+ * 快速排序
  */
 public class QuickSort {
     private static Random random = new Random();

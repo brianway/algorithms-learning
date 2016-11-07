@@ -2,6 +2,8 @@ package com.brianway.learning.algorithms.lectures.sort;
 
 /**
  * Created by brian on 16/11/3.
+ *
+ * 插入排序
  */
 public class InsertionSort {
     public int[] insertionSort(int[] A, int n) {

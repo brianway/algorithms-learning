@@ -2,6 +2,8 @@ package com.brianway.learning.algorithms.lectures.sort;
 
 /**
  * Created by brian on 16/11/3.
+ *
+ * 归并排序
  */
 public class MergeSort {
     public int[] mergeSort(int[] A, int n) {

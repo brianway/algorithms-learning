@@ -2,6 +2,8 @@ package com.brianway.learning.algorithms.lectures.sort;
 
 /**
  * Created by brian on 16/11/4.
+ *
+ * 希尔排序
  */
 public class ShellSort {
     public int[] shellSort(int[] A, int n) {
