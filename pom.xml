@@ -43,9 +43,9 @@
     </licenses>
 
     <modules>
-        <module>algorithms-lectures</module>
+        <module>algorithms-lecture</module>
         <module>algorithms-leetcode</module>
-        <module>algorithms-algs4utils</module>
+        <module>algorithms-algs4</module>
     </modules>
 
     <dependencyManagement>

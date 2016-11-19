@@ -1,8 +1,8 @@
 # 我的算法学习笔记
 
-《算法》(第四版)学习笔记，在coursera上看在线课程学习，顺带在LeetCode上刷题。
+在 coursera 和牛课网上看在线课程学习,顺带在 LeetCode 上刷题。所有算法均用 java 实现,配有思路说明。
 
-**如果觉得不错，请先在这个仓库上点个star吧**，这也是对我的肯定和鼓励，谢谢了。
+**如果觉得不错，请先在这个仓库上点个 star 吧**,这也是对我的肯定和鼓励,谢谢了。
 
 不定时进行调整和补充，需要关注更新的请 Watch、Star、Fork
 
@@ -12,22 +12,27 @@
 # 仓库目录
 
 
-- [algorithms-lectures](/algorithms-lectures):课程上涉及到的源码
-- [algorithms-leetcode](/algorithms-leetcode):leetcode的java题解，源码+注释
-- [algorithms-algs4utils](/algorithms-algs4utils):《算法》(第四版)的官网配套源码，copy到该模块了
+- [algorithms-lecture](/algorithms-lecture):牛课网算法课程上涉及到的源码
+- [algorithms-leetcode](/algorithms-leetcode):leetcode 的 java 题解，源码+注释
+- [algorithms-algs4](/algorithms-algs4):《算法》(第四版)的官网配套源码，copy到该模块了
 
------	
+-----
+	
 
+# 博文列表
+
+- [常见数据结构(一)-栈,队列,堆,哈希表](http://blog.csdn.net/h3243212/article/details/52811969)
+- [常见数据结构(二)-树(二叉树，红黑树，B树)](http://blog.csdn.net/h3243212/article/details/52819734)
+
+----
 
 # TODO
 
 计划逐步完善这个仓库，扩充并实现下面的功能。
 
-* [ ] 课程部分使用algorithms-lectures模块(进行中)
-* [ ] LeetCode的题目使用algorithms-leetcode模块(进行中)
-* [ ] 课程exercises部分使用algorithms-exercices模块
-* [ ] 书上的例子和习题使用algorithms-book4th模块
-
+* [ ] algorithms-lecture 模块记录牛课网的[《算法面试精品课》](http://www.nowcoder.com/courses/1)练习题(进行中)
+* [ ] LeetCode 的题目使用 algorithms-leetcode 模块(进行中)
+* [ ] 《剑指 offer》的练习题使用 algorithms-swordoffer 模块
 	
 
 -----
