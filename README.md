@@ -1,8 +1,8 @@
 # 我的算法学习笔记
 
-在 coursera 和牛课网上看在线课程学习,顺带在 LeetCode 上刷题。所有算法均用 java 实现,配有思路说明。
+在 coursera 和牛课网上看在线课程学习，顺带在 LeetCode 上刷题。所有算法均用 java 实现，配有思路说明。
 
-**如果觉得不错，请先在这个仓库上点个 star 吧**,这也是对我的肯定和鼓励,谢谢了。
+**如果觉得不错，请先在这个仓库上点个 star 吧**，这也是对我的肯定和鼓励，谢谢了。
 
 不定时进行调整和补充，需要关注更新的请 Watch、Star、Fork
 
@@ -17,7 +17,7 @@
 - [algorithms-algs4](/algorithms-algs4):《算法》(第四版)的官网配套源码，copy到该模块了
 
 -----
-	
+
 
 # 博文列表
 
@@ -28,12 +28,12 @@
 
 # TODO
 
-计划逐步完善这个仓库，扩充并实现下面的功能。
+计划逐步完善这个仓库，扩充并实现下面的功能
 
 * [ ] algorithms-lecture 模块记录牛课网的[《算法面试精品课》](http://www.nowcoder.com/courses/1)练习题(进行中)
 * [ ] LeetCode 的题目使用 algorithms-leetcode 模块(进行中)
 * [ ] 《剑指 offer》的练习题使用 algorithms-swordoffer 模块
-	
+
 
 -----
 

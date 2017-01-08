@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>algorithms-algs4utils</artifactId>
+    <artifactId>algorithms-algs4</artifactId>
 
     <dependencies>
         <dependency>
