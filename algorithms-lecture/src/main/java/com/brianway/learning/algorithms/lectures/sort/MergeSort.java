@@ -11,8 +11,8 @@ public class MergeSort {
             return null;
         }
         int[] help = new int[n];
+        int end;
         for (int size = 1; size < n; size = size * 2) {
-            int end = 0;
             for (int i = 0; i + size < n; i = i + 2 * size) {
                 end = Math.min(n, i + 2 * size);
                 merge(A, help, i, i + size, end);
@@ -38,6 +38,15 @@ public class MergeSort {
                 a[i] = help[left++];
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] a = {3, 6, 7, 2, 1, 8, 9};
+        int[] sort = new MergeSort().mergeSort(a, a.length);
+        for (int i : sort) {
+            System.out.print(i + ",");
+        }
+        System.out.println();
     }
 
 }

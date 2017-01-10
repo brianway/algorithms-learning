@@ -13,7 +13,7 @@ public class RadixSort {
         if (A == null || n == 0) {
             return null;
         }
-        int total = 4;
+        int total = radix.length;
         int[][] bucket = new int[10][n];
         int[] count = new int[10];
         int number = 0;
@@ -31,12 +31,20 @@ public class RadixSort {
 
             }
         }
-
         return A;
     }
 
     private int getNumber(int num, int i) {
         num = num / radix[i];
         return num % 10;
+    }
+
+    public static void main(String[] args) {
+        int[] a = {1023, 345, 1678, 478, 432, 98, 10, 29, 5};
+        int[] b = new RadixSort().radixSort(a, a.length);
+        for (int i : b) {
+            System.out.print(i + ",");
+        }
+        System.out.println();
     }
 }

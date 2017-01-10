@@ -33,6 +33,8 @@ public class Subsequence {
             }
         }
 
+//        System.out.println("right:" + right);
+//        System.out.println("left:" + left);
         if (right > left) {
             return right - left + 1;
         } else {
@@ -41,8 +43,9 @@ public class Subsequence {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 4, 6, 5, 9, 10};
-        int b = new Subsequence().shortestSubsequence(a, 6);
+        //int[] a = {1, 4, 6, 5, 9, 10};
+        int []a = {1,4,2,3};
+        int b = new Subsequence().shortestSubsequence(a, a.length);
         System.out.println(b);
     }
 }

@@ -7,6 +7,7 @@ package com.brianway.learning.algorithms.lectures.sort;
  * 给定一个int数组A和A的大小n，请返回最大的差值。保证数组元素多于1个。
  *
  * TODO 直接传delta不行,当数组较大(几百个)时会出错
+ * TODO F1
  */
 public class Gap {
     public int maxGap(int[] A, int n) {
