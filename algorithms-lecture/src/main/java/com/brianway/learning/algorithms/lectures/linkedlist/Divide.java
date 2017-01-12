@@ -47,7 +47,7 @@ public class Divide {
         if (smallTail != null) {
             smallTail.next = bigHead;
         } else {
-            return bigHead;
+            smallHead = bigHead;
         }
         return smallHead;
     }
