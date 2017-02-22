@@ -48,6 +48,7 @@ public class TwoStacks {
     public static void main(String[] args) {
         TwoStacks sr = new TwoStacks();
         int[] a = {1, 2, 3, 4, 5};
+        //int[] a = {2, 1, 4, 3, 5};
         ArrayList<Integer> b = sr.twoStacksSort(a);
         for (int i : b) {
             System.out.print(i + ",");

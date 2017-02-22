@@ -11,3 +11,25 @@
 
 - ChkLoop: M1
 - ClearValue: M1
+
+## binarytree 包
+
+- FindErrorNode: F1
+- TreeToSequence2: M1
+
+## binarysearch 包
+
+- LovalMin: M1
+- QuichPower: F1
+
+## stack 包
+
+- MaxTree: F1
+
+## string 包
+
+- DistinctSubstring: F1
+- IdenticalTree: M1 (KMP 复习)
+
+
+

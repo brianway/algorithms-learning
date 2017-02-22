@@ -27,10 +27,9 @@ public class Reverse {
             if (s[i] == ' ') {
                 end = i - 1;
                 reverse(s, begin, end);
-                begin = ++i;
-            } else {
-                i++;
+                begin = i + 1;
             }
+            i++;
         }
 
         if (s[n - 1] != ' ') {

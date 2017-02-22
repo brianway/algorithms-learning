@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 /**
  * Created by brian on 16/11/15.
+ *
+ * 自定义的辅助类,用于快速创建测试用例
  */
 public class TreeNode {
     int val = 0;
