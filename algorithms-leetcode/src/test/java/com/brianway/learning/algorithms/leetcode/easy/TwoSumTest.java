@@ -9,21 +9,48 @@ import org.junit.Test;
  */
 public class TwoSumTest {
 
-    private TwoSum testObject;
+    private TwoSum[] testObjects;
 
-    int[] nums = new int[] {2, 7, 11, 15};
-    int target = 9;
-    int[] result = {0, 1};
+    private int[][] allNums = new int[][] {
+            {2, 7, 11, 15},
+            {1, 4, 4, 5},
+            {2, 1, 3}
+    };
+    private int[] targets = {9, 8, 4};
+    private int[][] results = {
+            {0, 1},
+            {1, 2},
+            {1, 2}
+    };
 
     @Before
     public void SetUp() {
-        testObject = new TwoSum().new TwoSum1();
+        testObjects = new TwoSum[3];
+        testObjects[0] = new TwoSum().new TwoSum0();
+        testObjects[1] = new TwoSum().new TwoSum1();
+        testObjects[2] = new TwoSum().new TwoSum2();
+
     }
 
     @Test
     public void testTwoSum() {
-        Assert.assertArrayEquals(result, testObject.twoSum(nums, target));
+        int i = 2;
+        int[] nums = allNums[i];
+        int target = targets[i];
+        int[] result = results[i];
+        Assert.assertArrayEquals(result, testObjects[1].twoSum(nums, target));
+    }
 
+    @Test
+    public void testAll() {
+        for (int oi = 0; oi < testObjects.length; oi++) {
+            for (int i = 0; i < targets.length; i++) {
+                int[] nums = allNums[i];
+                int target = targets[i];
+                int[] result = results[i];
+                Assert.assertArrayEquals(result, testObjects[oi].twoSum(nums, target));
+            }
+        }
     }
 
 }

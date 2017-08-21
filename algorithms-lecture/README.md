@@ -20,7 +20,7 @@
 ## binarysearch 包
 
 - LovalMin: M1
-- QuichPower: F1
+- QuickPower: F1
 
 ## stack 包
 
