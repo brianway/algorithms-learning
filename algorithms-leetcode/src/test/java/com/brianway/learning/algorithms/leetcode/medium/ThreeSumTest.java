@@ -13,13 +13,9 @@ public class ThreeSumTest {
 
     private ThreeSum testObject;
 
-    int[] nums;
-    ArrayList<ArrayList<Integer>> result;//= new ArrayList<ArrayList<Integer>>();
+    private int[] nums;
+    private ArrayList<ArrayList<Integer>> result;//= new ArrayList<ArrayList<Integer>>();
 
-    //int [][] nums_array = new int[][]{
-    //
-    //};
-    //int [] result_array = new int[]{0,1,0,2,0,2};
     @Before
     public void SetUp() {
         nums = new int[] {1, -1, -1, 2, 0, 1};
@@ -32,12 +28,13 @@ public class ThreeSumTest {
     }
 
     private ArrayList<ArrayList<Integer>> getArrayList(int[][] array) {
-        ArrayList<ArrayList<Integer>> all = new ArrayList<ArrayList<Integer>>();
-        for (int i = 0; i < array.length; i++) {
-            ArrayList<Integer> match = new ArrayList<Integer>(3);
-            match.add(array[i][0]);
-            match.add(array[i][1]);
-            match.add(array[i][2]);
+        ArrayList<ArrayList<Integer>> all = new ArrayList<>();
+        int size = 3;
+        for (final int[] anArray : array) {
+            ArrayList<Integer> match = new ArrayList<>(size);
+            for (int j = 0; j < size; j++) {
+                match.add(anArray[j]);
+            }
             all.add(match);
         }
         return all;
