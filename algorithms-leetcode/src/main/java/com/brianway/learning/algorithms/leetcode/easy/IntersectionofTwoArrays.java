@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * Created by brian on 16/6/6.
- * LeetCode 349
+ * LeetCode 349. Intersection of Two Arrays
  * Question:https://leetcode.com/problems/intersection-of-two-arrays/
  * 关键题设：Each element in the result must be unique.The result can be in any order
  */

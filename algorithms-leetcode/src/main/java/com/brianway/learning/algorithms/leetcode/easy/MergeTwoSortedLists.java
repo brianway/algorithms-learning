@@ -4,7 +4,7 @@ import com.brianway.learning.algorithms.leetcode.common.ListNode;
 
 /**
  * Created by Brian on 2016/5/4.
- * LeetCode 21
+ * LeetCode 21. Merge Two Sorted Lists
  * Question:https://leetcode.com/problems/merge-two-sorted-lists/
  * 关键题设： two sorted linked lists
  */

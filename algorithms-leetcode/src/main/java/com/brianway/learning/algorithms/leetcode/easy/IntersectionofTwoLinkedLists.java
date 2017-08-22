@@ -4,7 +4,7 @@ import com.brianway.learning.algorithms.leetcode.common.ListNode;
 
 /**
  * Created by Brian on 2016/5/4.
- * LeetCode 160
+ * LeetCode 160. Intersection of Two Linked Lists
  * Question:https://leetcode.com/problems/intersection-of-two-linked-lists/
  * 关键题设：  preferably run in O(n) time and use only O(1) memory
  */

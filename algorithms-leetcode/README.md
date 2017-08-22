@@ -19,6 +19,15 @@ python版: http://bookshadow.com/leetcode/
 |141|Linked List Cycle|Easy|
 |148|Sort List|Medium|
 |153|Find Minimum in Rotated Sorted Array|Medium|
+|162|Find Peak Element|Medium|
+|169|Majority Element|Easy|
+|202|Happy Number|Easy|
 |209|Minimum Size Subarray Sum|Medium|
+|231|Power of Two|Easy|
+|257|Binary Tree Paths|Easy|
+|344|Reverse String|Easy|
+|347|Top K Frequent Elements|Medium|
+|349|Intersection of Two Arrays|Easy|
+
 
 

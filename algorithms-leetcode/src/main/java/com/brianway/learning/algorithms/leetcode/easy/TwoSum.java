@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Created by Brian on 2016/4/19.
- * LeetCode 1
+ * LeetCode 1. Two Sum
  * Question:https://leetcode.com/problems/two-sum/
  * 关键题设：You may assume that each input would have exactly one solution.找出一解即可
  */

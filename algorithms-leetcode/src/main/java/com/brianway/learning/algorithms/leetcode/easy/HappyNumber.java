@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 /**
  * Created by brian on 2016/5/15.
- * LeetCode 202
+ * LeetCode 202. Happy Number
  * Question:https://leetcode.com/problems/happy-number/
  * 关键题设： or it loops endlessly in a cycle which does not include 1
  */

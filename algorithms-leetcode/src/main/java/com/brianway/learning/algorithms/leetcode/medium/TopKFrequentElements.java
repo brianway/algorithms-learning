@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 
 /**
  * Created by brian on 16/6/5.
- * LeetCode 347
+ * LeetCode 347. Top K Frequent Elements
  * Question:https://leetcode.com/problems/top-k-frequent-elements/
  * 关键题设：non-empty array, time complexity must be better than O(n log n)
  */

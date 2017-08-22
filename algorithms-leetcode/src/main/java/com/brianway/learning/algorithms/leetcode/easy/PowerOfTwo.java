@@ -2,7 +2,7 @@ package com.brianway.learning.algorithms.leetcode.easy;
 
 /**
  * Created by brian on 16/5/23.
- * LeetCode 231
+ * LeetCode 231. Power of Two
  * Question:https://leetcode.com/problems/power-of-two/
  * 关键题设：power of two
  */
@@ -36,7 +36,7 @@ public class PowerOfTwo {
     }
 
     /**
-     * n与n-1按位与
+     * n 与 n-1 按位与
      * 好像并不受小于0的数影响,小于稳定返回false
      * 注意零值
      */

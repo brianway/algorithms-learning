@@ -9,18 +9,22 @@ import org.junit.Test;
  */
 public class MajorityElementTest {
 
-    private MajorityElement testObject;
-
-    int[] nums = new int[] {1, 1, 1, 2, 2, 2, 2, 2, 3};
-    int result = 2;
+    private MajorityElement[] testObjects;
 
     @Before
     public void SetUp() {
-        testObject = new MajorityElement().new MajorityElement0();
+        testObjects = new MajorityElement[3];
+        testObjects[0] = new MajorityElement().new MajorityElement0();
+        testObjects[1] = new MajorityElement().new MajorityElement1();
+        testObjects[2] = new MajorityElement().new MajorityElement2();
     }
 
     @Test
     public void testremoveDuplicates() {
-        Assert.assertEquals(result, testObject.majorityElement(nums));
+        int[] nums = new int[] {1, 1, 1, 2, 2, 2, 2, 2, 3};
+        int result = 2;
+        Assert.assertEquals(result, testObjects[0].majorityElement(nums));
+        Assert.assertEquals(result, testObjects[1].majorityElement(nums));
+        Assert.assertEquals(result, testObjects[2].majorityElement(nums));
     }
 }

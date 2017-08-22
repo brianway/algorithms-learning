@@ -2,7 +2,7 @@ package com.brianway.learning.algorithms.leetcode.medium;
 
 /**
  * Created by Brian on 2016/4/30.
- * LeetCode 162
+ * LeetCode 162. Find Peak Element
  * Question:https://leetcode.com/problems/find-peak-element/
  * 关键题设： imagine that num[-1] = num[n] = -∞， an input array where num[i] ≠ num[i+1]， any one of the peaks is fine
  */

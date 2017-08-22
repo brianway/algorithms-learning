@@ -11,16 +11,15 @@ public class ReverseStringTest {
 
     private ReverseString testObject;
 
-    String[] origin = new String[] {"", "123", "a.", "asdfg", "asdfgh"};
-    String[] result = {"", "321", ".a", "gfdsa", "hgfdsa"};
-
     @Before
     public void SetUp() {
         testObject = new ReverseString().new ReverseString0();
     }
 
     @Test
-    public void testReverseStringMore() {
+    public void testAll() {
+        String[] origin = new String[] {"", "123", "a.", "asdfg", "asdfgh"};
+        String[] result = {"", "321", ".a", "gfdsa", "hgfdsa"};
         for (int i = 0; i < origin.length; i++) {
             Assert.assertEquals(result[i], testObject.reverseString(origin[i]));
         }

@@ -2,7 +2,7 @@ package com.brianway.learning.algorithms.leetcode.medium;
 
 /**
  * Created by Brian on 2016/4/30.
- * LeetCode 53
+ * LeetCode 53. Maximum Subarray
  * Question:https://leetcode.com/problems/maximum-subarray/
  * 关键题设： contiguous subarray
  */

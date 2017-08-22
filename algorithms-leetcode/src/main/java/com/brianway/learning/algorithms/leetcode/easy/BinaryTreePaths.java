@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by brian on 16/6/6.
- * LeetCode 257
+ * LeetCode 257. Binary Tree Paths
  * Question:https://leetcode.com/problems/binary-tree-paths/
  * 关键题设：return all root-to-leaf paths
  */
@@ -23,7 +23,7 @@ public class BinaryTreePaths {
      * 注意根节点为空的检查
      */
     public class BinaryTreePaths0 extends BinaryTreePaths {
-        private List<String> result = new ArrayList<String>();
+        private List<String> result = new ArrayList<>();
 
         @Override
         public List<String> binaryTreePaths(TreeNode root) {
@@ -32,6 +32,12 @@ public class BinaryTreePaths {
             return result;
         }
 
+        /**
+         * 递归遍历二叉树
+         *
+         * @param currentNode 当前节点
+         * @param path 从根节点到达当前节点的路径字符串
+         */
         private void searchPath(TreeNode currentNode, String path) {
             //左右节点都为空,该节点为子节点
             if (currentNode.left == null && currentNode.right == null) {
