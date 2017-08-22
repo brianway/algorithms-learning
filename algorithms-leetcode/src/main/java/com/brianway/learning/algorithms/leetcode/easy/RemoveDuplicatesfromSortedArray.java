@@ -2,9 +2,9 @@ package com.brianway.learning.algorithms.leetcode.easy;
 
 /**
  * Created by Brian on 2016/4/26.
- * LeetCode 26
+ * LeetCode 26. Remove Duplicates from Sorted Array
  * Question:https://leetcode.com/problems/remove-duplicates-from-sorted-array/
- * 关键题设：a sorted array
+ * 关键题设: a sorted array,remove the duplicates in place
  */
 public class RemoveDuplicatesfromSortedArray {
     public int removeDuplicates(int[] nums) {
