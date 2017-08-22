@@ -4,7 +4,7 @@ import com.brianway.learning.algorithms.leetcode.common.ListNode;
 
 /**
  * Created by brian on 16/5/22.
- * LeetCode 148
+ * LeetCode 148. Sort List
  * Question:https://leetcode.com/problems/sort-list/
  * 关键题设： Sort a linked list in O(n log n) time using constant space complexity.
  */
@@ -19,7 +19,13 @@ public class SortList {
      * 分别排序前一半和后一半(前一半的最后一个节点的next要置为null)
      * 合并两个已排序的子链表(参考LeetCode 21)
      * 时间复杂度 O(n log n)
-     * TODO 空间复杂度是constant?难道不是n么?
+     * 空间复杂度 O(1),但是方法栈用了空间
+     *
+     * [1]-[2]-[3]-[4]-[5]-[6]
+     * slow->3,fast->5
+     *
+     * [1]-[2]-[3]-[4]-[5]-[6]-[7]
+     * slow->4,fast->7
      */
     public class SortList0 extends SortList {
         @Override
@@ -58,11 +64,9 @@ public class SortList {
 
             while (l1 != null && l2 != null) {
                 if (l1.val < l2.val) {
-                    //now.next = new ListNode(l1.val);
                     now.next = l1;
                     l1 = l1.next;
                 } else {
-                    //now.next = new ListNode(l2.val);
                     now.next = l2;
                     l2 = l2.next;
                 }

@@ -16,6 +16,9 @@ python版: http://bookshadow.com/leetcode/
 |21|Merge Two Sorted Lists|Easy|
 |26|Remove Duplicates from Sorted Array|Easy|
 |53|Maximum Subarray|Easy|
+|141|Linked List Cycle|Easy|
+|148|Sort List|Medium|
+|153|Find Minimum in Rotated Sorted Array|Medium|
 |209|Minimum Size Subarray Sum|Medium|
 
 

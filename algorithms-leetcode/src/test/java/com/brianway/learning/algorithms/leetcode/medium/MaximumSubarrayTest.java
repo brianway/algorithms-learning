@@ -9,18 +9,20 @@ import org.junit.Test;
  */
 public class MaximumSubarrayTest {
 
-    private MaximumSubarray testObject;
-
-    int[] nums = new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-    int result = 6;
+    private MaximumSubarray[] testObjects;
 
     @Before
     public void SetUp() {
-        testObject = new MaximumSubarray().new MaximumSubarray1();
+        testObjects = new MaximumSubarray[2];
+        testObjects[0] = new MaximumSubarray().new MaximumSubarray0();
+        testObjects[1] = new MaximumSubarray().new MaximumSubarray1();
     }
 
     @Test
     public void testMaximumSubarray() {
-        Assert.assertEquals(result, testObject.maxSubArray(nums));
+        int[] nums = new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int result = 6;
+        Assert.assertEquals(result, testObjects[0].maxSubArray(nums));
+        Assert.assertEquals(result, testObjects[1].maxSubArray(nums));
     }
 }

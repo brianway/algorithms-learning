@@ -2,7 +2,7 @@ package com.brianway.learning.algorithms.leetcode.medium;
 
 /**
  * Created by brian on 16/6/6.
- * LeetCode 153
+ * LeetCode 153. Find Minimum in Rotated Sorted Array
  * Question:https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
  * 关键题设： no duplicate exists in the array
  */
@@ -41,8 +41,10 @@ public class FindMinimuminRotatedSortedArray {
      *
      * 另外,可以看出,除非是按原序排列,不然一定有A[start]>A[end]
      *
-     * (1) A[mid] < A[end]：A[mid : end] sorted => min不在A[mid+1 : end]中,搜索A[start : mid]
-     * (2) A[mid] > A[end]：A[start : mid] sorted且又因为该情况下A[end]<A[start] => min不在A[start : mid]中,搜索A[mid+1 : end]
+     * (1) A[mid] < A[end]
+     *    A[mid : end] sorted => min不在A[mid+1 : end]中,搜索A[start : mid]
+     * (2) A[mid] > A[end]
+     *    A[start : mid] sorted且又因为该情况下A[end]<A[start] => min不在A[start : mid]中,搜索A[mid+1 : end]
      *
      * 时间复杂度 O(log(n))
      * 空间复杂度 O(1)

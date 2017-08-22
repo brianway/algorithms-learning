@@ -4,7 +4,7 @@ import com.brianway.learning.algorithms.leetcode.common.ListNode;
 
 /**
  * Created by brian on 16/5/22.
- * LeetCode 141
+ * LeetCode 141. Linked List Cycle
  * Question:https://leetcode.com/problems/linked-list-cycle/
  * 关键题设：without using extra space
  */
