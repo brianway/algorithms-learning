@@ -34,10 +34,10 @@ public class TopKFrequentElements {
     /**
      * 哈希表+优先队列
      * 遍历一遍,统计数字出现的次数
-     * 利用priorityqueue找出频数最大的前k个值
+     * 利用 PriorityQueue 找出频数最大的前k个值
      *
-     * 时间复杂度 O(n*log(k)),分析?
-     * 空间复杂度 O(n)? 感觉应该是nums中unique elements的个数m,O(m)
+     * 时间复杂度 O(n*log(k))
+     * 空间复杂度 O(n)
      */
     public class TopKFrequentElements0 extends TopKFrequentElements {
 
@@ -45,9 +45,9 @@ public class TopKFrequentElements {
             int num;
             int count;
 
-            public Pair(int num, int count) {
-                this.count = count;
+            Pair(int num, int count) {
                 this.num = num;
+                this.count = count;
             }
         }
 
@@ -64,13 +64,9 @@ public class TopKFrequentElements {
                 }
             }
             //使用优先队列找出前k个key
-            Comparator<Pair> comparator = new Comparator<Pair>() {
-                public int compare(Pair o1, Pair o2) {
-                    return o1.count - o2.count;
-                }
-            };
+            Comparator<Pair> comparator = Comparator.comparingInt(o -> o.count);
 
-            PriorityQueue<Pair> priorityQueue = new PriorityQueue<Pair>(k, comparator);
+            PriorityQueue<Pair> priorityQueue = new PriorityQueue<>(k, comparator);
 
             for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
                 Pair pair = new Pair(entry.getKey(), entry.getValue());
@@ -84,7 +80,7 @@ public class TopKFrequentElements {
             }
 
             //返回value最大的前k个key
-            List<Integer> list = new ArrayList<Integer>(k);
+            List<Integer> list = new ArrayList<>(k);
             while (priorityQueue.size() > 0) {
                 list.add(priorityQueue.poll().num);
             }
@@ -99,12 +95,12 @@ public class TopKFrequentElements {
      * 哈希表+桶排序
      * 遍历一遍,统计数字出现的次数
      * 使用桶排序:
-     * 桶的size为最大频数
-     * 桶的bindex为hashmap的value,即频数count;
-     * 桶中的元素为具有相同频数的num;
+     * 桶的 size 为最大频数
+     * 桶的 bindex 为 hashmap 的 value,即频数 count;
+     * 桶中的元素为具有相同频数的 num;
      *
      * 时间复杂度 O(n)
-     * 空间复杂度 O(n+m)?
+     * 空间复杂度? TODO
      */
     public class TopKFrequentElements1 extends TopKFrequentElements {
         @Override
@@ -127,23 +123,22 @@ public class TopKFrequentElements {
             }
 
             //initialize an array of ArrayList. index is frequency, value is list of numbers
+            @SuppressWarnings("unchecked")
             ArrayList<Integer>[] bucket = (ArrayList<Integer>[]) new ArrayList[max + 1];
-            for (int i = 0; i <= max; i++) {
-                bucket[i] = new ArrayList<Integer>();
-            }
 
             for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
                 int count = entry.getValue();
                 int num = entry.getKey();
+                if (bucket[count] == null) {
+                    bucket[count] = new ArrayList<>();
+                }
                 bucket[count].add(num);
             }
 
-            List<Integer> result = new ArrayList<Integer>(k);
+            List<Integer> result = new ArrayList<>(k);
             for (int i = max; i > 0 && result.size() < k; i--) {
-                if (bucket[i].size() > 0) {
-                    for (int num : bucket[i]) {
-                        result.add(num);
-                    }
+                if (bucket[i] != null) {
+                    result.addAll(bucket[i]);
                 }
             }
             return result;

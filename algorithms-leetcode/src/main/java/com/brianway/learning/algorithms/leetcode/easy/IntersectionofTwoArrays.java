@@ -41,7 +41,7 @@ public class IntersectionofTwoArrays {
                 }
             }
 
-            List<Integer> list = new ArrayList<Integer>();
+            List<Integer> list = new ArrayList<>();
 
             for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
                 if (entry.getValue() == 2) {
@@ -54,13 +54,13 @@ public class IntersectionofTwoArrays {
                 result[i] = list.get(i);
             }
             return result;
-
         }
     }
 
     /**
      * 哈希表
      * 使用两个哈希表,减少遍历次数
+     * hashMap1 存放数组1中的元素；hashMap2 存放两个数组的交集
      * 确实快了一些
      *
      * 时间复杂度 O(n1+n2)
@@ -69,8 +69,8 @@ public class IntersectionofTwoArrays {
     public class IntersectionofTwoArrays1 extends IntersectionofTwoArrays {
         @Override
         public int[] intersection(int[] nums1, int[] nums2) {
-            HashMap<Integer, Integer> hashMap1 = new HashMap<Integer, Integer>();
-            HashMap<Integer, Integer> hashMap2 = new HashMap<Integer, Integer>();
+            HashMap<Integer, Integer> hashMap1 = new HashMap<>();
+            HashMap<Integer, Integer> hashMap2 = new HashMap<>();
             for (int num : nums1) {
                 if (!hashMap1.containsKey(num)) {
                     hashMap1.put(num, 1);
@@ -83,7 +83,7 @@ public class IntersectionofTwoArrays {
                 }
             }
 
-            List<Integer> list = new ArrayList<Integer>();
+            List<Integer> list = new ArrayList<>();
 
             for (Map.Entry<Integer, Integer> entry : hashMap2.entrySet()) {
                 list.add(entry.getKey());
