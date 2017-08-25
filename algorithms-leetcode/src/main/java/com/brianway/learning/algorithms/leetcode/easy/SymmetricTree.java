@@ -24,6 +24,9 @@ public class SymmetricTree {
          *
          * 1. 若 root 为空，返回 true
          * 2. 若 root 非空，检查其左右子树是否对称
+         *
+         * 时间复杂度 O(n)
+         * 空间复杂度 使用的是方法栈，栈深度 log n
          */
         @Override
         public boolean isSymmetric(TreeNode root) {
@@ -59,6 +62,9 @@ public class SymmetricTree {
          * 同理，可以稍微变化中序或者后序遍历的顺序来实现其他版本
          *
          * 二. 分别层序列遍历左子树和右子树，每一层对称即可
+         *
+         * 时间复杂度 O(n)
+         * 空间复杂度 O(n)
          */
         @Override
         public boolean isSymmetric(TreeNode root) {
