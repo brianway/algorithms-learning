@@ -11,9 +11,9 @@ public class HappyNumberTest {
 
     private HappyNumber testObject;
 
-    int[] nums = new int[] {19, 11};
+    private int[] nums = new int[] {19, 11};
 
-    boolean[] result_array = new boolean[] {true, false};
+    private boolean[] results = new boolean[] {true, false};
 
     @Before
     public void SetUp() {
@@ -21,9 +21,9 @@ public class HappyNumberTest {
     }
 
     @Test
-    public void testHappyNumberMore() {
+    public void testAll() {
         for (int i = 0; i < nums.length; i++) {
-            Assert.assertEquals(result_array[i], testObject.isHappy(nums[i]));
+            Assert.assertEquals(results[i], testObject.isHappy(nums[i]));
         }
     }
 

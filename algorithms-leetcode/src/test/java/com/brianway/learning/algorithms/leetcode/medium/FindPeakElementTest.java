@@ -11,10 +11,7 @@ public class FindPeakElementTest {
 
     private FindPeakElement testObject;
 
-    int[] nums = new int[] {1, 2, 3, 1};
-    int result = 2;
-
-    int[][] nums_array = new int[][] {
+    private int[][] allNums = new int[][] {
             {1},
             {3, 4},
             {4, 2},
@@ -22,7 +19,7 @@ public class FindPeakElementTest {
             {3, 2, 1},
             {1, 2, 3, 1}
     };
-    int[] result_array = new int[] {0, 1, 0, 2, 0, 2};
+    private int[] results = new int[] {0, 1, 0, 2, 0, 2};
 
     @Before
     public void SetUp() {
@@ -31,13 +28,15 @@ public class FindPeakElementTest {
 
     @Test
     public void testFindPeakElement() {
+        int[] nums = new int[] {1, 2, 3, 1};
+        int result = 2;
         Assert.assertEquals(result, testObject.findPeakElement(nums));
     }
 
     @Test
-    public void testFindPeakElementMore() {
-        for (int i = 0; i < nums_array.length; i++) {
-            Assert.assertEquals(result_array[i], testObject.findPeakElement(nums_array[i]));
+    public void testAll() {
+        for (int i = 0; i < allNums.length; i++) {
+            Assert.assertEquals(results[i], testObject.findPeakElement(allNums[i]));
         }
     }
 

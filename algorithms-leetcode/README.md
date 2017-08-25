@@ -16,6 +16,7 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |:----|:----|:----|
 |1|Two Sum|Easy|
 |15|3Sum|Medium|
+|17|Letter Combinations of a Phone Number|Easy|
 |21|Merge Two Sorted Lists|Easy|
 |26|Remove Duplicates from Sorted Array|Easy|
 |53|Maximum Subarray|Easy|
