@@ -17,8 +17,11 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |1|Two Sum|Easy|
 |15|3Sum|Medium|
 |17|Letter Combinations of a Phone Number|Easy|
+|20|Valid Parentheses|Easy|
 |21|Merge Two Sorted Lists|Easy|
+|22|Generate Parentheses|Medium|
 |26|Remove Duplicates from Sorted Array|Easy|
+|31|Next Permutation|Medium|
 |53|Maximum Subarray|Easy|
 |101|Symmetric Tree|Easy|
 |141|Linked List Cycle|Easy|
@@ -28,6 +31,7 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |169|Majority Element|Easy|
 |202|Happy Number|Easy|
 |209|Minimum Size Subarray Sum|Medium|
+|221|Maximal Square|Medium|
 |231|Power of Two|Easy|
 |257|Binary Tree Paths|Easy|
 |344|Reverse String|Easy|
