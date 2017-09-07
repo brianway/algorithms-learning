@@ -34,9 +34,11 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |221|Maximal Square|Medium|
 |231|Power of Two|Easy|
 |257|Binary Tree Paths|Easy|
+|300|Longest Increasing Subsequence|Medium|
 |344|Reverse String|Easy|
 |347|Top K Frequent Elements|Medium|
 |349|Intersection of Two Arrays|Easy|
+|354|Russian Doll Envelopes|Hard|
 
 
 
