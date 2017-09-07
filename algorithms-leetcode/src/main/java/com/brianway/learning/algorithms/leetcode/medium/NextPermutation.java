@@ -26,6 +26,10 @@ public class NextPermutation {
      * Output:[2,1,3]
      * Expected: [1,3,2]
      * 2. 假如已经是最大排列，则重排成最小排列
+     *
+     *
+     * 时间复杂度 O(n + n*log n)
+     * 空间复杂度 O(1)
      */
     public class NextPermutation0 extends NextPermutation {
         @Override

@@ -18,6 +18,9 @@ public class MaximalSquare {
      *
      * 写代码时可以使用小 trick 来避免初始化：
      * dp大小申请为 (rows+1)＊(cols+1), i,j 从 1 开始取，从而避免越界
+     *
+     * 时间复杂度 O(mn)
+     * 空间复杂度 O(mn)
      */
     public class MaximalSquare0 extends MaximalSquare {
         @Override
@@ -44,6 +47,9 @@ public class MaximalSquare {
     /**
      * 优化版本的动态规划
      * 由于每次只用到了临近的数据，所以不用二维矩阵存 dp,使用一维的数组即可
+     *
+     * 时间复杂度 O(mn)
+     * 空间复杂度 O(n)
      */
     public class MaximalSquare1 extends MaximalSquare {
         @Override
