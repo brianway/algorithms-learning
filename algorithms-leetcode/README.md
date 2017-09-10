@@ -25,6 +25,7 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |53|Maximum Subarray|Easy|
 |70|Climbing Stairs|Easy|
 |101|Symmetric Tree|Easy|
+|120|Triangle|Medium|
 |141|Linked List Cycle|Easy|
 |148|Sort List|Medium|
 |153|Find Minimum in Rotated Sorted Array|Medium|
