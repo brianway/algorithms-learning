@@ -27,5 +27,14 @@ public class Backpack {
 }
 
 /**
+ * 参考链接
+ * http://love-oriented.com/pack/Index.html
+ * http://love-oriented.com/pack/P01.html
+ *
  * dp[i][j] 表示前 i 件物品达到不超过重量 j 时的最大价值
+ *
+ * 如果不放第i件物品，那么问题就转化为“前 i-1 件物品放入容量为 j 的背包中”;
+ * 如果放第i件物品，那么问题就转化为“前 i-1 件物品放入剩下的容量为 j-w[i]的背包中”
+ *
+ * dp[i][j] = max{dp[i-1][j], dp[i-1][j-w[i]] + v[i] }
  */
