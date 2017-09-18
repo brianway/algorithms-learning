@@ -28,8 +28,8 @@ public class Backpack {
 
 /**
  * 参考链接
- * http://love-oriented.com/pack/Index.html
- * http://love-oriented.com/pack/P01.html
+ * 背包问题九讲：http://love-oriented.com/pack/Index.html
+ * 01背包：http://love-oriented.com/pack/P01.html
  *
  * dp[i][j] 表示前 i 件物品达到不超过重量 j 时的最大价值
  *

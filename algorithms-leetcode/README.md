@@ -24,6 +24,7 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |26|Remove Duplicates from Sorted Array|Easy|
 |31|Next Permutation|Medium|
 |53|Maximum Subarray|Easy|
+|62|Unique Paths|Medium|
 |70|Climbing Stairs|Easy|
 |101|Symmetric Tree|Easy|
 |120|Triangle|Medium|
