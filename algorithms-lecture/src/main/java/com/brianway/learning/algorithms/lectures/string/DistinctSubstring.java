@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.lectures.String;
+package com.brianway.learning.algorithms.lectures.string;
 
 /**
  * Created by brian on 16/11/9.

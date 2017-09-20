@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.lectures.String;
+package com.brianway.learning.algorithms.lectures.string;
 
 import java.util.Arrays;
 import java.util.Comparator;
