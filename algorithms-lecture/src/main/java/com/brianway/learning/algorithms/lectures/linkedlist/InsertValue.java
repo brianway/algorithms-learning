@@ -13,12 +13,14 @@ package com.brianway.learning.algorithms.lectures.linkedlist;
 public class InsertValue {
 
     public ListNode insert(int[] A, int[] nxt, int val) {
+        //空链表时该节点自己组环
         if (A == null || nxt == null) {
             ListNode node = new ListNode(val);
             node.next = node;
             return node;
         }
 
+        //构造环形链表
         ListNode head = new ListNode(A[0]);
         ListNode current = head;
         for (int i = 0; i < A.length - 1; i++) {
@@ -42,6 +44,7 @@ public class InsertValue {
             }
         }
 
+        // insert 节点为最大或者最小，插入首尾之间
         if (after == head) {
             pre.next = insert;
             insert.next = head;

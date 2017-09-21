@@ -9,7 +9,6 @@ package com.brianway.learning.algorithms.lectures.linkedlist;
  * 调整后为，3->2->1->6->5->4->7->8->null。
  * 因为K==3，所以每三个节点之间逆序，但其中的7，8不调整，因为只有两个节点不够一组。
  * 给定一个单链表的头指针head,同时给定K值，返回逆序后的链表的头指针。
- *
  */
 public class KInverse {
     public ListNode inverse(ListNode head, int k) {
@@ -49,15 +48,13 @@ public class KInverse {
         ListNode newHead = null;
         ListNode current = head;
         ListNode pre = null;
-        ListNode next = null;
         for (int i = 0; i < k; i++) {
+            pre = newHead;
             newHead = current;
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
+            current = current.next;
+            newHead.next = pre;
         }
-        head.next = next;
+        head.next = current;
 
         return newHead;
     }
@@ -71,3 +68,22 @@ public class KInverse {
         ListNode.print(newHead);
     }
 }
+
+/*
+ private ListNode reverse(ListNode head, int k) {
+        ListNode newHead = null;
+        ListNode current = head;
+        ListNode pre = null;
+        ListNode next = null;
+        for (int i = 0; i < k; i++) {
+            pre = newHead;
+            next = current.next;
+            newHead = current;
+            current.next = pre;
+            current = next;
+        }
+        head.next = next;
+
+        return newHead;
+    }
+ */

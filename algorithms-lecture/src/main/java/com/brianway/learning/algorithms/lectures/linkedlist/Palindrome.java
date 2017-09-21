@@ -27,7 +27,7 @@ public class Palindrome {
 
         boolean result = false;
         ListNode mid = slow;
-        if (quick.next == null) {
+        if (quick.next == null) {//单数个节点
             ListNode tail = reverse(mid);
             result = meetToMid(pHead, tail);
             reverse(tail);
