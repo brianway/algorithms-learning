@@ -61,7 +61,7 @@ public class TreeToSequence2 {
                     stack.push(current.right);
                 }
                 current = current.right;
-            } else {
+            } else {// current != null && current.left != null
                 stack.push(current.left);
                 current = current.left;
             }

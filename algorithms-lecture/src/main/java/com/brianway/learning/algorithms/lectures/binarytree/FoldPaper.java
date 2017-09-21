@@ -28,6 +28,13 @@ public class FoldPaper {
         return res;
     }
 
+    /**
+     *
+     * @param i 第几次折
+     * @param n 一共折叠几次
+     * @param down 折痕方向
+     * @param queue 结果队列
+     */
     private void fold(int i, int n, boolean down, Queue<String> queue) {
         if (i > n) {
             return;

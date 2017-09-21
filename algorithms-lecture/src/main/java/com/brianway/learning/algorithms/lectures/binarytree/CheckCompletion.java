@@ -18,23 +18,23 @@ public class CheckCompletion {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
         TreeNode current = null;
-        boolean lastparent = false;
+        boolean lastParent = false;
         while (!queue.isEmpty()) {
             current = queue.poll();
             if (current.right != null && current.left == null) {
                 return false;
             }
-            if (lastparent && !isLeaf(current)) {
+            if (lastParent && !isLeaf(current)) {
                 return false;
             }
-
             if (current.left != null) {
                 queue.add(current.left);
             }
+
             if (current.right != null) {
                 queue.add(current.right);
             } else {
-                lastparent = true;
+                lastParent = true;
             }
 
         }
