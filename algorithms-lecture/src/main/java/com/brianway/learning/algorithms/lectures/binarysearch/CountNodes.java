@@ -54,5 +54,6 @@ public class CountNodes {
         CountNodes cn = new CountNodes();
         int count = cn.count(t1);
         System.out.println(count);
+        System.out.println(cn.count(t2));
     }
 }

@@ -36,6 +36,9 @@ public class StackReverse {
 
     }
 
+    /**
+     * 取出栈底元素
+     */
     private int get(Stack<Integer> stack) {
         int current = stack.pop();
         if (stack.isEmpty()) {

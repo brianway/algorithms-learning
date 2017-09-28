@@ -20,9 +20,6 @@ public class Find {
         if (arr[0] > n - 1 || arr[n - 1] < 0) {
             return -1;
         }
-        if (arr[0] == 0) {
-            return 0;
-        }
 
         int res = -1;
         int lo = 0;
@@ -41,5 +38,11 @@ public class Find {
         }
 
         return res;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {-1, 1, 2, 3, 4, 5};
+        Find find = new Find();
+        System.out.println(find.findPos(arr, arr.length));
     }
 }
