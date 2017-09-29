@@ -23,6 +23,13 @@
 
 - [常见数据结构(一)-栈,队列,堆,哈希表](http://blog.csdn.net/h3243212/article/details/52811969)
 - [常见数据结构(二)-树(二叉树，红黑树，B树)](http://blog.csdn.net/h3243212/article/details/52819734)
+- [常见算法基础题思路简析(一)-排序篇](http://blog.csdn.net/h3243212/article/details/78128651)
+- [常见算法基础题思路简析(二)-链表篇](http://blog.csdn.net/h3243212/article/details/78128666)
+- [常见算法基础题思路简析(三)-二叉树篇](http://blog.csdn.net/h3243212/article/details/78128683)
+- [常见算法基础题思路简析(四)-二分搜索篇](http://blog.csdn.net/h3243212/article/details/78128699)
+- [常见算法基础题思路简析(五)-队列和栈篇](http://blog.csdn.net/h3243212/article/details/78128717)
+- [常见算法基础题思路简析(六)-字符串篇](http://blog.csdn.net/h3243212/article/details/78128729)
+
 
 ----
 
