@@ -21,6 +21,7 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |20|Valid Parentheses|Easy|
 |21|Merge Two Sorted Lists|Easy|
 |22|Generate Parentheses|Medium|
+|23|Merge k Sorted Lists|Hard|
 |26|Remove Duplicates from Sorted Array|Easy|
 |31|Next Permutation|Medium|
 |53|Maximum Subarray|Easy|
