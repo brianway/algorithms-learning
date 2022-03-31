@@ -12,7 +12,7 @@ public class MaximumSubarrayTest {
     private MaximumSubarray[] testObjects;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObjects = new MaximumSubarray[2];
         testObjects[0] = new MaximumSubarray().new MaximumSubarray0();
         testObjects[1] = new MaximumSubarray().new MaximumSubarray1();

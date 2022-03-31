@@ -17,7 +17,7 @@ public class ThreeSumTest {
     private ArrayList<ArrayList<Integer>> result;//= new ArrayList<ArrayList<Integer>>();
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         nums = new int[] {1, -1, -1, 2, 0, 1};
         int[][] array = {
                 {-1, -1, 2},

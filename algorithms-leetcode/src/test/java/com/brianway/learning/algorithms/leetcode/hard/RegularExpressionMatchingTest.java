@@ -15,7 +15,7 @@ public class RegularExpressionMatchingTest {
     private boolean[] results = {true, true};
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new RegularExpressionMatching().new RegularExpressionMatching1();
     }
 

@@ -12,7 +12,7 @@ public class ReverseStringTest {
     private ReverseString testObject;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new ReverseString().new ReverseString0();
     }
 

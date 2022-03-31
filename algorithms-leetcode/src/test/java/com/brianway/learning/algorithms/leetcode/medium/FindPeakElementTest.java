@@ -22,7 +22,7 @@ public class FindPeakElementTest {
     private int[] results = new int[] {0, 1, 0, 2, 0, 2};
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new FindPeakElement().new FindPeakElement0();
     }
 

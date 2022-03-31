@@ -12,7 +12,7 @@ public class LetterCombinationsTest {
     private LetterCombinations testObject;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new LetterCombinations().new LetterCombinations0();
     }
 

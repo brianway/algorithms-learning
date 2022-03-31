@@ -5,7 +5,8 @@ https://siddontang.gitbooks.io/leetcode-solution/content/index.html
 python版: http://bookshadow.com/leetcode/
 
 Leetcode problems classified by company:
-http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-classified-by-company
+https://blogdesand.wordpress.com/
+https://github.com/duanehutchins/leetcode-questions-by-company
 
 ## 目录
 
@@ -16,7 +17,7 @@ http://www.learn4master.com/interview-questions/leetcode/leetcode-problems-class
 |:----|:----|:----|:----|:----|
 |1|Two Sum|Easy|Hash Table||
 |10|Regular Expression Matching|Hard|||
-|15|3Sum|Medium|||
+|15|3Sum|Medium|Two Pointers||
 |17|Letter Combinations of a Phone Number|Easy|||
 |20|Valid Parentheses|Easy|||
 |21|Merge Two Sorted Lists|Easy|||

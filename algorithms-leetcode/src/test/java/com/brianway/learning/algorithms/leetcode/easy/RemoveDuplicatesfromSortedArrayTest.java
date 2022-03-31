@@ -12,7 +12,7 @@ public class RemoveDuplicatesfromSortedArrayTest {
     private RemoveDuplicatesfromSortedArray testObject;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new RemoveDuplicatesfromSortedArray().new RemoveDuplicatesfromSortedArray0();
     }
 

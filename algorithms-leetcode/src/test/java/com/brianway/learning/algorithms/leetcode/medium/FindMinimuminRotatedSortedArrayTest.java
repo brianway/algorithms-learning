@@ -16,7 +16,7 @@ public class FindMinimuminRotatedSortedArrayTest {
     private int[] results = {0, 0, 0};
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObjects = new FindMinimuminRotatedSortedArray[2];
         testObjects[0] = new FindMinimuminRotatedSortedArray().new FindMinimuminRotatedSortedArray0();
         testObjects[1] = new FindMinimuminRotatedSortedArray().new FindMinimuminRotatedSortedArray1();

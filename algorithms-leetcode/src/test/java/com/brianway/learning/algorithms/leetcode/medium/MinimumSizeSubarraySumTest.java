@@ -12,7 +12,7 @@ public class MinimumSizeSubarraySumTest {
     private int[] results = {2, 3};
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new MinimumSizeSubarraySum().new MinimumSizeSubarraySum0();
     }
 

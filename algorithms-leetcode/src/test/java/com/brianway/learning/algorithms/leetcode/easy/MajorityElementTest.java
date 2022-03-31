@@ -12,7 +12,7 @@ public class MajorityElementTest {
     private MajorityElement[] testObjects;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObjects = new MajorityElement[3];
         testObjects[0] = new MajorityElement().new MajorityElement0();
         testObjects[1] = new MajorityElement().new MajorityElement1();
@@ -20,7 +20,7 @@ public class MajorityElementTest {
     }
 
     @Test
-    public void testremoveDuplicates() {
+    public void testRemoveDuplicates() {
         int[] nums = new int[] {1, 1, 1, 2, 2, 2, 2, 2, 3};
         int result = 2;
         Assert.assertEquals(result, testObjects[0].majorityElement(nums));

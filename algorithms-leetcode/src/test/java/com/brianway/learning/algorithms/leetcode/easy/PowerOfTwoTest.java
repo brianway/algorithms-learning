@@ -12,7 +12,7 @@ public class PowerOfTwoTest {
     private PowerOfTwo[] testObjects;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObjects = new PowerOfTwo[2];
         testObjects[0] = new PowerOfTwo().new PowerOfTwo0();
         testObjects[1] = new PowerOfTwo().new PowerOfTwo1();

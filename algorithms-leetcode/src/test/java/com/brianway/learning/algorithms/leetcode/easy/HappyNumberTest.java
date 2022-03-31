@@ -16,7 +16,7 @@ public class HappyNumberTest {
     private boolean[] results = new boolean[] {true, false};
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObject = new HappyNumber().new HappyNumber0();
     }
 

@@ -24,7 +24,7 @@ public class TwoSumTest {
     };
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         testObjects = new TwoSum[3];
         testObjects[0] = new TwoSum().new TwoSum0();
         testObjects[1] = new TwoSum().new TwoSum1();
