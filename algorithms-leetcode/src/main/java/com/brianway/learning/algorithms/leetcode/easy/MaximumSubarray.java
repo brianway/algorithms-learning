@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.medium;
+package com.brianway.learning.algorithms.leetcode.easy;
 
 /**
  * Created by Brian on 2016/4/30.
@@ -40,8 +40,10 @@ public class MaximumSubarray {
 
     /**
      * 动态规划
-     * 维护两个变量，一个是全局最优，就是到当前元素为止最优的解是，一个是局部最优，就是必须包含当前元素的最优的解
-     *
+     * 维护两个变量:
+     * 一个是全局最优，就是到当前元素为止最优的解是，
+     * 一个是局部最优，就是必须包含当前元素的最优的解
+     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */

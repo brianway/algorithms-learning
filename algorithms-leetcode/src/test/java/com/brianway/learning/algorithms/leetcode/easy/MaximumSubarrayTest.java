@@ -1,5 +1,6 @@
-package com.brianway.learning.algorithms.leetcode.medium;
+package com.brianway.learning.algorithms.leetcode.easy;
 
+import com.brianway.learning.algorithms.leetcode.easy.MaximumSubarray;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
