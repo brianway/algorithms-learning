@@ -28,7 +28,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |23|Merge k Sorted Lists|Hard|||
 |26|Remove Duplicates from Sorted Array|Easy|||
 |31|Next Permutation|Medium|||
-|53|Maximum Subarray|Easy|||
+|53|Maximum Subarray|Easy|Dynamic Programming, divide and conquer ||
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
 |70|Climbing Stairs|Easy|||

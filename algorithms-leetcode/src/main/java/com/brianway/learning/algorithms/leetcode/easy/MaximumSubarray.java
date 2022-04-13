@@ -6,8 +6,6 @@ package com.brianway.learning.algorithms.leetcode.easy;
  * Question:https://leetcode.com/problems/maximum-subarray/
  * 关键题设： contiguous subarray
  */
-
-//TODO 疑问：为什么MaximumSubarray0的耗时比MaximumSubarray1少？
 public class MaximumSubarray {
     public int maxSubArray(int[] nums) {
         return 0;
@@ -28,17 +26,21 @@ public class MaximumSubarray {
                 return 0;
             }
             int sum = 0;
-            int max = Integer.MIN_VALUE;
+            int maxSum = Integer.MIN_VALUE;
             for (int i = 0; i < nums.length; i++) {
-                sum += nums[i];
-                max = sum > max ? sum : max;
-                sum = sum > 0 ? sum : 0;
+                sum = sum + nums[i];
+                maxSum = Math.max(maxSum, sum);
+                // 截止nums[i] 为止的连续元素和 为负增益，将sum归零
+                if (sum < 0) {
+                    sum = 0;
+                }
             }
-            return max;
+            return maxSum;
         }
     }
 
     /**
+     * TODO 疑问：为什么MaximumSubarray0的耗时比MaximumSubarray1少？
      * 动态规划
      * 维护两个变量:
      * 一个是全局最优，就是到当前元素为止最优的解是，
@@ -56,10 +58,20 @@ public class MaximumSubarray {
             int local = nums[0];
             int global = nums[0];
             for (int i = 1; i < nums.length; i++) {
-                local = local + nums[i] > nums[i] ? local + nums[i] : nums[i];
-                global = global > local ? global : local;
+                local = Math.max(local + nums[i], nums[i]);
+                global = Math.max(global, local);
             }
             return global;
+        }
+    }
+
+    /**
+     * divide and conquer的解法
+     */
+    public class MaximumSubarray2 extends MaximumSubarray {
+        @Override
+        public int maxSubArray(int[] nums) {
+            return super.maxSubArray(nums);
         }
     }
 }
