@@ -34,7 +34,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |70|Climbing Stairs|Easy|||
 |101|Symmetric Tree|Easy|||
 |120|Triangle|Medium|||
-|141|Linked List Cycle|Easy|||
+|141|Linked List Cycle|Easy|Two Pointers||
 |148|Sort List|Medium|||
 |153|Find Minimum in Rotated Sorted Array|Medium|||
 |162|Find Peak Element|Medium|||

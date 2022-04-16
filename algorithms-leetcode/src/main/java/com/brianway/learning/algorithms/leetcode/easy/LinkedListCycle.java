@@ -16,9 +16,10 @@ public class LinkedListCycle {
 
     /**
      * 快慢指针
-     * 如果有环,两指针一定会相遇
+     * 1)如果有环,两指针一定会相遇
      * 因为每次循环,快指针会追赶慢指针一个节点的距离,所以不会出现跳过的问题
-     *
+     * 2)如果没有环，fast会先遍历到结尾，直接结束while，不会出现死循环
+     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      * 分析可见 https://leetcode.com/articles/linked-list-cycle/
