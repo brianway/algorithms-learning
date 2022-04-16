@@ -1,6 +1,5 @@
 package com.brianway.learning.algorithms.leetcode.easy;
 
-import com.brianway.learning.algorithms.leetcode.easy.MaximumSubarray;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +14,8 @@ public class MaximumSubarrayTest {
     @Before
     public void setUp() {
         testObjects = new MaximumSubarray[2];
-        testObjects[0] = new MaximumSubarray().new MaximumSubarray0();
-        testObjects[1] = new MaximumSubarray().new MaximumSubarray1();
+        testObjects[0] = new MaximumSubarray.MaximumSubarray0();
+        testObjects[1] = new MaximumSubarray.MaximumSubarray1();
     }
 
     @Test

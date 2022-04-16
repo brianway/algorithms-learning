@@ -12,14 +12,18 @@ public class MaximumSubarray {
     }
 
     /**
-     * 记录累计求和出现过的最大值max以及现在的累计求和值sum
+     * 两个辅助变量：
+     * sum: 表示包含num[i-1]元素的连续子数组的最大和，即作为截止nums[i]（不含）时的求和base
+     * maxSum: 表示出现过的连续子数组的最大和
+     * <p>
      * 若sum小于零，说明现在的累计求和为负增益，将sum置为0
-     * max每次取sum和之前的max的最大值
-     * 返回max
+     * maxSum每次取sum和之前的maxSum的较大者
+     * 返回maxSum
+     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class MaximumSubarray0 extends MaximumSubarray {
+    public static class MaximumSubarray0 extends MaximumSubarray {
         @Override
         public int maxSubArray(int[] nums) {
             if (nums == null || nums.length == 0) {
@@ -40,16 +44,18 @@ public class MaximumSubarray {
     }
 
     /**
-     * TODO 疑问：为什么MaximumSubarray0的耗时比MaximumSubarray1少？
      * 动态规划
      * 维护两个变量:
-     * 一个是全局最优，就是到当前元素为止最优的解是，
-     * 一个是局部最优，就是必须包含当前元素的最优的解
+     * 一个是全局最优global，就是到当前元素为止最优的解
+     * 一个是局部最优local，就是必须包含当前元素（即nums[i]）的最优的解
+     * <p>
+     * 该解法没有MaximumSubarray0优
+     * 个人分析：因为MaximumSubarray0里的sum是和0(常量)比，而本解法是local + nums[i]和nums[i]比
      * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class MaximumSubarray1 extends MaximumSubarray {
+    public static class MaximumSubarray1 extends MaximumSubarray {
         @Override
         public int maxSubArray(int[] nums) {
             if (nums == null || nums.length == 0) {
@@ -67,6 +73,8 @@ public class MaximumSubarray {
 
     /**
      * divide and conquer的解法
+     * <p>
+     * TODO 后面再补
      */
     public class MaximumSubarray2 extends MaximumSubarray {
         @Override
