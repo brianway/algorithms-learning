@@ -19,6 +19,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |题号|名称|难度|标签|备注|
 |:----|:----|:----|:----|:----|
 |1|Two Sum|Easy|Hash Table||
+|2|Add Two Numbers|Medium|Linked List||
 |10|Regular Expression Matching|Hard|||
 |15|3Sum|Medium|Two Pointers||
 |17|Letter Combinations of a Phone Number|Easy|||
