@@ -36,6 +36,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |70|Climbing Stairs|Easy|||
 |101|Symmetric Tree|Easy|||
 |120|Triangle|Medium|||
+|121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
 |141|Linked List Cycle|Easy|Two Pointers||
 |148|Sort List|Medium|||
 |153|Find Minimum in Rotated Sorted Array|Medium|||
