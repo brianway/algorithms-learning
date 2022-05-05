@@ -21,8 +21,8 @@ public class BestTimeToBuyAndSellStock {
      * 则第i天的利润就是 price[i]-min[i-1]，因为题设要求different day in the future，
      * <p>
      * PS：即使题设没禁止当天（即允许当天买卖）：
-     * 如果当天股价是历史最低（即price[i]<=mins[i-1] ），则profit肯定为0(题设不允许为负)；
-     * 如果当天股价不是历史最低（即price[i]>mins[i-1] ），则最大利润还是 price[i]-min[i-1]
+     * 如果当天股价是历史最低（即price[i]<=mins[i-1] ），则当天卖出的profit肯定为0(题设不允许为负)；
+     * 如果当天股价不是历史最低（即price[i]>mins[i-1] ），则当天卖出最大利润还是 price[i]-min[i-1]
      * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(n) 额外使用了长度为n的数据存储每天的历史股票最低价
@@ -49,16 +49,47 @@ public class BestTimeToBuyAndSellStock {
     }
 
     /**
-     * TODO 一次遍历
+     * 解法2：一次遍历
+     * <p>
+     * minBuyPrice 记录每次截止第i天时，股票出现过的最低价
+     * <p>
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
      */
     public class BestTimeToBuyAndSellStock1 extends BestTimeToBuyAndSellStock {
         @Override
         public int maxProfit(int[] prices) {
-            return super.maxProfit(prices);
+            int maxProfit = 0;
+            int minBuyPrice = Integer.MAX_VALUE;
+            for (int i = 0; i < prices.length; i++) {
+                maxProfit = Math.max(maxProfit, prices[i] - minBuyPrice);
+                minBuyPrice = Math.min(minBuyPrice, prices[i]);
+            }
+            return maxProfit;
         }
     }
 
-    // TODO 空间复杂度O(1)解法？ 记录下标vs记录price?
+    /**
+     * 空间复杂度O(1)解法，和解法2类似
+     * 记录下标 vs. 记录price
+     * <p>
+     * minPriceDay 记录每次截止第i天时，股票出现最低价是第几天
+     * <p>
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public class BestTimeToBuyAndSellStock2 extends BestTimeToBuyAndSellStock {
+        @Override
+        public int maxProfit(int[] prices) {
+            int maxProfit = 0;
+            int minPriceDay = 0;
+            for (int i = 0; i < prices.length; i++) {
+                maxProfit = Math.max(maxProfit, prices[i] - prices[minPriceDay]);
+                minPriceDay = prices[i] < prices[minPriceDay] ? i : minPriceDay;
+            }
+            return maxProfit;
+        }
+    }
 
-    // TODO 单调栈解法
+    // TODO 单调栈解法， 参考本地的cookboo-Leecode.pdf
 }
