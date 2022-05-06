@@ -24,10 +24,11 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |15|3Sum|Medium|Two Pointers||
 |17|Letter Combinations of a Phone Number|Easy|||
 |19|Remove Nth Node From End of List|Medium|Two Pointers||
-|20|Valid Parentheses|Easy|||
+|20|Valid Parentheses|Easy|Stack||
 |21|Merge Two Sorted Lists|Easy|||
-|22|Generate Parentheses|Medium|||
+|22|Generate Parentheses|Medium|Dynamic Programming,Backtracking|待复习|
 |23|Merge k Sorted Lists|Hard|||
+|24|Swap Nodes in Pairs|Medium|Linked List/Recursion|一题多解决|
 |26|Remove Duplicates from Sorted Array|Easy|||
 |31|Next Permutation|Medium|||
 |33|Search in Rotated Sorted Array|Medium|Binary Search|一题多解|
@@ -35,7 +36,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |53|Maximum Subarray|Easy|Dynamic Programming/divide and conquer |一题多解|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
-|70|Climbing Stairs|Easy|||
+|70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
 |101|Symmetric Tree|Easy|||
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
@@ -74,3 +75,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 
 
 栈相关 20,155,232,844,224,682,496.
+
+
+### DP相关
+

@@ -14,7 +14,7 @@ public class ClimbingStairs {
      * 递归
      * 在每一个台阶，要么是从 n-1 上 1 步过来的，要么是从 n-2 上两步过来的
      * 所以 f(n) = f(n-1) + f(n-2)
-     *
+     * <p>
      * 超时。
      */
     public class ClimbingStairs0 extends ClimbingStairs {
@@ -30,7 +30,7 @@ public class ClimbingStairs {
      * 动态规划
      * result[i] (1<=i<=n)表示到达这个台阶的互异的方法数
      * result[i] = result[i - 1] + result[i - 2], i>2
-     *
+     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
      */
@@ -51,7 +51,7 @@ public class ClimbingStairs {
     /**
      * 简化版的动态规划
      * 由于每次只用到了最近的几个变量，所以不用保存整个数组
-     *
+     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
