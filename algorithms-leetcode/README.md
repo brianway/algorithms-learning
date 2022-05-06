@@ -31,6 +31,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |26|Remove Duplicates from Sorted Array|Easy|||
 |31|Next Permutation|Medium|||
 |33|Search in Rotated Sorted Array|Medium|Binary Search|一题多解|
+|34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
 |53|Maximum Subarray|Easy|Dynamic Programming/divide and conquer |一题多解|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
