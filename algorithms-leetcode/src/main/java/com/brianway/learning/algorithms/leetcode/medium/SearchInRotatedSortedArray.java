@@ -37,7 +37,7 @@ public class SearchInRotatedSortedArray {
      * 时间复杂度 O(log n)
      * 空间复杂度 O(1)
      */
-    public class SearchInRotatedSortedArray0 extends SearchInRotatedSortedArray {
+    public static class SearchInRotatedSortedArray0 extends SearchInRotatedSortedArray {
 
         @Override
         public int search(int[] nums, int target) {
@@ -75,12 +75,13 @@ public class SearchInRotatedSortedArray {
      * <p>
      * 注意：
      * 正常的单调递增序列，nums[mid] > target 则 target落在左边；nums[mid] < target，则 target落在右边
-     * 所以在内层分支只需要列出不满足上述条件情况的条件即可
+     * 所以在内层分支只需要列出不满足上述情况的条件即可:
+     * 区间为非单调递增（而是循环递增）【且】区间取值范围能涵盖target。否则，target落在常规的单调数组的二分查找区间
      * <p>
      * 时间复杂度 O(log n)
      * 空间复杂度 O(1)
      */
-    public class SearchInRotatedSortedArray1 extends SearchInRotatedSortedArray {
+    public static class SearchInRotatedSortedArray1 extends SearchInRotatedSortedArray {
         @Override
         public int search(int[] nums, int target) {
             int low = 0;

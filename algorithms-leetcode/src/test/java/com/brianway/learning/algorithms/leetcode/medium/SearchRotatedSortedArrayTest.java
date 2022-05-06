@@ -21,7 +21,7 @@ public class SearchRotatedSortedArrayTest {
 
     @Before
     public void setUp() {
-        testObject = new SearchInRotatedSortedArray().new SearchInRotatedSortedArray1();
+        testObject = new SearchInRotatedSortedArray.SearchInRotatedSortedArray1();
 
         testcases = Arrays.asList(
                 Testcase.of(new int[] {4, 5, 6, 7, 0, 1, 2}, 0, 4),
