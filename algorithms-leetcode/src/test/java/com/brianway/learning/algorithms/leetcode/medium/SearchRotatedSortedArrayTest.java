@@ -21,13 +21,14 @@ public class SearchRotatedSortedArrayTest {
 
     @Before
     public void setUp() {
-        testObject = new SearchInRotatedSortedArray().new SearchInRotatedSortedArray0();
+        testObject = new SearchInRotatedSortedArray().new SearchInRotatedSortedArray1();
 
         testcases = Arrays.asList(
                 Testcase.of(new int[] {4, 5, 6, 7, 0, 1, 2}, 0, 4),
                 Testcase.of(new int[] {3, 2}, 2, 1),
                 Testcase.of(new int[] {1, 3}, 3, 1),
-                Testcase.of(new int[] {4, 5, 6, 7, 8, 1, 2, 3}, 8, 4)
+                Testcase.of(new int[] {4, 5, 6, 7, 8, 1, 2, 3}, 8, 4),
+                Testcase.of(new int[] {1, 2, 4, 5}, 4, 2)
         );
     }
 

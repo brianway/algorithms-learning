@@ -26,69 +26,18 @@ public class SearchInRotatedSortedArray {
      * 边界条件注意：
      * int mid = low + (high - low) / 2;
      * mid 可能等于low， 所以涉及nums[mid]和nums[low]的比较通常要带等号；
-     * mid 不可能等于high， 所以涉及ums[mid]和nums[high]的比较不带等号
+     * mid 不可能等于high， 所以涉及nums[mid]和nums[high]的比较不带等号
      * <p>
+     * 当nums[mid] != target 时，分类讨论：
+     * 第1步：根据nums[mid] 和 nums[high] or nums[low] 的大小关系判断区间单调性
+     * 第2步：然后在子分支里再根据单调性和区间值的上下限，判断target可能落在哪个区间（要么落在左边，要么落在右边）
      * <p>
-     * 所以，分类讨论即可：
-     * 按照 nums[mid] 与target的相对大小关系，分三类讨论，
-     * 每一类里面再根据nums[mid] 和 nums[high] or nums[low] 的大小关系判断区间单调性和上下限，进而决定target可能落在哪个区间
+     * 注意：nums[mid] >= nums[low] 条件的等号不能省，否则测试用例 {3, 2}, 2 之类的通不过
      * <p>
      * 时间复杂度 O(log n)
      * 空间复杂度 O(1)
      */
     public class SearchInRotatedSortedArray0 extends SearchInRotatedSortedArray {
-        @Override
-        public int search(int[] nums, int target) {
-            int low = 0;
-            int high = nums.length - 1;
-            while (low <= high) {
-                int mid = low + (high - low) / 2;
-                System.out.println("-- mid:" + mid + ", low:" + low + ", high:" + high);
-                System.out.println("nums[low]:" + nums[low]);
-                System.out.println("nums[mid]:" + nums[mid]);
-                System.out.println("nums[high]:" + nums[high]);
-                if (nums[mid] == target) {
-                    return mid;
-                } else if (nums[mid] > target) {
-                    // mid可能等于low，所以这里带等号；但由于 mid=low时，表示 nums[mid]=nums[low] > target
-                    // 所以此处 nums[mid] >= nums[low] 带不带等号都行
-                    if (nums[mid] >= nums[low] && target >= nums[low]) {
-                        // low~mid 区间是单调递增，且target大于该区间下限nums[low]
-                        high = mid - 1;
-                    } else {
-                        low = mid + 1;
-                    }
-                } else { //  nums[mid] < target，
-                    // mid不可能等于high， 所以这里不带等号
-                    // TODO 这里要分类讨论
-                    if (nums[mid] < nums[high] && target <= nums[high]) {
-                        // mid~high 区间是单调递增的，且target小于等于该区间上限nums[high]
-                        low = mid + 1;
-                    } else {
-                        high = mid - 1;
-                    }
-                }
-            }
-            return -1;
-        }
-
-    }
-
-    /**
-     * 写法二
-     * <p>
-     * 思路同解法一，只是分类讨论的内外层不一样：
-     * 当nums[mid] != target 时
-     * 第1步：根据nums[mid] 和 nums[high] or nums[low] 的大小关系判断区间单调性
-     * 第2步：然后在子分支里再根据单调性和区间值的上下限，判断target可能落在哪个区间
-     *
-     * <p>
-     * nums[mid] >= nums[low] 条件的等号不能省，
-     * <p>
-     * 时间复杂度 O(log n)
-     * 空间复杂度 O(1)
-     */
-    public class SearchInRotatedSortedArray1 extends SearchInRotatedSortedArray {
 
         @Override
         public int search(int[] nums, int target) {
@@ -110,6 +59,49 @@ public class SearchInRotatedSortedArray {
                         low = mid + 1;
                     } else {
                         high = mid - 1;
+                    }
+                }
+            }
+            return -1;
+        }
+
+    }
+
+    /**
+     * 写法二
+     * 思路同写法一，只是外层按照 nums[mid] 与target的相对大小关系，分三类讨论。
+     * 每一类里面再根据nums[mid] 和 nums[high] or nums[low] 的大小关系判断区间单调性和上下限，
+     * 进而决定target可能落在哪个区间
+     * <p>
+     * 注意：
+     * 正常的单调递增序列，nums[mid] > target 则 target落在左边；nums[mid] < target，则 target落在右边
+     * 所以在内层分支只需要列出不满足上述条件情况的条件即可
+     * <p>
+     * 时间复杂度 O(log n)
+     * 空间复杂度 O(1)
+     */
+    public class SearchInRotatedSortedArray1 extends SearchInRotatedSortedArray {
+        @Override
+        public int search(int[] nums, int target) {
+            int low = 0;
+            int high = nums.length - 1;
+            while (low <= high) {
+                int mid = low + (high - low) / 2;
+                if (nums[mid] == target) {
+                    return mid;
+                } else if (nums[mid] > target) {
+                    // 只有后半部分是循环递增且target<=nums[high]时，target才可能出现在后半部分，否则target只能出现在前半部分
+                    if (nums[mid] > nums[high] && target <= nums[high]) {
+                        low = mid + 1;
+                    } else {
+                        high = mid - 1;
+                    }
+                } else { //  nums[mid] < target
+                    // 只有前半部分是循环递增且target>=nums[low]时，target才可能出现在前半部分，否则target只能出现在后半部分
+                    if (nums[low] > nums[mid] && target >= nums[low]) {
+                        high = mid - 1;
+                    } else {
+                        low = mid + 1;
                     }
                 }
             }
