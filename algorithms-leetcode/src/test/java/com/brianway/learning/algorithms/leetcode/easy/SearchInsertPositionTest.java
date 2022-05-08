@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.medium;
+package com.brianway.learning.algorithms.leetcode.easy;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,36 +11,35 @@ import java.util.List;
  * @auther brian
  * @since 2022/5/5 22:55
  */
-public class SearchRotatedSortedArrayTest {
-    private SearchInRotatedSortedArray testObject;
+public class SearchInsertPositionTest {
+    private SearchInsertPosition testObject;
 
     private List<Testcase> testcases;
 
     @Before
     public void setUp() {
-        testObject = new SearchInRotatedSortedArray.SearchInRotatedSortedArray0();
+        testObject = new SearchInsertPosition.SearchInsertPosition0();
 
         testcases = Arrays.asList(
-                Testcase.of(new int[] {4, 5, 6, 7, 0, 1, 2}, 0, 4),
-                Testcase.of(new int[] {3, 2}, 2, 1),
-                Testcase.of(new int[] {1, 3}, 3, 1),
-                Testcase.of(new int[] {4, 5, 6, 7, 8, 1, 2, 3}, 8, 4),
-                Testcase.of(new int[] {1, 2, 4, 5}, 4, 2)
+                Testcase.of(new int[] {1, 3, 5, 6}, 5, 2),
+                Testcase.of(new int[] {1, 3, 5, 6}, 2, 1),
+                Testcase.of(new int[] {1, 3, 5, 6}, 7, 4),
+                Testcase.of(new int[] {2, 3, 5, 6}, 1, 0)
         );
     }
 
     @Test
     public void testSearch() {
-        int[] nums = {4, 5, 6, 7, 8, 1, 2, 3};
-        int target = 8;
-        int result = 4;
-        Assert.assertEquals(result, testObject.search(nums, target));
+        int[] nums = {1, 3, 5, 6};
+        int target = 5;
+        int result = 2;
+        Assert.assertEquals(result, testObject.searchInsert(nums, target));
     }
 
     @Test
     public void testAll() {
         for (Testcase tc : testcases) {
-            Assert.assertEquals(tc.result, testObject.search(tc.nums, tc.target));
+            Assert.assertEquals(tc.result, testObject.searchInsert(tc.nums, tc.target));
         }
     }
 
