@@ -47,8 +47,16 @@ public class SwapNodesInPairs {
     }
 
     /**
-     * TODO 非递归的写法
+     * 非递归的写法
      * 借助哨兵节点简化写法
+     * <p>
+     * 假设当前：n0(pre) -> n1 (cur)-> n2 -> n3 -> n4...,  此时 pre = n0, cur= n1
+     * 期望单次循环后的结果：n0->n2->n1(pre)->n3(cur)->n4
+     * <p>
+     * 1. n0(pre)->n2, n1(cur)->n2->n3->n4   //  pre.next = cur.next;
+     * 2. n0(pre)->n2, n1(cur)->n3->n4       //  cur.next = cur.next.next;
+     * 3. n0(pre)->n2->n1(cur)->n3->n4       //  pre.next.next = cur;
+     * 4. n0->n2->n1(pre)->n3(cur)->4        //  pre = pre.next.next; cur = cur.next;
      */
     public class SwapNodesInPairs1 extends SwapNodesInPairs {
         @Override
@@ -60,9 +68,20 @@ public class SwapNodesInPairs {
             ListNode dummyHead = new ListNode(-1);
             dummyHead.next = head;
 
-            // swap head and head.next
+            ListNode pre = dummyHead;
+            ListNode cur = head;
 
             // 循环swap剩下的
+            while (cur != null && cur.next != null) {
+                // swap cur and cur.next
+                pre.next = cur.next;
+                cur.next = cur.next.next;
+                pre.next.next = cur;
+
+                // 移动pre和cur的指向以便下一次迭代
+                pre = pre.next.next;
+                cur = cur.next;
+            }
 
             return dummyHead.next;
         }
