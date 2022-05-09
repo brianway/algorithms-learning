@@ -26,6 +26,9 @@ public class SwapNodesInPairs {
      * 3.1 修改n2.next指向  n1<=>n2 即 n2<=>n1
      * 3.2 修改n1.next指向  n2->n1->（n4->n3）
      * 返回n2即可
+     * <p>
+     * 时间复杂度：O(n)
+     * 空间复杂度 O(1)
      */
     public class SwapNodesInPairs0 extends SwapNodesInPairs {
         @Override
@@ -57,6 +60,9 @@ public class SwapNodesInPairs {
      * 2. n0(pre)->n2, n1(cur)->n3->n4       //  cur.next = cur.next.next;
      * 3. n0(pre)->n2->n1(cur)->n3->n4       //  pre.next.next = cur;
      * 4. n0->n2->n1(pre)->n3(cur)->4        //  pre = pre.next.next; cur = cur.next;
+     * <p>
+     * 时间复杂度：O(n)
+     * 空间复杂度 O(1)
      */
     public class SwapNodesInPairs1 extends SwapNodesInPairs {
         @Override
