@@ -1,4 +1,7 @@
-# 参考题解
+
+
+
+## 参考题解
 
 https://siddontang.gitbooks.io/leetcode-solution/content/index.html
 
@@ -10,6 +13,7 @@ https://github.com/duanehutchins/leetcode-questions-by-company
 
 TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 
+中文leetcode  https://leetcode.cn/problemset/all/
 
 ## 目录
 
@@ -34,6 +38,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |33|Search in Rotated Sorted Array|Medium|Binary Search|一题多解|
 |34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
 |35|Search Insert Position|Easy|Binary Search||
+|41|First Missing Positive|Hard|Hash Table|待学习|
 |53|Maximum Subarray|Easy|Dynamic Programming/divide and conquer |一题多解|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
