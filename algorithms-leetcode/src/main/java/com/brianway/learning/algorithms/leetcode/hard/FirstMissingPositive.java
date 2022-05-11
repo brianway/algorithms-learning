@@ -15,7 +15,7 @@ public class FirstMissingPositive {
     }
 
     /**
-     * 解法1：原地哈希，通过正负号来标记是正整数否出现过。
+     * 解法1：原地哈希，将数组下标作为key，通过数组值的正负号来标记是正整数是否出现过。
      * <p>
      * 前提：需要推导出 缺失的正整数范围一定落在[1, n+1]之间, n为数组长度。
      * 推导过程：数组nums长度为n,则最多只能覆盖n个正整数，且nums里每多一个负数或重复的数，则少覆盖一个正整数的范围
@@ -29,11 +29,11 @@ public class FirstMissingPositive {
      * 具体实现：先对数组排序，找到数组的最小整数的位置p，然后从p开始，依次比较数组的值和1~n的值，
      * 即nums[p]==1, nums[p+1]==2, ... 找出第一个不相等的即是缺失的
      * <p>
-     * 思路3：从前的分析可以看出，需要原地哈希。
+     * 思路3：从前的分析可以看出，需要原地哈希。数组下标看作key，数组值的正负号看作value表示是否出现过
      * 关键分析：
      * 1.如果nums[i]的值（记为x）的范围落在[1,n]之间，则将对应下标（偏移1，即nums[i]-1）的数组值 标记为负，表示x出现过
      * 2.为了避免原数组中的负数的干扰，所以需要将原负数改为特殊值（题设nums[i] <= 2^31 - 1，所以没法取Integer.MAX_VALUE这样的值，
-     * 索性将负数都改为1，在改前先判断1是否有即可）。另外，nums[i]值在范围[1, n]外的也没必要处理，也直接改成特殊值。
+     * 索性将负数都改为1，在改前先判断1是否有即可）。另外，nums[i]值在范围[1, n]外的也没必要额外处理，跳过即可。
      * 3.经过上面的改造，数组里第一个正数对应的下标+1即是 缺失的正整数
      * <p>
      * 边界条件：
@@ -43,10 +43,47 @@ public class FirstMissingPositive {
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public class FirstMissingPositive0 extends FirstMissingPositive {
+    public static class FirstMissingPositive0 extends FirstMissingPositive {
         @Override
         public int firstMissingPositive(int[] nums) {
-            return super.firstMissingPositive(nums);
+            int n = nums.length;
+
+            // 特殊处理1
+            boolean has1 = false;
+            for (int i = 0; i < n; i++) {
+                if (nums[i] == 1) {
+                    has1 = true;
+                    break;
+                }
+            }
+            if (!has1) {
+                return 1;
+            }
+
+            // 将负数都设置成1
+            for (int i = 0; i < n; i++) {
+                if (nums[i] <= 0) {
+                    nums[i] = 1;
+                }
+            }
+
+            // 做原地hash, 根据 nums[i]的绝对值，给对应下标
+            for (int i = 0; i < n; i++) {
+                int abs = Math.abs(nums[i]);
+                if (abs >= 1 && abs <= n) {
+                    nums[abs - 1] = -Math.abs(nums[abs - 1]);
+                }
+            }
+
+            // 再次遍历nums，找到第一个非负的
+            for (int i = 0; i < n; i++) {
+                if (nums[i] > 0) {
+                    return i + 1;
+                }
+            }
+
+            // 遍历完数组都没负数，说明正整数1~n都出现了
+            return n + 1;
         }
     }
 

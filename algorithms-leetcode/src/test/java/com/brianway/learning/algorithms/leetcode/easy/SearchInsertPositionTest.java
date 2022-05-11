@@ -29,7 +29,7 @@ public class SearchInsertPositionTest {
     }
 
     @Test
-    public void testSearch() {
+    public void testSearchInsert() {
         int[] nums = {1, 3, 5, 6};
         int target = 5;
         int result = 2;
