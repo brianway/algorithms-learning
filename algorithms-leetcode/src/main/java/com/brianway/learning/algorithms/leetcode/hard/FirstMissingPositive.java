@@ -40,7 +40,7 @@ public class FirstMissingPositive {
      * 1.是否出现数值1
      * 2.重复数字的处理
      * <p>
-     * 时间复杂度 O(n)
+     * 时间复杂度 O(n), 遍历了4遍数组, 其实前两遍遍历可以合并的，为了代码可读性就不合了。
      * 空间复杂度 O(1)
      */
     public static class FirstMissingPositive0 extends FirstMissingPositive {
@@ -48,7 +48,7 @@ public class FirstMissingPositive {
         public int firstMissingPositive(int[] nums) {
             int n = nums.length;
 
-            // 特殊处理1
+            // fisrt pass, 特殊处理1
             boolean has1 = false;
             for (int i = 0; i < n; i++) {
                 if (nums[i] == 1) {
@@ -60,14 +60,14 @@ public class FirstMissingPositive {
                 return 1;
             }
 
-            // 将负数都设置成1
+            // second pass, 将负数都设置成1
             for (int i = 0; i < n; i++) {
                 if (nums[i] <= 0) {
                     nums[i] = 1;
                 }
             }
 
-            // 做原地hash, 根据 nums[i]的绝对值，给对应下标
+            // third pass, 做原地hash, 根据 nums[i]的绝对值，给对应下标上的数做符号标记，支持幂等
             for (int i = 0; i < n; i++) {
                 int abs = Math.abs(nums[i]);
                 if (abs >= 1 && abs <= n) {
@@ -75,7 +75,7 @@ public class FirstMissingPositive {
                 }
             }
 
-            // 再次遍历nums，找到第一个非负的
+            // forth pass, 再次遍历nums，找到第一个非负的
             for (int i = 0; i < n; i++) {
                 if (nums[i] > 0) {
                     return i + 1;
@@ -87,4 +87,44 @@ public class FirstMissingPositive {
         }
     }
 
+    /**
+     * 解法2：原地哈希，将数组下标作为key，通过数据交换，把对应的数换到对应下标，key和value满足映射关系表示出现过。
+     * <p>
+     * 前提同解法1，需要推导出 缺失的正整数范围一定落在[1, n+1]之间, n为数组长度。
+     * <p>
+     * 对于数组内的每个元素，通过数据交换，将其放到对应的下标。规则为：
+     * 如果nums的元素值nums[i]大小为p，若1<=p<=n （n=nums.length）,则将其交换到下标为p-1的位置，即swap 下标i 和下标 p-1的 元素。
+     * 需要注意:
+     * 1. 如果下标p-1的元素已经满足映射关系，即nums[p-1]=p，则无需交换，否则需要继续对当前下标i的元素做交换，直至nums[i]的值范围不在1~n之间
+     *
+     * <p>
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public static class FirstMissingPositive1 extends FirstMissingPositive {
+        @Override
+        public int firstMissingPositive(int[] nums) {
+            int n = nums.length;
+            for (int i = 0; i < n; i++) {
+                while (nums[i] >= 1 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+                    swap(nums, i, nums[i] - 1);
+                }
+            }
+
+            for (int i = 0; i < n; i++) {
+                if (nums[i] != i + 1) {
+                    return i + 1;
+                }
+            }
+
+            return n + 1;
+
+        }
+
+        private void swap(int[] nums, int i, int j) {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+        }
+    }
 }

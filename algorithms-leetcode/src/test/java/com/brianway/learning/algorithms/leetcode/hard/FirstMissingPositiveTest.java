@@ -18,12 +18,13 @@ public class FirstMissingPositiveTest {
 
     @Before
     public void setUp() {
-        testObject = new FirstMissingPositive.FirstMissingPositive0();
+        testObject = new FirstMissingPositive.FirstMissingPositive1();
 
         testcases = Arrays.asList(
                 Testcase.of(new int[] {1, 2, 0}, 3),
                 Testcase.of(new int[] {3, 4, -1, 1}, 2),
-                Testcase.of(new int[] {7,8,9,11,12}, 1)
+                Testcase.of(new int[] {1, 1}, 2),
+                Testcase.of(new int[] {7, 8, 9, 11, 12}, 1)
         );
     }
 
