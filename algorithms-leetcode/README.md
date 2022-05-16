@@ -39,12 +39,13 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
 |35|Search Insert Position|Easy|Binary Search||
 |41|First Missing Positive|Hard|Hash Table|一题多解|
-|53|Maximum Subarray|Easy|Dynamic Programming/divide and conquer |一题多解|
+|53|Maximum Subarray|Easy|Dynamic Programming/divide and conquer|一题多解|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree||
 |101|Symmetric Tree|Easy|||
+|105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|一题多解，待补充|
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
 |141|Linked List Cycle|Easy|Two Pointers||
@@ -88,6 +89,8 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 ### 二叉树
 
 94、105、106、889
+中序遍历
+
 
 ### DP相关
 
