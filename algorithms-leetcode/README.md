@@ -43,9 +43,9 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
-|94|Binary Tree Inorder Traversal|Easy|Binary Tree||
+|94|Binary Tree Inorder Traversal|Easy|Binary Tree|仅写了递归实现|
 |101|Symmetric Tree|Easy|||
-|105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|一题多解，待补充|
+|105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
 |141|Linked List Cycle|Easy|Two Pointers||
@@ -57,6 +57,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|||
 |221|Maximal Square|Medium|||
+|230|Kth Smallest Element in a BST|Medium|Binary Tree|只写了常规解法|
 |231|Power of Two|Easy|||
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
