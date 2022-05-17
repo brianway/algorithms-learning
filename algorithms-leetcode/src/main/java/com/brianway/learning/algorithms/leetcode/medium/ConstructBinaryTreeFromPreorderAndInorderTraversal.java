@@ -2,6 +2,9 @@ package com.brianway.learning.algorithms.leetcode.medium;
 
 import com.brianway.learning.algorithms.leetcode.common.TreeNode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 105. Construct Binary Tree from Preorder and Inorder Traversal
  * Question: https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
@@ -53,11 +56,12 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
      * [preStart, [preStart+1, ..., inRootIndex - inStart + preStart], [inRootIndex - inStart + preStart +1 ,..., preEnd]]
      * [[inStart,..., inRootIndex-1], inRootIndex, [inRootIndex+1, ..., inEnd] ]
      * <p>
+     * 可见，核心是找到 inRootIndex
      * <p>
      * 注意边界情况：子数组的下标起止 可能只有一个元素，也可能越界。例如：preorder=[1,2], inorder=[2,1]
      * <p>
-     * TODO
-     * 时间复杂度 O(?)
+     * 时间复杂度 O(n log n)  假设二叉树层数为k, 每一层找inorder的根节点下标都平均需要遍历 n/2,  所以 时间复杂度 O(k*n),
+     * 极端情况下，k=n，且每一层遍历都是n, 时间复杂度退化为  O(n^2)
      * 空间复杂度 O(1)
      */
     public static class ConstructBinaryTreeFromPreorderAndInorderTraversal0 extends ConstructBinaryTreeFromPreorderAndInorderTraversal {
@@ -99,5 +103,54 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
             throw new IllegalArgumentException("not each value of preorder also appears in inorder");
         }
     }
+
+    /**
+     * 解法2：解法1的优化
+     * 思路同解法1，只是在中序遍历的根节点下标时不是遍历数组，而是通过哈希表提前构建 中序遍历的"值：下标"的映射关系
+     * <p>
+     * 时间复杂度 O(n), 假设二叉树层数为k, 每一层找inorder的根节点下标需要2^(k-1), 即第一层1，第二层2，第三层4...，第k层 2^(k-1)
+     * 一共需要1+2+4+....2^(k-1) = 2^k - 1 = n。 极端情况下，k=n，则每一层找inorder的根节点下标耗时都是1，还是O(n)
+     * 空间复杂度 O(n), 对inorder构建了哈希表
+     */
+    public static class ConstructBinaryTreeFromPreorderAndInorderTraversal1 extends ConstructBinaryTreeFromPreorderAndInorderTraversal {
+        @Override
+        public TreeNode buildTree(int[] preorder, int[] inorder) {
+            Map<Integer, Integer> inorderMap = buildInorderMap(inorder);
+            return buildTree(preorder, 0, preorder.length - 1, inorderMap, 0, inorder.length - 1);
+        }
+
+        public TreeNode buildTree(int[] preorder, int preStart, int preEnd,
+                                  Map<Integer, Integer> inorderMap, int inStart, int inEnd) {
+            // 边界情况
+            if (preStart > preEnd || inStart > inEnd) {
+                return null;
+            }
+
+            // 只有一个节点
+            if (preStart == preEnd || inStart == inEnd) {
+                return new TreeNode(preorder[preStart]);
+            }
+
+            int inRootIndex = inorderMap.get(preorder[preStart]);
+            TreeNode preLeftTree = buildTree(preorder, preStart + 1, inRootIndex - inStart + preStart,
+                    inorderMap, inStart, inRootIndex - 1);
+            TreeNode preRightTree = buildTree(preorder, inRootIndex - inStart + preStart + 1, preEnd,
+                    inorderMap, inRootIndex + 1, inEnd);
+
+            TreeNode preRoot = new TreeNode(preorder[preStart], preLeftTree, preRightTree);
+
+            return preRoot;
+        }
+
+        private Map<Integer, Integer> buildInorderMap(int[] inorder) {
+            Map<Integer, Integer> map = new HashMap<>(inorder.length);
+            for (int i = 0; i < inorder.length; i++) {
+                map.put(inorder[i], i);
+            }
+            return map;
+        }
+    }
+
+    // 目前先做递归的实现，其他更优的实现有空再研究
 
 }
