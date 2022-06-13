@@ -45,7 +45,7 @@ https://labuladong.gitee.io/algo/
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
-|79|Word Search|Medium|Backtracking||
+|79|Word Search|Medium|Backtracking|待查题解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree|仅写了递归实现|
 |101|Symmetric Tree|Easy|||
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
