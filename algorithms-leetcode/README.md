@@ -15,6 +15,8 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 
 中文leetcode  https://leetcode.cn/problemset/all/
 
+https://labuladong.gitee.io/algo/
+
 ## 目录
 
 完成题目
@@ -30,7 +32,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |19|Remove Nth Node From End of List|Medium|Two Pointers||
 |20|Valid Parentheses|Easy|Stack||
 |21|Merge Two Sorted Lists|Easy|||
-|22|Generate Parentheses|Medium|Dynamic Programming,Backtracking|待复习|
+|22|Generate Parentheses|Medium|Dynamic Programming,Backtracking|复习1次|
 |23|Merge k Sorted Lists|Hard|||
 |24|Swap Nodes in Pairs|Medium|Linked List/Recursion|一题多解决|
 |26|Remove Duplicates from Sorted Array|Easy|||
@@ -43,6 +45,7 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium|||
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
+|79|Word Search|Medium|Backtracking||
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree|仅写了递归实现|
 |101|Symmetric Tree|Easy|||
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
