@@ -123,17 +123,22 @@ public class GenerateParentheses {
      * 中间可能有重复的，使用集合来去重即可
      */
     public static class GenerateParentheses2 extends GenerateParentheses {
-        @Override
-        public List<String> generateParenthesis(int n) {
-            return new ArrayList<>(generate(n));
-        }
-
         /**
          * 缓存中间结果
          */
-        private List<Set<String>> cache = new ArrayList<>();
+        private Set<String>[] cache = new Set[] {};
+
+        @Override
+        public List<String> generateParenthesis(int n) {
+            cache = new Set[n + 1];
+            return new ArrayList<>(generate(n));
+        }
 
         public Set<String> generate(int i) {
+            if (cache[i] != null) {
+                return cache[i];
+            }
+
             Set<String> combinationsOfI = new HashSet<>();
             if (i == 0) {
                 combinationsOfI.add("");
@@ -150,7 +155,7 @@ public class GenerateParentheses {
                 }
             }
 
-            cache.add(i, combinationsOfI);
+            cache[i] = combinationsOfI;
             return combinationsOfI;
 
         }
