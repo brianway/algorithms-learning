@@ -17,6 +17,8 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 
 https://labuladong.gitee.io/algo/
 
+https://github.com/youngyangyang04/leetcode-master#toc2
+
 ## 目录
 
 完成题目
@@ -47,6 +49,7 @@ https://labuladong.gitee.io/algo/
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
 |79|Word Search|Medium|Backtracking|待查题解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree|仅写了递归实现|
+|96|Unique Binary Search Trees|Medium|Dynamic Programming||
 |101|Symmetric Tree|Easy|||
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
 |120|Triangle|Medium|||
@@ -97,4 +100,16 @@ https://labuladong.gitee.io/algo/
 
 
 ### DP相关
+
+基础题
+
+- 509 斐波那契额数列
+- 70 爬楼梯
+- 746 最小花费爬楼梯
+- 62 不同路径
+- 63 不同路径II
+- 343 整数拆分
+- 96 不同的二叉搜索树
+
+
 
