@@ -27,6 +27,9 @@ public class IntegerBreak {
      * 4. 遍历顺序：从左到右即可
      * <p>
      * 注意边界条件， j < i - 1  可得 i-j>1, 即i-j>=2
+     * <p>
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(n)
      */
     public class IntegerBreak0 extends IntegerBreak {
         @Override
@@ -44,4 +47,6 @@ public class IntegerBreak {
             return dp[n];
         }
     }
+
+    //TODO 需要数据证明 每次拆成n个3，如果剩下是4，则保留4，然后相乘。然后使用贪心
 }

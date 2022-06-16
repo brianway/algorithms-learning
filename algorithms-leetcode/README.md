@@ -69,7 +69,7 @@ Leetcode problems classified by company:
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
 |300|Longest Increasing Subsequence|Medium|||
-|343|Integer Break|Medium|Dynamic Programming||
+|343|Integer Break|Medium|Dynamic Programming|一题多解|
 |344|Reverse String|Easy|||
 |347|Top K Frequent Elements|Medium|||
 |349|Intersection of Two Arrays|Easy|||
