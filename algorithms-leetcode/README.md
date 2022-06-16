@@ -1,27 +1,28 @@
 
 
 
+TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
+
 ## 参考题解
 
-https://siddontang.gitbooks.io/leetcode-solution/content/index.html
+分类刷，题解详细，多语言 https://github.com/youngyangyang04/leetcode-master#toc2
+中文leetcode  https://leetcode.cn/problemset/all/
+labuladong https://labuladong.gitee.io/algo/
 
+
+
+https://siddontang.gitbooks.io/leetcode-solution/content/index.html
 python版: http://bookshadow.com/leetcode/
 
 Leetcode problems classified by company:
-https://blogdesand.wordpress.com/
-https://github.com/duanehutchins/leetcode-questions-by-company
+- https://blogdesand.wordpress.com/
+- https://github.com/duanehutchins/leetcode-questions-by-company
 
-TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 
-中文leetcode  https://leetcode.cn/problemset/all/
-
-https://labuladong.gitee.io/algo/
-
-https://github.com/youngyangyang04/leetcode-master#toc2
 
 ## 目录
 
-完成题目
+已完成题目
 
 
 |题号|名称|难度|标签|备注|
@@ -68,6 +69,7 @@ https://github.com/youngyangyang04/leetcode-master#toc2
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
 |300|Longest Increasing Subsequence|Medium|||
+|343|Integer Break|Medium|Dynamic Programming||
 |344|Reverse String|Easy|||
 |347|Top K Frequent Elements|Medium|||
 |349|Intersection of Two Arrays|Easy|||
