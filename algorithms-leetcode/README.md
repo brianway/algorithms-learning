@@ -75,7 +75,7 @@ Leetcode problems classified by company:
 |349|Intersection of Two Arrays|Easy|||
 |354|Russian Doll Envelopes|Hard|||
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
-
+|494|Target Sum|Medium|Dynamic Programming||
 
 ### 链表相关
 
