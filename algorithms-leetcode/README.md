@@ -5,14 +5,14 @@ TOP 100 https://leetcode.com/problem-list/top-100-liked-questions/
 
 ## 参考题解
 
-分类刷，题解详细，多语言 https://github.com/youngyangyang04/leetcode-master#toc2
-中文leetcode  https://leetcode.cn/problemset/all/
-labuladong https://labuladong.gitee.io/algo/
+- 分类刷，题解详细，多语言 https://github.com/youngyangyang04/leetcode-master#toc2
+- 中文leetcode  https://leetcode.cn/problemset/all/
+- labuladong https://labuladong.gitee.io/algo/
 
+其他
 
-
-https://siddontang.gitbooks.io/leetcode-solution/content/index.html
-python版: http://bookshadow.com/leetcode/
+- https://siddontang.gitbooks.io/leetcode-solution/content/index.html
+- python版: http://bookshadow.com/leetcode/
 
 Leetcode problems classified by company:
 - https://blogdesand.wordpress.com/
@@ -74,7 +74,7 @@ Leetcode problems classified by company:
 |347|Top K Frequent Elements|Medium|||
 |349|Intersection of Two Arrays|Easy|||
 |354|Russian Doll Envelopes|Hard|||
-|416|Partition Equal Subset Sum|Medium|Dynamic Programming|TODO|
+|416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
 
 
 ### 链表相关
