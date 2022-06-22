@@ -15,7 +15,7 @@ public class TargetSum {
     }
 
     /**
-     * DP
+     * DP，不具备一般性，依赖题目的Constraints
      * <p>
      * 1. dp下标和数组含义： dp[i][j] 表示从下标为[0-i]的数里任意取，在目标值等于j时的不同表达式的个数
      * 2. 递推关系 dp[i][j] = dp[i-1][j-nums[i]] + dp[i-1][j+nums[i]]
@@ -48,4 +48,16 @@ public class TargetSum {
             return dp[nums.length - 1][target + 1000];
         }
     }
+
+    /**
+     * DP, 转化为背包问题
+     * TODO https://leetcode.cn/problems/target-sum/solution/mu-biao-he-by-leetcode-solution-o0cp/
+     */
+    public static class TargetSum1 extends TargetSum {
+        @Override
+        public int findTargetSumWays(int[] nums, int target) {
+            return super.findTargetSumWays(nums, target);
+        }
+    }
+
 }
