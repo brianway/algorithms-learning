@@ -24,12 +24,15 @@ public class TargetSum {
      * 3. 初始化 : j=+nums[0]+ 1000 或 -nums[0]+1000 时， dp[0][j]= 1, 其他的dp[0][j]=0
      * (因为下标要非负，需要做了下标偏移：下标+1000)
      * 4. 遍历顺序：外i内j, 从左到右
+     * <p>
+     * 边界条件注意：
+     * +nums[0] 和 -nums[0] 我们认为是两种表达式，但当nums[0]=0时会有  初始化的 dp[0][1000±nums[0]] 应该赋值两次
      */
     public static class TargetSum0 extends TargetSum {
         @Override
         public int findTargetSumWays(int[] nums, int target) {
             int[][] dp = new int[nums.length][2002];
-            // 初始化
+            // 初始化，注意是 +1，不是=1，避免nums[0]=0时  1000±nums[0]是同一个数而覆盖赋值
             dp[0][nums[0] + 1000] = dp[0][nums[0] + 1000] + 1;
             dp[0][-nums[0] + 1000] = dp[0][-nums[0] + 1000] + 1;
             for (int i = 1; i < nums.length; i++) {
