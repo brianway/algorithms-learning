@@ -69,6 +69,7 @@ Leetcode problems classified by company:
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
 |300|Longest Increasing Subsequence|Medium|||
+|322|Coin Change|Dynamic Programming|TODO|
 |343|Integer Break|Medium|Dynamic Programming|一题多解|
 |344|Reverse String|Easy|||
 |347|Top K Frequent Elements|Medium|||
@@ -77,6 +78,8 @@ Leetcode problems classified by company:
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
 |494|Target Sum|Medium|Dynamic Programming|TODO 一般解|
+|518|Coin Change 2|Dynamic Programming|TODO|
+
 
 ### 链表相关
 
