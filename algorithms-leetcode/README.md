@@ -78,7 +78,7 @@ Leetcode problems classified by company:
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
 |494|Target Sum|Medium|Dynamic Programming|TODO 一般解|
-|518|Coin Change 2|Dynamic Programming|TODO|
+|518|Coin Change 2|Dynamic Programming,完全背包||
 
 
 ### 链表相关
