@@ -60,6 +60,7 @@ Leetcode problems classified by company:
 |153|Find Minimum in Rotated Sorted Array|Medium|||
 |162|Find Peak Element|Medium|||
 |169|Majority Element|Easy|||
+|198|House Robber|Dynamic Programming||
 |202|Happy Number|Easy|||
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|||
