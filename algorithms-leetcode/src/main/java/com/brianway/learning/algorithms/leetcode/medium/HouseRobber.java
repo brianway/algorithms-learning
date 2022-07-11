@@ -38,4 +38,35 @@ public class HouseRobber {
             return Math.max(dp0[nums.length - 1], dp1[nums.length - 1]);
         }
     }
+
+    /**
+     * DP 解法2，使用一个数组
+     * <p>
+     * 1. dp数组下标和含义：dp[i] 打劫到下标i（包括i）的房屋时，最多可以偷窃的金额。注意，此时不是一定要打劫第i家
+     * 2. 递推关系：dp[i]=max{dp[i-1], dp[i-2]+nums[i]}
+     * 如果不打劫第i家，则打劫到第i家的最大金额 就是 dp[i-1]；
+     * 如果打劫第i家，则第i-1家不能打劫，此时最大金额 是 打劫到第i-2家的最大金额dp[i-2] 加上第i家的金额
+     * 3. 初始化： dp[0] = nums[0], dp[1]=max{nums[0], nums[1]}
+     * 4. 遍历顺序：从左到右即可
+     * <p>
+     * 注意考虑nums个数的边界情况
+     */
+    public static class HouseRobber1 extends HouseRobber {
+        @Override
+        public int rob(int[] nums) {
+            int[] dp = new int[nums.length];
+            dp[0] = nums[0];
+
+            // 数组个数边界
+            if (nums.length == 1) {
+                return dp[0];
+            }
+
+            dp[1] = Math.max(nums[0], nums[1]);
+            for (int i = 2; i < nums.length; i++) {
+                dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+            }
+            return dp[nums.length - 1];
+        }
+    }
 }
