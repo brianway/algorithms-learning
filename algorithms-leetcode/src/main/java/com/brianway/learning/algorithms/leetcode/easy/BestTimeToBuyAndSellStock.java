@@ -49,7 +49,9 @@ public class BestTimeToBuyAndSellStock {
     }
 
     /**
-     * 解法2：一次遍历
+     * 解法2: 贪心，一次遍历
+     * <p>
+     * 取最左最小值，取最右最大值，那么得到的差值就是最大利润
      * <p>
      * minBuyPrice 记录每次截止第i天时，股票出现过的最低价
      * <p>
