@@ -71,7 +71,7 @@ Leetcode problems classified by company:
 |231|Power of Two|Easy|||
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
-|300|Longest Increasing Subsequence|Medium|||
+|300|Longest Increasing Subsequence|Medium|Dynamic Programming,Binary Search|经典题|
 |322|Coin Change|Dynamic Programming,完全背包||
 |343|Integer Break|Medium|Dynamic Programming|一题多解|
 |344|Reverse String|Easy|||
