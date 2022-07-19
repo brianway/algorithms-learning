@@ -56,13 +56,13 @@ Leetcode problems classified by company:
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
 |122|Best Time to Buy and Sell Stock II|Medium|Dynamic Programming||
-|139|Word Break|Dynamic Programming,完全背包||
+|139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
 |148|Sort List|Medium|||
 |153|Find Minimum in Rotated Sorted Array|Medium|||
 |162|Find Peak Element|Medium|||
 |169|Majority Element|Easy|||
-|198|House Robber|Dynamic Programming||
+|198|House Robber|Medium|Dynamic Programming||
 |202|Happy Number|Easy|||
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|||
@@ -72,7 +72,7 @@ Leetcode problems classified by company:
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
 |300|Longest Increasing Subsequence|Medium|Dynamic Programming,Binary Search|经典题|
-|322|Coin Change|Dynamic Programming,完全背包||
+|322|Coin Change|Medium|Dynamic Programming,完全背包||
 |343|Integer Break|Medium|Dynamic Programming|一题多解|
 |344|Reverse String|Easy|||
 |347|Top K Frequent Elements|Medium|||
@@ -81,8 +81,10 @@ Leetcode problems classified by company:
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
 |494|Target Sum|Medium|Dynamic Programming|TODO 一般解|
-|518|Coin Change 2|Dynamic Programming,完全背包||
-|674|Longest Continuous Increasing Subsequence|Dynamic Programming|一题多解，对比第300题|
+|518|Coin Change 2|Medium|Dynamic Programming,完全背包||
+|674|Longest Continuous Increasing Subsequence|Easy|Dynamic Programming|一题多解，对比第300题|
+|718|Maximum Length of Repeated Subarray|Medium|Dynamic Programming|TODO 滚动数组写法|
+
 
 
 ### 链表相关
