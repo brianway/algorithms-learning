@@ -84,7 +84,7 @@ Leetcode problems classified by company:
 |518|Coin Change 2|Medium|Dynamic Programming,完全背包||
 |674|Longest Continuous Increasing Subsequence|Easy|Dynamic Programming|一题多解，对比第300题|
 |718|Maximum Length of Repeated Subarray|Medium|Dynamic Programming|TODO 滚动数组写法|
-
+|1143|Longest Common Subsequence|Medium|Dynamic Programming|待优化|
 
 
 ### 链表相关
