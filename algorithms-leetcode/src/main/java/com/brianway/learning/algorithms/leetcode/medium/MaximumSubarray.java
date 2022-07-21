@@ -44,10 +44,25 @@ public class MaximumSubarray {
     }
 
     /**
-     * 动态规划
+     * DP
+     * DP五步曲：
+     * 1. dp数组含义dp[i] 表示以nums[i]结尾连续数组的最大和，
+     * 2. 递推关系 dp[i] = max{dp[i-1]+nums[i], nums[i]}
+     * 3. 初始化：dp[0]=nums[0]
+     * 4. 遍历顺序：从左到右
+     * <p>
+     * 最后遍历一遍数组dp, 取最大值即可
+     * <p>
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(n)
+     * <p>
+     * 可以简化，使用一个变量代替dp数组，同时一边遍历一边求全局最大值max
+     * <p>
      * 维护两个变量:
      * 一个是全局最优global，就是到当前元素为止最优的解
-     * 一个是局部最优local，就是必须包含当前元素（即nums[i]）的最优的解
+     * 一个是局部最优local，就是必须以当前元素（即nums[i]）结尾的最优解。local相当于滚动的dp
+     * <p>
+     *
      * <p>
      * 该解法没有MaximumSubarray0优
      * 个人分析：因为MaximumSubarray0里的sum是和0(常量)比，而本解法是local + nums[i]和nums[i]比
