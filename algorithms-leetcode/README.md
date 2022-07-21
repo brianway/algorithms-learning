@@ -44,7 +44,7 @@ Leetcode problems classified by company:
 |34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
 |35|Search Insert Position|Easy|Binary Search||
 |41|First Missing Positive|Hard|Hash Table|一题多解|
-|53|Maximum Subarray|Easy|Dynamic Programming/divide and conquer|一题多解|
+|53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
@@ -84,6 +84,7 @@ Leetcode problems classified by company:
 |518|Coin Change 2|Medium|Dynamic Programming,完全背包||
 |674|Longest Continuous Increasing Subsequence|Easy|Dynamic Programming|一题多解，对比第300题|
 |718|Maximum Length of Repeated Subarray|Medium|Dynamic Programming|TODO 滚动数组写法|
+|1035|Uncrossed Lines|Medium|Dynamic Programming|同第1143题|
 |1143|Longest Common Subsequence|Medium|Dynamic Programming|待优化|
 
 
