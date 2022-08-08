@@ -66,7 +66,7 @@ Leetcode problems classified by company:
 |198|House Robber|Medium|Dynamic Programming||
 |202|Happy Number|Easy|||
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
-|209|Minimum Size Subarray Sum|Medium|||
+|209|Minimum Size Subarray Sum|Medium|Sliding Window/Binary Search|一题多解|
 |221|Maximal Square|Medium|||
 |230|Kth Smallest Element in a BST|Medium|Binary Tree|只写了常规解法|
 |231|Power of Two|Easy|||
@@ -86,6 +86,7 @@ Leetcode problems classified by company:
 |674|Longest Continuous Increasing Subsequence|Easy|Dynamic Programming|一题多解，对比第300题|
 |704|Binary Search|Easy|||
 |718|Maximum Length of Repeated Subarray|Medium|Dynamic Programming|TODO 滚动数组写法|
+|977|Squares of a Sorted Array|Easy|Two Pointers|TODO|
 |1035|Uncrossed Lines|Medium|Dynamic Programming|同第1143题|
 |1143|Longest Common Subsequence|Medium|Dynamic Programming|待优化|
 
