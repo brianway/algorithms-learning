@@ -14,7 +14,7 @@ public class ReverseString {
     /**
      * 首尾互换就行了
      * 将第i个字符和第length-1-i个字符交换
-     * 0 ≤ i < length/2－1
+     * 0 ≤ i ≤ length/2－1
      * 这里边界不要搞错了,第一次就是想着少交换中间的一个,i 取的 0≤i≤(length-1)/2
      * 然后测试案例"a."没通过
      *
