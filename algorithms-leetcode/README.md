@@ -45,6 +45,7 @@ Leetcode problems classified by company:
 |34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
 |35|Search Insert Position|Easy|Binary Search||
 |41|First Missing Positive|Hard|Hash Table|一题多解|
+|45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
