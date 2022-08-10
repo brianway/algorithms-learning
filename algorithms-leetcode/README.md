@@ -47,6 +47,7 @@ Leetcode problems classified by company:
 |41|First Missing Positive|Hard|Hash Table|一题多解|
 |45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
+|55|Jump Game|Medium|Greedy|TODO|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
@@ -82,6 +83,7 @@ Leetcode problems classified by company:
 |349|Intersection of Two Arrays|Easy|||
 |354|Russian Doll Envelopes|Hard|||
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
+|455|Assign Cookies|Easy|Greedy||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
 |494|Target Sum|Medium|Dynamic Programming|TODO 一般解|
 |518|Coin Change 2|Medium|Dynamic Programming,完全背包||
