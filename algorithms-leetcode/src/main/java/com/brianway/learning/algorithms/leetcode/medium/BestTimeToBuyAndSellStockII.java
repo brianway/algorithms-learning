@@ -67,4 +67,30 @@ public class BestTimeToBuyAndSellStockII {
         }
     }
 
+    /**
+     * 贪心
+     * <p>
+     * 1.利润可以累计，所以总利润=每次买卖的利润之和
+     * 2.一次买卖的利润可以拆分成每天的利润：
+     * - 2.1 当天买当天卖，利润为0
+     * - 2.2 第i天买，第j(j>i)天卖,利润=prices[j]-prices[i]
+     * =prices[j]-prices[j-1]+prices[j-1]-prices[j-2]+prices[j-2]-...-prices[i+1]+prices[i+1]-prices[i]
+     * =(prices[j]-prices[j-1])+(prices[j-1]-prices[j-2])+(prices[j-2]-...)(...-prices[i+1])+(prices[i+1]-prices[i])
+     * 例如，假如第0天买入，第3天卖出，那么利润为：prices[3] - prices[0]
+     * =(prices[3] - prices[2]) + (prices[2] - prices[1]) + (prices[1] - prices[0])
+     * <p>
+     * 所以，最大利润就是 每天的利润中，利润为正 的那些天的利润之和
+     */
+    public static class BestTimeToBuyAndSellStockII2 extends BestTimeToBuyAndSellStockII {
+        @Override
+        public int maxProfit(int[] prices) {
+            int maxProfit = 0;
+            for (int i = 1; i < prices.length; i++) {
+                // 利润为正，就累计，否则忽略
+                maxProfit += Math.max(prices[i] - prices[i - 1], 0);
+            }
+            return maxProfit;
+        }
+    }
+
 }

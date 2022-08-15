@@ -12,6 +12,8 @@ public class MaximumSubarray {
     }
 
     /**
+     * 贪心
+     * <p>
      * 两个辅助变量：
      * sum: 表示包含num[i-1]元素的连续子数组的最大和，即作为截止nums[i]（不含）时的求和base
      * maxSum: 表示出现过的连续子数组的最大和

@@ -59,7 +59,7 @@ Leetcode problems classified by company:
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
-|122|Best Time to Buy and Sell Stock II|Medium|Dynamic Programming||
+|122|Best Time to Buy and Sell Stock II|Medium|Dynamic Programming/Greedy|一题多解|
 |139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
 |148|Sort List|Medium|||
@@ -82,7 +82,7 @@ Leetcode problems classified by company:
 |347|Top K Frequent Elements|Medium|||
 |349|Intersection of Two Arrays|Easy|||
 |354|Russian Doll Envelopes|Hard|||
-|376|Wiggle Subsequence|Medium|Greedy/Dynamic Programming|TODO |
+|376|Wiggle Subsequence|Medium|Greedy/Dynamic Programming|TODO 一题多解|
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
 |455|Assign Cookies|Easy|Greedy||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
