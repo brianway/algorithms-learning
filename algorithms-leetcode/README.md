@@ -63,6 +63,7 @@ Leetcode problems classified by company:
 |139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
 |148|Sort List|Medium|||
+|150|Evaluate Reverse Polish Notation|Medium|Stack||
 |153|Find Minimum in Rotated Sorted Array|Medium|||
 |162|Find Peak Element|Medium|||
 |169|Majority Element|Easy|||
