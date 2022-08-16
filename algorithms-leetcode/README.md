@@ -47,7 +47,7 @@ Leetcode problems classified by company:
 |41|First Missing Positive|Hard|Hash Table|一题多解|
 |45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
-|55|Jump Game|Medium|Greedy|TODO|
+|55|Jump Game|Medium|Greedy||
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
