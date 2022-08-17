@@ -55,12 +55,13 @@ public class SlidingWindowMaximum {
             Deque<Integer> deque = new LinkedList<>();
 
             /**
-             * 得到队头的值，的
+             * 得到队头的值
+             * Retrieves, but does not remove
              *
              * @return 队列中的最大值
              */
             public int peek() {
-                return deque.peek();
+                return deque.peekFirst();
             }
 
             /**

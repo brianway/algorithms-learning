@@ -85,7 +85,7 @@ public class TopKFrequentElements {
                 list.add(priorityQueue.poll().num);
             }
 
-            //因为是最小有优先队列,poll()是升序的,需要反转
+            //因为是最小优先队列, poll()是升序的,需要反转
             Collections.reverse(list);
             return list;
         }
