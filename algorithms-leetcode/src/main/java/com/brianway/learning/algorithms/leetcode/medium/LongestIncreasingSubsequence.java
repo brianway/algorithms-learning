@@ -96,8 +96,8 @@ public class LongestIncreasingSubsequence {
      * DP, 按套路来
      * <p>
      * 1. dp数组下标以及含义：dp[i] 表示以 元素nums[i] 结尾的数组的最长递增子序列长度，即子序列必包含nums[i]
-     * 2. 递推关系： dp[i] = if(nums[i]>nums[j]) max{ nums[i]>nums[j]? (dp[j]+1): dp[j] } else 1,  其中 0<=j<i
-     * 即 nums[i]>nums[j] 时，表示递增子序列长度可增加1，否则就是原长度。然后取这些长度的最大值
+     * 2. 递推关系： dp[i] = max{ nums[i]>nums[j]? (dp[j]+1): 1 },  其中 0<=j<i
+     * 即 nums[i]>nums[j] 时，表示递增子序列长度可增加1，否则长度按1算。然后取这些长度的最大值
      * <p>
      * 3. 初始化：dp[0]=1;
      * 4. 遍历顺序：左到右

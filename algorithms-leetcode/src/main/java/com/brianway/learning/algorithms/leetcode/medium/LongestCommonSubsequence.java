@@ -48,11 +48,40 @@ public class LongestCommonSubsequence {
         }
     }
 
-    // TODO 递推关系简化，分析why
     /**
+     * 递推关系简化
+     * <p>
      * 如果 text1.charAt(i)== text1.charAt(j)
      * 则 dp[i+1][j+1]= dp[i][j]+1
      * 否则 dp[i+1][j+1]= max{dp[i+1][j], dp[i][j+1]}
+     * <p>
+     * 分析如下：
+     * 显然， dp[i+1][j] >=  dp[i][j], dp[i][j+1] >=  dp[i][j] ，
+     * 所以 LongestCommonSubsequence0 解法中的 text1.charAt(i) != text1.charAt(j)时的
+     * dp[i+1][j+1]= max{dp[i][j], dp[i+1][j], dp[i][j+1]}
+     * 可以简化为  dp[i+1][j+1]= max{dp[i+1][j], dp[i][j+1]}
+     * <p>
+     * 又显然， dp[i+1][j] <= dp[i][j]+1 , dp[i][j+1] <= dp[i][j]+1
+     * 所以  LongestCommonSubsequence0 解法中的 text1.charAt(i) == text1.charAt(j)时的
+     * dp[i+1][j+1]= max{dp[i][j]+1, dp[i+1][j], dp[i][j+1]}
+     * 可以简化为
+     * dp[i+1][j+1]= dp[i][j]+1
      */
+    public class LongestCommonSubsequence1 extends LongestCommonSubsequence {
+        @Override
+        public int longestCommonSubsequence(String text1, String text2) {
+            int[][] dp = new int[text1.length() + 1][text2.length() + 1];
+            for (int i = 0; i < text1.length(); i++) {
+                for (int j = 0; j < text2.length(); j++) {
+                    if (text1.charAt(i) == text2.charAt(j)) {
+                        dp[i + 1][j + 1] = dp[i][j] + 1;
+                    } else {
+                        dp[i + 1][j + 1] = Math.max(dp[i + 1][j], dp[i][j + 1]);
+                    }
+                }
+            }
+            return dp[text1.length()][text2.length()];
+        }
+    }
 
 }
