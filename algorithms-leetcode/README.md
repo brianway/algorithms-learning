@@ -51,6 +51,7 @@ Leetcode problems classified by company:
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
+|72|Edit Distance|Hard|Dynamic Programming||
 |75|Sort Colors|Medium|Two Pointers/|一题多解, TODO |
 |79|Word Search|Medium|Backtracking|待查题解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree|仅写了递归实现|
