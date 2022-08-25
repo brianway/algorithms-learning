@@ -36,4 +36,6 @@ public class DeleteOperationForTwoStrings {
             return word1.length() + word2.length() - 2 * dp[word1.length()][word2.length()];
         }
     }
+
+    // TODO 按正常DP解，不借助最长公共子序列长度lcs
 }
