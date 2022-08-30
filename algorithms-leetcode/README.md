@@ -92,6 +92,7 @@ Leetcode problems classified by company:
 |455|Assign Cookies|Easy|Greedy||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
 |494|Target Sum|Medium|Dynamic Programming|TODO 一般解|
+|516|Longest Palindromic Subsequence|Dynamic Programming||
 |518|Coin Change 2|Medium|Dynamic Programming,完全背包||
 |583|Delete Operation for Two Strings|Medium|Dynamic Programming|TODO 一题多解|
 |647|Palindromic Substrings|Medium|Dynamic Programming/Two Pointers|TODO 一题多解|
