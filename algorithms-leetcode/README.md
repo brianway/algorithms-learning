@@ -29,6 +29,7 @@ Leetcode problems classified by company:
 |:----|:----|:----|:----|:----|
 |1|Two Sum|Easy|Hash Table||
 |2|Add Two Numbers|Medium|Linked List||
+|5|Longest Palindromic Substring|Medium|Dynamic Programming/Two Pointers|一题多解|
 |10|Regular Expression Matching|Hard|||
 |11|Container With Most Water|Medium|Two Pointers||
 |15|3Sum|Medium|Two Pointers||

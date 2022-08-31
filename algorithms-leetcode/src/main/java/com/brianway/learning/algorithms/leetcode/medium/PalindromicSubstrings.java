@@ -69,8 +69,8 @@ public class PalindromicSubstrings {
         public int countSubstrings(String s) {
             int count = 0;
             for (int i = 0; i < s.length(); i++) {
-                count += maxPalindromicLengthOfOdd(s, i);
-                count += maxPalindromicLengthOfEven(s, i);
+                count += countPalindromicSubstringsOfOdd(s, i);
+                count += countPalindromicSubstringsOfEven(s, i);
             }
             return count;
         }
@@ -78,7 +78,7 @@ public class PalindromicSubstrings {
         /**
          * 奇数
          */
-        private int maxPalindromicLengthOfOdd(String s, int i) {
+        private int countPalindromicSubstringsOfOdd(String s, int i) {
             int left = i;
             int right = i;
             int result = 0;
@@ -94,7 +94,7 @@ public class PalindromicSubstrings {
         /**
          * 偶数
          */
-        private int maxPalindromicLengthOfEven(String s, int i) {
+        private int countPalindromicSubstringsOfEven(String s, int i) {
             int left = i;
             int right = i + 1;
             int result = 0;
@@ -107,18 +107,5 @@ public class PalindromicSubstrings {
             return result;
         }
 
-        /**
-         * TODO 第5题的双指针解法思路
-         * <p>
-         * 回文字符串是有中心的，且共用中心的一组回文字符串，往两端延伸最远时最长。
-         * 所以，可以确定一个中心字符，然后往两边扩散比对即可
-         * 又由于回文字符串长度为奇数和偶数时，中心分别时1个字符和2个字符，所以可以分开讨论：
-         * <p>
-         * 1.依次以第i个字符为中心字符，看其可往两端延伸的最长长度；
-         * 2.依次以第i和i+1个字符为为中心字符，看其可往两端延伸的最长长度；
-         * <p>
-         * 时间复杂度：O(n^2)
-         * 空间复杂度：O(1)
-         */
     }
 }
