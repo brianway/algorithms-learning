@@ -54,6 +54,12 @@ public class BinaryTreePreorderTraversal {
      * 使用栈
      * 先处理中间节点，然后将其右孩子加入栈，再加入左孩子。
      * 这样，左孩子先出栈，从而实现"中左右"的遍历顺序
+     * <p>
+     * 涉及两个动作：
+     * - 访问：遍历节点
+     * - 处理：将元素放进result数组中
+     * <p>
+     * 先序遍历，要访问的元素和要处理的元素顺序是一致的，都是中间节点。
      */
     public class BinaryTreePreorderTraversal1 extends BinaryTreePreorderTraversal {
         @Override
