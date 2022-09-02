@@ -79,6 +79,7 @@ Leetcode problems classified by company:
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|Sliding Window/Binary Search|一题多解|
 |221|Maximal Square|Medium|||
+|226|Invert Binary Tree|Easy|Binary Tree||
 |230|Kth Smallest Element in a BST|Medium|Binary Tree|只写了常规解法|
 |231|Power of Two|Easy|||
 |239|Sliding Window Maximum|Hard|Sliding Window,Monotonic Queue||
