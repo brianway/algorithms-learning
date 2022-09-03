@@ -62,6 +62,7 @@ Leetcode problems classified by company:
 |104|Maximum Depth of Binary Tree|Easy|Binary Tree/Queue|一题多解|
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
 |107|Binary Tree Level Order Traversal II|Medium|Binary Tree,DFS/BFS|同第102题,TODO| 
+|110|Balanced Binary Tree|Easy|Binary Tree/Queue|一题多解|
 |111|Minimum Depth of Binary Tree|Easy|Binary Tree/Queue|一题多解|
 |115|Distinct Subsequences|Hard|Dynamic Programming|TODO待复习|
 |120|Triangle|Medium|||
@@ -81,6 +82,7 @@ Leetcode problems classified by company:
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|Sliding Window/Binary Search|一题多解|
 |221|Maximal Square|Medium|||
+|222|Count Complete Tree Nodes|Medium|Binary Tree/Binary Search|TODO一题多解|
 |226|Invert Binary Tree|Easy|Binary Tree||
 |230|Kth Smallest Element in a BST|Medium|Binary Tree|只写了常规解法|
 |231|Power of Two|Easy|||
