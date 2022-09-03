@@ -18,7 +18,8 @@ public class MaximumDepthOfBinaryTree {
     /**
      * 递归解法
      * <p>
-     * 后序遍历： 左子树深度，右子树深度，cur的深度
+     * 根节点的高度就是二叉树的最大深度
+     * 后序遍历： 左子树高度，右子树高度，cur的高度
      */
     public class MaximumDepthOfBinaryTree0 extends MaximumDepthOfBinaryTree {
         @Override
@@ -33,4 +34,5 @@ public class MaximumDepthOfBinaryTree {
         }
     }
 
+    // TODO 迭代法： 层序遍历即可
 }

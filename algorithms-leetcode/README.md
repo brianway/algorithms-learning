@@ -62,6 +62,7 @@ Leetcode problems classified by company:
 |104|Maximum Depth of Binary Tree|Easy|Binary Tree/Queue|一题多解|
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
 |107|Binary Tree Level Order Traversal II|Medium|Binary Tree,DFS/BFS|同第102题,TODO| 
+|111|Minimum Depth of Binary Tree|Easy|Binary Tree/Queue|一题多解|
 |115|Distinct Subsequences|Hard|Dynamic Programming|TODO待复习|
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
