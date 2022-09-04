@@ -41,6 +41,7 @@ Leetcode problems classified by company:
 |23|Merge k Sorted Lists|Hard|||
 |24|Swap Nodes in Pairs|Medium|Linked List/Recursion|一题多解决|
 |26|Remove Duplicates from Sorted Array|Easy|||
+|27|Remove Element|Easy|Two Pointers|一题多解|
 |31|Next Permutation|Medium|||
 |33|Search in Rotated Sorted Array|Medium|Binary Search|一题多解|
 |34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
