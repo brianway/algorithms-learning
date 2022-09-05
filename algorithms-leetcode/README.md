@@ -99,6 +99,7 @@ Leetcode problems classified by company:
 |354|Russian Doll Envelopes|Hard|||
 |376|Wiggle Subsequence|Medium|Greedy/Dynamic Programming|TODO 一题多解|
 |392|Is Subsequence|Easy|Dynamic Programming/Two Pointers|一题多解|
+|404|Sum of Left Leaves|Easy|Binary Tree||
 |416|Partition Equal Subset Sum|Medium|Dynamic Programming,01背包||
 |455|Assign Cookies|Easy|Greedy||
 |474|Ones and Zeroes|Medium|Dynamic Programming,01背包|TODO 二维解法|
