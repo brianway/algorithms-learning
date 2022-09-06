@@ -112,6 +112,7 @@ Leetcode problems classified by company:
 |583|Delete Operation for Two Strings|Medium|Dynamic Programming|TODO 一题多解|
 |637|Average of Levels in Binary Tree|Easy|Binary Tree||
 |647|Palindromic Substrings|Medium|Dynamic Programming/Two Pointers|一题多解|
+|654|Maximum Binary Tree|Medium|Binary Tree||
 |674|Longest Continuous Increasing Subsequence|Easy|Dynamic Programming|一题多解，对比第300题|
 |704|Binary Search|Easy|||
 |718|Maximum Length of Repeated Subarray|Medium|Dynamic Programming|TODO 滚动数组写法|
