@@ -71,6 +71,7 @@ Leetcode problems classified by company:
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
 |122|Best Time to Buy and Sell Stock II|Medium|Dynamic Programming/Greedy|一题多解|
+|128|Longest Consecutive Sequence|Medium|Hash Table|TODO一题多解|
 |139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
 |144|Binary Tree Preorder Traversal|Easy|Binary Tree/Stack|一题多解|
