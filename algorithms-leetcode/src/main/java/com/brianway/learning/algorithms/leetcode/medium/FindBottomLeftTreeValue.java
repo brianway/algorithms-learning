@@ -90,7 +90,7 @@ public class FindBottomLeftTreeValue {
                 traversal(cur.left, depth + 1);
             }
             if (cur.right != null) {
-                traversal(cur.left, depth + 1);
+                traversal(cur.right, depth + 1);
             }
 
         }
