@@ -61,8 +61,8 @@ Leetcode problems classified by company:
 |101|Symmetric Tree|Easy|Binary Tree/Queue/Stack|一题多解|
 |102|Binary Tree Level Order Traversal|Medium|Binary Tree,DFS/BFS|一题多解| 
 |104|Maximum Depth of Binary Tree|Easy|Binary Tree/Queue||
-|105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
-|106|Construct Binary Tree from Inorder and Postorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
+|105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Tree,divide and conquer|只写了常规解法|
+|106|Construct Binary Tree from Inorder and Postorder Traversal|Medium|Binary Tree,divide and conquer||
 |107|Binary Tree Level Order Traversal II|Medium|Binary Tree,DFS/BFS|同第102题,TODO| 
 |110|Balanced Binary Tree|Easy|Binary Tree/Queue||
 |111|Minimum Depth of Binary Tree|Easy|Binary Tree/Queue||
@@ -112,6 +112,7 @@ Leetcode problems classified by company:
 |516|Longest Palindromic Subsequence|Dynamic Programming||
 |518|Coin Change 2|Medium|Dynamic Programming,完全背包||
 |583|Delete Operation for Two Strings|Medium|Dynamic Programming|TODO 一题多解|
+|617|Merge Two Binary Trees|Easy|Binary Tree||
 |637|Average of Levels in Binary Tree|Easy|Binary Tree||
 |647|Palindromic Substrings|Medium|Dynamic Programming/Two Pointers|一题多解|
 |654|Maximum Binary Tree|Medium|Binary Tree||
