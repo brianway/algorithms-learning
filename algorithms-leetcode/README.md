@@ -92,6 +92,7 @@ Leetcode problems classified by company:
 |226|Invert Binary Tree|Easy|Binary Tree||
 |230|Kth Smallest Element in a BST|Medium|Binary Tree|只写了常规解法|
 |231|Power of Two|Easy|||
+|236|Lowest Common Ancestor of a Binary Tree|Medium|Binary Tree||
 |239|Sliding Window Maximum|Hard|Sliding Window,Monotonic Queue||
 |257|Binary Tree Paths|Easy|||
 |268|Missing Number|Easy|Hash Table/Bit Manipulation|一题多解|
