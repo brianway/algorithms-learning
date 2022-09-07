@@ -55,5 +55,6 @@ public class ValidateBinarySearchTree {
 
     // TODO 中序遍历，递归/迭代， 然后检查数组是否递增即可
     // 中序遍历可以加一个pre指针，表示上一次访问的节点
+    // https://leetcode.cn/problems/validate-binary-search-tree/solution/zhong-xu-bian-li-qing-song-na-xia-bi-xu-miao-dong-/
 
 }
