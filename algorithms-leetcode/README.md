@@ -58,6 +58,7 @@ Leetcode problems classified by company:
 |79|Word Search|Medium|Backtracking|待查题解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree/Stack|一题多解，待复习|
 |96|Unique Binary Search Trees|Medium|Dynamic Programming||
+|98|Validate Binary Search Tree|Medium|Binary Search/Recursion|一题多解|
 |101|Symmetric Tree|Easy|Binary Tree/Queue/Stack|一题多解|
 |102|Binary Tree Level Order Traversal|Medium|Binary Tree,DFS/BFS|一题多解| 
 |104|Maximum Depth of Binary Tree|Easy|Binary Tree/Queue||
