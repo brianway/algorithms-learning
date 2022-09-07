@@ -117,6 +117,7 @@ Leetcode problems classified by company:
 |647|Palindromic Substrings|Medium|Dynamic Programming/Two Pointers|一题多解|
 |654|Maximum Binary Tree|Medium|Binary Tree||
 |674|Longest Continuous Increasing Subsequence|Easy|Dynamic Programming|一题多解，对比第300题|
+|700|Search in a Binary Search Tree|Easy|Binary Search||
 |704|Binary Search|Easy|||
 |718|Maximum Length of Repeated Subarray|Medium|Dynamic Programming|TODO 滚动数组写法|
 |977|Squares of a Sorted Array|Easy|Two Pointers|TODO|
