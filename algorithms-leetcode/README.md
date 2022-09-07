@@ -62,6 +62,7 @@ Leetcode problems classified by company:
 |102|Binary Tree Level Order Traversal|Medium|Binary Tree,DFS/BFS|一题多解| 
 |104|Maximum Depth of Binary Tree|Easy|Binary Tree/Queue||
 |105|Construct Binary Tree from Preorder and Inorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
+|106|Construct Binary Tree from Inorder and Postorder Traversal|Medium|Binary Search,divide and conquer|只写了常规解法|
 |107|Binary Tree Level Order Traversal II|Medium|Binary Tree,DFS/BFS|同第102题,TODO| 
 |110|Balanced Binary Tree|Easy|Binary Tree/Queue||
 |111|Minimum Depth of Binary Tree|Easy|Binary Tree/Queue||
