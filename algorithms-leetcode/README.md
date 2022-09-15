@@ -100,7 +100,7 @@ Leetcode problems classified by company:
 |322|Coin Change|Medium|Dynamic Programming,完全背包||
 |343|Integer Break|Medium|Dynamic Programming|一题多解|
 |344|Reverse String|Easy|||
-|347|Top K Frequent Elements|Medium|||
+|347|Top K Frequent Elements|Medium|Heap/Bucket Sort|一题多解|
 |349|Intersection of Two Arrays|Easy|||
 |354|Russian Doll Envelopes|Hard|||
 |376|Wiggle Subsequence|Medium|Greedy/Dynamic Programming|TODO 一题多解|
