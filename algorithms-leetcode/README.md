@@ -56,7 +56,7 @@ Leetcode problems classified by company:
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
 |72|Edit Distance|Hard|Dynamic Programming||
 |75|Sort Colors|Medium|Two Pointers/|一题多解, TODO |
-|77|Combinations|Medium|Backtracking|TODO|
+|77|Combinations|Medium|Backtracking||
 |79|Word Search|Medium|Backtracking|待查题解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree/Stack|一题多解，待复习|
 |96|Unique Binary Search Trees|Medium|Dynamic Programming||
@@ -89,6 +89,7 @@ Leetcode problems classified by company:
 |202|Happy Number|Easy|||
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|Sliding Window/Binary Search|一题多解|
+|216|Combination Sum III|Medium|Backtracking||
 |221|Maximal Square|Medium|||
 |222|Count Complete Tree Nodes|Medium|Binary Tree/Binary Search|TODO一题多解|
 |226|Invert Binary Tree|Easy|Binary Tree||

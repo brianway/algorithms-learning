@@ -50,7 +50,7 @@ public class Combinations {
          * @param path       满足条件的单个结果
          * @param n          n
          * @param k          k
-         * @param startIndex 本层开始的
+         * @param startIndex 本层开始的第一个数
          */
         public void backtracking(List<List<Integer>> result, LinkedList<Integer> path, int n, int k, int startIndex) {
             // 终止条件
