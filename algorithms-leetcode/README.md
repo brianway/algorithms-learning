@@ -34,7 +34,7 @@ Leetcode problems classified by company:
 |10|Regular Expression Matching|Hard|||
 |11|Container With Most Water|Medium|Two Pointers||
 |15|3Sum|Medium|Two Pointers||
-|17|Letter Combinations of a Phone Number|Medium|||
+|17|Letter Combinations of a Phone Number|Medium|Backtracking||
 |19|Remove Nth Node From End of List|Medium|Two Pointers||
 |20|Valid Parentheses|Easy|Stack||
 |21|Merge Two Sorted Lists|Easy|||
@@ -47,6 +47,7 @@ Leetcode problems classified by company:
 |33|Search in Rotated Sorted Array|Medium|Binary Search|一题多解|
 |34|Find First and Last Position of Element in Sorted Array|Medium|Binary Search||
 |35|Search Insert Position|Easy|Binary Search||
+|39|Combination Sum|Medium|Backtracking||
 |41|First Missing Positive|Hard|Hash Table|一题多解|
 |45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
