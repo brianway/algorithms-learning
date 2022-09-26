@@ -69,4 +69,36 @@ public class Combinations {
         }
     }
 
+    /**
+     * 回溯+剪枝
+     * <p>
+     * 当前已选 path.size, 还需要选 k-path.size,
+     * 需要剩余的够分, 即 n-i+1>=k-path.size
+     * 即 i<= n-k+path.size+1
+     */
+    public class Combinations1 extends Combinations {
+        @Override
+        public List<List<Integer>> combine(int n, int k) {
+            List<List<Integer>> result = new ArrayList<>();
+            backtracking(result, new LinkedList<>(), n, k, 1);
+            return result;
+        }
+
+        public void backtracking(List<List<Integer>> result, LinkedList<Integer> path, int n, int k, int startIndex) {
+            // 终止条件
+            if (path.size() == k) {
+                // 这里要copy后add
+                result.add(new ArrayList<>(path));
+                return;
+            }
+
+            for (int i = startIndex; i <= n - k + path.size() + 1; i++) {
+                path.push(i);
+                backtracking(result, path, n, k, i + 1);
+                path.pop();
+            }
+
+        }
+    }
+
 }
