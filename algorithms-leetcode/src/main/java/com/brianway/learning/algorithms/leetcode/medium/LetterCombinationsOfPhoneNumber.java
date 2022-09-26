@@ -9,13 +9,13 @@ import java.util.List;
  * Question:https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
  * 关键题设：无
  */
-public class LetterCombinations {
+public class LetterCombinationsOfPhoneNumber {
     public List<String> letterCombinations(String digits) {
         return null;
     }
 
-    public class LetterCombinations0 extends LetterCombinations {
-        private String[][] dictonary = {
+    public static class LetterCombinationsOfPhoneNumber0 extends LetterCombinationsOfPhoneNumber {
+        private final String[][] dictionary = {
                 {}, {},
                 {"a", "b", "c"},
                 {"d", "e", "f"},
@@ -29,7 +29,7 @@ public class LetterCombinations {
 
         /**
          * 先建立一个字典表的二维数组，行标为对应数字，每一行为该数字对应的字母数组
-         *
+         * <p>
          * 1.将输入的字符串转换成数字数组 numbers
          * 2.用一个数组 indices 来储存每一个输入数字在字典表里所对应的某个字母的下标
          * 3.根据数字数组，按序取其对应的字母来拼接出某一个结果
@@ -46,7 +46,7 @@ public class LetterCombinations {
             int[] indices = new int[chars.length];
             int total = 1;
             for (int i = 0; i < numbers.length; i++) {
-                total = total * dictonary[numbers[i]].length;
+                total = total * dictionary[numbers[i]].length;
             }
 
             int count = 0;
@@ -54,7 +54,7 @@ public class LetterCombinations {
             while (count < total) {
                 tmp.setLength(0);
                 for (int i = 0; i < numbers.length; i++) {
-                    tmp.append(dictonary[numbers[i]][indices[i]]);
+                    tmp.append(dictionary[numbers[i]][indices[i]]);
                 }
                 result.add(tmp.toString());
                 count++;
@@ -62,7 +62,7 @@ public class LetterCombinations {
                 //update indices of each number
                 indices[numbers.length - 1]++;
                 for (int i = numbers.length - 1; i > 0; i--) {
-                    if (indices[i] >= dictonary[numbers[i]].length) {
+                    if (indices[i] >= dictionary[numbers[i]].length) {
                         indices[i] = 0;
                         indices[i - 1] = indices[i - 1] + 1;
                     } else {

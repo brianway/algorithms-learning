@@ -7,13 +7,13 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LetterCombinationsTest {
+public class LetterCombinationsOfPhoneNumberTest {
 
-    private LetterCombinations testObject;
+    private LetterCombinationsOfPhoneNumber testObject;
 
     @Before
     public void setUp() {
-        testObject = new LetterCombinations().new LetterCombinations0();
+        testObject = new LetterCombinationsOfPhoneNumber.LetterCombinationsOfPhoneNumber0();
     }
 
     @Test

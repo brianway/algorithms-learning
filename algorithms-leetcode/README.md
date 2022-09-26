@@ -34,7 +34,7 @@ Leetcode problems classified by company:
 |10|Regular Expression Matching|Hard|||
 |11|Container With Most Water|Medium|Two Pointers||
 |15|3Sum|Medium|Two Pointers||
-|17|Letter Combinations of a Phone Number|Easy|||
+|17|Letter Combinations of a Phone Number|Medium|||
 |19|Remove Nth Node From End of List|Medium|Two Pointers||
 |20|Valid Parentheses|Easy|Stack||
 |21|Merge Two Sorted Lists|Easy|||
@@ -89,7 +89,7 @@ Leetcode problems classified by company:
 |202|Happy Number|Easy|||
 |206|Reverse Linked List|Easy|Linked List/Recursion|一题多解|
 |209|Minimum Size Subarray Sum|Medium|Sliding Window/Binary Search|一题多解|
-|216|Combination Sum III|Medium|Backtracking||
+|216|Combination Sum III|Medium|Backtracking|一题多解|
 |221|Maximal Square|Medium|||
 |222|Count Complete Tree Nodes|Medium|Binary Tree/Binary Search|TODO一题多解|
 |226|Invert Binary Tree|Easy|Binary Tree||
