@@ -16,7 +16,7 @@ public class LetterCombinationsOfPhoneNumber {
 
     public static class LetterCombinationsOfPhoneNumber0 extends LetterCombinationsOfPhoneNumber {
         private final String[][] dictionary = {
-                {}, {},
+                {}, {}, //  0, 1
                 {"a", "b", "c"},
                 {"d", "e", "f"},
                 {"g", "h", "i"},
@@ -84,6 +84,58 @@ public class LetterCombinationsOfPhoneNumber {
                 }
             }
             return ints;
+        }
+
+    }
+
+    /**
+     * 回溯
+     */
+    public class LetterCombinationsOfPhoneNumber1 extends LetterCombinationsOfPhoneNumber {
+
+        /**
+         * 0~9
+         */
+        private final String[] dictionary = {
+                "",
+                "",
+                "abc",
+                "def",
+                "ghi",
+                "jkl",
+                "mno",
+                "pqrs",
+                "tuv",
+                "wxyz"
+        };
+
+        @Override
+        public List<String> letterCombinations(String digits) {
+            List<String> result = new ArrayList<>();
+            if (digits == null || digits.length() == 0) {
+                return result;
+            }
+            backtracking(result, "", digits, 0);
+            return result;
+        }
+
+        /**
+         * @param result 所有结果
+         * @param path   单个路径
+         * @param digits 输入
+         * @param index  当前到digits的哪一位，从0开始
+         */
+        public void backtracking(List<String> result, String path, String digits, int index) {
+            if (path.length() == digits.length()) {
+                result.add(path);
+                return;
+            }
+
+            int number = digits.charAt(index) - '0';
+            for (int i = 0; i < dictionary[number].length(); i++) {
+                char charOfNumber = dictionary[number].charAt(i);
+                backtracking(result, path + charOfNumber, digits, index + 1);
+            }
         }
 
     }
