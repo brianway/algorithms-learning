@@ -29,6 +29,7 @@ Leetcode problems classified by company:
 |:----|:----|:----|:----|:----|
 |1|Two Sum|Easy|Hash Table||
 |2|Add Two Numbers|Medium|Linked List||
+|3|Longest Substring Without Repeating Characters|Medium|Sliding Window,Hash Table||
 |5|Longest Palindromic Substring|Medium|Dynamic Programming/Two Pointers|一题多解|
 |6|Zigzag Conversion|Medium||一题多解TODO|
 |10|Regular Expression Matching|Hard|||
