@@ -7,8 +7,8 @@ import java.util.Map;
  * LeetCode 3. Longest Substring Without Repeating Characters
  * Question: https://leetcode.com/problems/longest-substring-without-repeating-characters/
  * 关键题设:  无
- * * @auther brian
  *
+ * @auther brian
  * @since 2022/11/30 23:37
  */
 public class LongestSubstringWithoutRepeatingCharacters {
@@ -19,7 +19,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     /**
      * 滑动窗口+hash表
-     *
+     * <p>
      * 测试用例："tmmzuxt"
      */
     public class LongestSubstringWithoutRepeatingCharacters0 extends LongestSubstringWithoutRepeatingCharacters {

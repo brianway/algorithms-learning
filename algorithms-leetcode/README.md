@@ -51,6 +51,7 @@ Leetcode problems classified by company:
 |39|Combination Sum|Medium|Backtracking||
 |41|First Missing Positive|Hard|Hash Table|一题多解|
 |45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
+|46|Permutations|Medium|Backtracking||
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
 |55|Jump Game|Medium|Greedy||
 |62|Unique Paths|Medium|||
