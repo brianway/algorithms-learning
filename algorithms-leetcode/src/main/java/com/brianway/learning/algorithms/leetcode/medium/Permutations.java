@@ -19,6 +19,9 @@ public class Permutations {
         return null;
     }
 
+    /**
+     * 回溯
+     */
     public class Permutations0 extends Permutations {
         @Override
         public List<List<Integer>> permute(int[] nums) {
@@ -33,10 +36,10 @@ public class Permutations {
         }
 
         /**
-         * @param result
-         * @param path
-         * @param nums
-         * @param start
+         * @param result 所有排列
+         * @param path   已经被安置在当前排列的数字
+         * @param nums   使用List是为了使用Collections.swap的API
+         * @param start  当前从数组哪个位置开始是未使用过的数字
          */
         public void backtracking(List<List<Integer>> result, LinkedList<Integer> path, List<Integer> nums, int start) {
             if (start == nums.size()) {
