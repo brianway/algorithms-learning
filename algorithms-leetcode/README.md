@@ -18,7 +18,7 @@ Leetcode problems classified by company:
 - https://blogdesand.wordpress.com/
 - https://github.com/duanehutchins/leetcode-questions-by-company
 
-
+FT - Fast Try
 
 ## 目录
 
@@ -53,6 +53,7 @@ Leetcode problems classified by company:
 |45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
 |46|Permutations|Medium|Backtracking||
 |48|Rotate Image|Medium||TODO 一题多解|
+|49|Group Anagrams|Medium||FT，TODO 一题多解|
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
 |55|Jump Game|Medium|Greedy||
 |62|Unique Paths|Medium|||
