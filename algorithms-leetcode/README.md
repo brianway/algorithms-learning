@@ -58,9 +58,10 @@ FT - Fast Try
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
 |54|Spiral Matrix|Medium||FT|
 |55|Jump Game|Medium|Greedy||
-|56|Merge Intervals|Medium||FT|
+|56|Merge Intervals|Medium|Sort|FT|
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
+|64|Minimum Path Sum|Medium|Dynamic Programming|FT|
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
 |72|Edit Distance|Hard|Dynamic Programming||
 |75|Sort Colors|Medium|Two Pointers/|一题多解, TODO |
