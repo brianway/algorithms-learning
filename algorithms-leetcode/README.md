@@ -56,6 +56,7 @@ FT - Fast Try
 |48|Rotate Image|Medium||TODO 一题多解|
 |49|Group Anagrams|Medium||FT，TODO 一题多解|
 |53|Maximum Subarray|Medium|Dynamic Programming/divide and conquer|一题多解|
+|54|Spiral Matrix|Medium||FT|
 |55|Jump Game|Medium|Greedy||
 |62|Unique Paths|Medium|||
 |63|Unique Paths II|Medium||待重做|
