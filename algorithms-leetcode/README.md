@@ -50,6 +50,7 @@ FT - Fast Try
 |35|Search Insert Position|Easy|Binary Search||
 |39|Combination Sum|Medium|Backtracking||
 |41|First Missing Positive|Hard|Hash Table|一题多解|
+|42|Trapping Rain Water|Hard|Dynamic Programming/Stack/Two Pointers|FT, TODO 一题多解，重点复习|
 |45|Jump Game II|Medium|Dynamic Programming/Greedy|一题多解|
 |46|Permutations|Medium|Backtracking||
 |48|Rotate Image|Medium||TODO 一题多解|
