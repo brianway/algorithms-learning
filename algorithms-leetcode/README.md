@@ -30,7 +30,7 @@ FT - Fast Try
 |1|Two Sum|Easy|Hash Table||
 |2|Add Two Numbers|Medium|Linked List||
 |3|Longest Substring Without Repeating Characters|Medium|Sliding Window,Hash Table||
-|5|Longest Palindromic Substring|Medium|Dynamic Programming/Two Pointers|一题多解|
+|5|Longest Palindromic Substring|Medium|Dynamic Programming/Two Pointers|TODO 一题多解|
 |6|Zigzag Conversion|Medium||一题多解TODO|
 |10|Regular Expression Matching|Hard|||
 |11|Container With Most Water|Medium|Two Pointers||
@@ -89,6 +89,7 @@ FT - Fast Try
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
 |122|Best Time to Buy and Sell Stock II|Medium|Dynamic Programming/Greedy|一题多解|
 |128|Longest Consecutive Sequence|Medium|Hash Table|TODO一题多解|
+|131|Palindrome Partitioning|Medium|Backtracking, Dynamic Programming|FT, TODO 待复习, 关联题目LeetCode 5 |
 |139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
 |144|Binary Tree Preorder Traversal|Easy|Binary Tree/Stack|一题多解|

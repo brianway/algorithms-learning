@@ -5,7 +5,7 @@ import com.brianway.learning.algorithms.leetcode.common.TreeNode;
 /**
  * LeetCode 114. Flatten Binary Tree to Linked List
  * Question: https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
- * 关键题设:  无
+ * 关键题设:  preorder
  *
  * @auther brian
  * @since 2022/12/5 20:51
@@ -13,19 +13,7 @@ import com.brianway.learning.algorithms.leetcode.common.TreeNode;
 public class FlattenBinaryTreeToLinkedList {
 
     /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     * int val;
-     * TreeNode left;
-     * TreeNode right;
-     * TreeNode() {}
-     * TreeNode(int val) { this.val = val; }
-     * TreeNode(int val, TreeNode left, TreeNode right) {
-     * this.val = val;
-     * this.left = left;
-     * this.right = right;
-     * }
-     * }
+     * 递归解法
      */
     class Solution {
         public void flatten(TreeNode root) {
