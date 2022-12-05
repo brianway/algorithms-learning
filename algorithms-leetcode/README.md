@@ -64,6 +64,7 @@ FT - Fast Try
 |64|Minimum Path Sum|Medium|Dynamic Programming|FT|
 |70|Climbing Stairs|Easy|Dynamic Programming/Recursion|一题多解|
 |72|Edit Distance|Hard|Dynamic Programming||
+|73|Set Matrix Zeroes|Medium||FT，TODO待优化|
 |75|Sort Colors|Medium|Two Pointers/|一题多解, TODO |
 |77|Combinations|Medium|Backtracking||
 |79|Word Search|Medium|Backtracking|待查题解|
