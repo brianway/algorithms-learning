@@ -68,7 +68,7 @@ FT - Fast Try
 |74|Search a 2D Matrix|Medium|Binary Search|FT, TODO 两次二分|
 |75|Sort Colors|Medium|Two Pointers/|一题多解, TODO |
 |77|Combinations|Medium|Backtracking||
-|78|Subsets|Medium|Backtracking||
+|78|Subsets|Medium|Backtracking|FT|
 |79|Word Search|Medium|Backtracking|待查题解|
 |94|Binary Tree Inorder Traversal|Easy|Binary Tree/Stack|一题多解，待复习|
 |96|Unique Binary Search Trees|Medium|Dynamic Programming||
@@ -83,6 +83,7 @@ FT - Fast Try
 |111|Minimum Depth of Binary Tree|Easy|Binary Tree/Queue||
 |112|Path Sum|Easy|Binary Tree/Queue||
 |113|Path Sum II|Easy|Binary Tree|TODO|
+|114|Flatten Binary Tree to Linked List|Medium|Binary Tree|FT, TODO 待优化|
 |115|Distinct Subsequences|Hard|Dynamic Programming|TODO待复习|
 |120|Triangle|Medium|||
 |121|Best Time to Buy and Sell Stock|Easy||待查最优解，以及一题多解|
