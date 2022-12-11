@@ -12,6 +12,9 @@ import com.brianway.learning.algorithms.leetcode.common.ListNode;
  */
 public class LinkedListCycleII {
 
+    /**
+     * 时间复杂度 O(n)， 快慢指针相遇时，慢指针走过的节点不会超过链表长度n；相遇后，慢指针走过的节点也不会超过链表长度n
+     */
     public class Solution {
         public ListNode detectCycle(ListNode head) {
             if (head == null) {
