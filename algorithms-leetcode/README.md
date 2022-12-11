@@ -90,6 +90,7 @@ FT - Fast Try
 |122|Best Time to Buy and Sell Stock II|Medium|Dynamic Programming/Greedy|一题多解|
 |128|Longest Consecutive Sequence|Medium|Hash Table|TODO一题多解|
 |131|Palindrome Partitioning|Medium|Backtracking, Dynamic Programming|FT, TODO 待复习, 关联题目LeetCode 5 |
+|138|Copy List with Random Pointer|Medium|Hash Table|FT，一题多解|
 |139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
 |144|Binary Tree Preorder Traversal|Easy|Binary Tree/Stack|一题多解|
