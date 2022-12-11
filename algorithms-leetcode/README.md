@@ -99,6 +99,7 @@ FT - Fast Try
 |150|Evaluate Reverse Polish Notation|Medium|Stack||
 |152|Maximum Product Subarray|Medium|Dynamic Programming|FT|
 |153|Find Minimum in Rotated Sorted Array|Medium|||
+|155|Min Stack|Medium|Stack|FT|
 |162|Find Peak Element|Medium|||
 |169|Majority Element|Easy|||
 |198|House Robber|Medium|Dynamic Programming||
