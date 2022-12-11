@@ -93,6 +93,7 @@ FT - Fast Try
 |138|Copy List with Random Pointer|Medium|Hash Table|FT，一题多解|
 |139|Word Break|Medium|Dynamic Programming,完全背包||
 |141|Linked List Cycle|Easy|Two Pointers||
+|142|Linked List Cycle II|Medium|Two Pointers|FT|
 |144|Binary Tree Preorder Traversal|Easy|Binary Tree/Stack|一题多解|
 |148|Sort List|Medium|||
 |150|Evaluate Reverse Polish Notation|Medium|Stack||
