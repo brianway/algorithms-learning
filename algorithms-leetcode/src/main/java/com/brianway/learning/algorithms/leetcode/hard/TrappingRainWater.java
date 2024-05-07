@@ -1,4 +1,4 @@
-package com.brianway.learning.algorithms.leetcode.medium;
+package com.brianway.learning.algorithms.leetcode.hard;
 
 /**
  * LeetCode 42. Trapping Rain Water
